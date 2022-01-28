@@ -459,16 +459,30 @@ function Finance() {
                         {item["faBaseAsset"]}
                       </td>
                       <td className="numericTd">
-                        {Number(item["stats"]["bidPrice"])
-                          .toFixed(3)
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        { item["stats"]["bidPrice"] !== "-"
+                          ? Number(item["stats"]["bidPrice"])
+                              .toFixed(3)
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                              .replace(/\d/g, function (v) {
+                                return String.fromCharCode(
+                                  v.charCodeAt(0) + 0x06c0
+                                );
+                              })
+                          : "-"}
                       </td>
                       <td className="numericTd">
-                        {Number(item["stats"]["askPrice"])
-                          .toFixed(3)
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        { item["stats"]["askPrice"] !== "-"
+                          ? Number(item["stats"]["askPrice"])
+                              .toFixed(3)
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                              .replace(/\d/g, function (v) {
+                                return String.fromCharCode(
+                                  v.charCodeAt(0) + 0x06c0
+                                );
+                              })
+                          : "-"}
                       </td>
                       <td
                         className={` numericTd
@@ -481,16 +495,30 @@ function Finance() {
                         }
                         `}
                       >
-                        {Number(item["stats"]["24h_ch"])
+                        {
+                          item["stats"]["24h_ch"] !== "-" ?
+                        Number(item["stats"]["24h_ch"])
                           .toFixed(3)
                           .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          }) : 0}
                       </td>
                       <td className="numericTd">
-                        {Number(item["stats"]["24h_volume"])
-                          .toFixed(3)
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        {item["stats"]["24h_volume"] !== "-"
+                          ? Number(item["stats"]["24h_volume"])
+                              .toFixed(3)
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                              .replace(/\d/g, function (v) {
+                                return String.fromCharCode(
+                                  v.charCodeAt(0) + 0x06c0
+                                );
+                              })  
+                          : "-"}
                       </td>
                     </tr>
                   );
@@ -544,26 +572,30 @@ function Finance() {
                         </td>
 
                         <td className="numericTd">
-                          {Number(item["stats"]["bidPrice"])
-                            .toFixed(3)
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                            .replace(/\d/g, function (v) {
-                              return String.fromCharCode(
-                                v.charCodeAt(0) + 0x06c0
-                              );
-                            })}
+                          {item["stats"]["bidPrice"] !== "-"
+                            ? Number(item["stats"]["bidPrice"])
+                                .toFixed(3)
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                .replace(/\d/g, function (v) {
+                                  return String.fromCharCode(
+                                    v.charCodeAt(0) + 0x06c0
+                                  );
+                                })
+                            : "-"}
                         </td>
                         <td className="numericTd">
-                          {Number(item["stats"]["askPrice"])
-                            .toFixed(3)
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                            .replace(/\d/g, function (v) {
-                              return String.fromCharCode(
-                                v.charCodeAt(0) + 0x06c0
-                              );
-                            })}
+                          {item["stats"]["askPrice"] !== "-"
+                            ? Number(item["stats"]["askPrice"])
+                                .toFixed(3)
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                .replace(/\d/g, function (v) {
+                                  return String.fromCharCode(
+                                    v.charCodeAt(0) + 0x06c0
+                                  );
+                                })
+                            : "-"}
                         </td>
                         <td
                           className={` numericTd
@@ -576,26 +608,30 @@ function Finance() {
                       }
                       `}
                         >
-                          {Number(item["stats"]["24h_ch"])
-                            .toFixed(3)
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                            .replace(/\d/g, function (v) {
-                              return String.fromCharCode(
-                                v.charCodeAt(0) + 0x06c0
-                              );
-                            })}
+                          {item["stats"]["24h_ch"] !== "-"
+                            ? Number(item["stats"]["24h_ch"])
+                                .toFixed(3)
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                .replace(/\d/g, function (v) {
+                                  return String.fromCharCode(
+                                    v.charCodeAt(0) + 0x06c0
+                                  );
+                                })
+                            : "-"}
                         </td>
                         <td className="numericTd">
-                          {Number(item["stats"]["24h_volume"])
-                            .toFixed(3)
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                            .replace(/\d/g, function (v) {
-                              return String.fromCharCode(
-                                v.charCodeAt(0) + 0x06c0
-                              );
-                            })}
+                          {item["stats"]["24h_volume"] !== "-"
+                            ? Number(item["stats"]["24h_volume"])
+                                .toFixed(3)
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                .replace(/\d/g, function (v) {
+                                  return String.fromCharCode(
+                                    v.charCodeAt(0) + 0x06c0
+                                  );
+                                })
+                            : "-"}
                         </td>
                       </tr>
                     </>

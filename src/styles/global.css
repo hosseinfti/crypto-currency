@@ -1,0 +1,52 @@
+body {
+  background-color: #fff;
+}
+
+body .calcBody {
+  background-color: #fff;
+  border: solid 2px #a786f7;
+  border-radius: 18px;
+  padding: 10px 0;
+  -webkit-box-shadow: -21px 22px 0px -8px #f1ebff;
+          box-shadow: -21px 22px 0px -8px #f1ebff;
+}
+
+body .calcBody .convertIcon:hover {
+  background-color: #f1ebff;
+}
+
+body table {
+  background-color: white;
+}
+
+body table .searchDiv {
+  border: 1px solid #d1d1d1;
+  border-radius: 7px 7px 7px 7px;
+}
+
+body table .searchDiv:hover {
+  background-color: #f3f5f9;
+}
+
+body table .searchInput {
+  outline: none;
+  border: none;
+}
+
+body table .searchInput:focus {
+  border-color: #e1e1e1;
+}
+
+body table .theadRow {
+  border: 2px 0px solid #eaebef;
+  /* box-shadow: 0 12px 15px -16px rgb(0 0 0 / 50%); */
+  height: 45px;
+  background-color: #f3f5f9;
+}
+
+body table .tbodyRows {
+  border-bottom: 2px solid #eaebef;
+  /* box-shadow: 0 12px 15px -16px rgb(0 0 0 / 50%); */
+  height: 45px;
+}
+/*# sourceMappingURL=global.css.map */

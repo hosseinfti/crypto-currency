@@ -1,0 +1,55 @@
+$primary-color: #500fe9;
+$background-color: #f3f5f9;
+$tBorder-color: #eaebef;
+$input-color: #fcfcfc;
+$inputBorder-color: #d1d1d1;
+$calcBorder-color: #a786f7;
+$changeIcon-hover: #f1ebff;
+$calc-background: #fff;
+
+body {
+  background-color: $calc-background;
+  .calcBody {
+    background-color: $calc-background;
+    border: solid 2px $calcBorder-color;
+    border-radius: 18px;
+    padding: 10px 0;
+    box-shadow: -21px 22px 0px -8px $changeIcon-hover;
+    .convertIcon:hover {
+        background-color: $changeIcon-hover;
+      }
+  }
+  table {
+    background-color: white;
+    .searchDiv {
+        border: 1px solid $inputBorder-color;
+        border-radius: 7px 7px 7px 7px;
+
+    }
+    .searchDiv:hover {
+        background-color: $background-color;
+
+    }
+    .searchInput {
+        outline: none;
+        border: none;
+
+    }
+    .searchInput:focus {
+        border-color: #e1e1e1;
+      }
+    .searchInput:hover {
+    }
+    .theadRow {
+      border: 2px 0px solid $tBorder-color;
+      /* box-shadow: 0 12px 15px -16px rgb(0 0 0 / 50%); */
+      height: 45px;
+      background-color: $background-color;
+    }
+    .tbodyRows {
+      border-bottom: 2px solid $tBorder-color;
+      /* box-shadow: 0 12px 15px -16px rgb(0 0 0 / 50%); */
+      height: 45px;
+    }
+  }
+}

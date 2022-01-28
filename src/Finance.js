@@ -216,7 +216,6 @@ function Finance() {
     <>
       <div className="container">
         <div className="calcBody">
-          <div className="calcHeader"> Currency converter </div>
           <div className="pairCurrency">
             <div
               className={` baseCurrency ${
@@ -224,7 +223,6 @@ function Finance() {
               }`}
             >
               {" "}
-              <label for="baseSelect"> Base currency </label>
               <select
                 value={selectedBaseCurrency}
                 onChange={(e) => setSelectedBaseCurrency(e.target.value)}
@@ -241,7 +239,7 @@ function Finance() {
               </select>
               <div>
                 <input
-                  placeholder="Inter the value"
+                  placeholder="پرداخت می‌کنید"
                   onChange={handleChangeBaseCurrency}
                   value={baseCurrency || ""}
                   className="inputCurrency currencyParts "
@@ -266,7 +264,6 @@ function Finance() {
               }`}
             >
               {" "}
-              <label for="quoteSelect"> Quote currency</label>
               <select
                 value={selectedQuoteCurrency}
                 onChange={(e) => setSelectedQuoteCurrency(e.target.value)}
@@ -283,7 +280,7 @@ function Finance() {
               </select>
               <div>
                 <input
-                  placeholder="Inter the value"
+                  placeholder="دریافت می‌کنید"
                   onChange={handleChangeQuoteCurrency}
                   value={quoteCurrency || ""}
                   className="inputCurrency currencyParts "
@@ -293,44 +290,63 @@ function Finance() {
           </div>
         </div>
         <div className="afterCalc">
-          <input
-            className="searchInput"
-            type="text"
-            placeholder="search ..."
-            value={searchTerm}
-            onChange={handleChangeCurrency}
-            ref={searchRef}
-          />
           <br />
-          <div className="marketBaseDisplay">
-            <span>Market base display :</span>
-            <button
-              onClick={() => handleMarketDisplay("TMN")}
-              className={`marketBaseDisplayBtn ${
-                marketDisplay === "TMN" ? "marketBaseDisplayBtnSelected" : ""
-              }`}
-            >
-              Tooman(TMN)
-            </button>
-            <button
-              onClick={() => handleMarketDisplay("USDT")}
-              className={`marketBaseDisplayBtn ${
-                marketDisplay === "USDT" ? "marketBaseDisplayBtnSelected" : ""
-              }`}
-            >
-              Tether(USDT)
-            </button>
-            <button
-              onClick={() => handleMarketDisplay("BTC")}
-              className={`marketBaseDisplayBtn ${
-                marketDisplay === "BTC" ? "marketBaseDisplayBtnSelected" : ""
-              }`}
-            >
-              Bitcoin(BTC)
-            </button>
-          </div>
+
           <table>
             <thead>
+              <tr className="marketBaseDisplay">
+                <th>
+                  <div className="searchDiv">
+                    <input
+                      className="searchInput"
+                      type="text"
+                      placeholder="جستجو ..."
+                      value={searchTerm}
+                      onChange={handleChangeCurrency}
+                      ref={searchRef}
+                    />
+                  </div>
+                </th>
+                <th>
+                  <span>پایه بازار :</span>
+                </th>
+                <th>
+                  <button
+                    onClick={() => handleMarketDisplay("TMN")}
+                    className={`marketBaseDisplayBtn ${
+                      marketDisplay === "TMN"
+                        ? "marketBaseDisplayBtnSelected"
+                        : ""
+                    }`}
+                  >
+                    تومان(TMN)
+                  </button>
+                </th>
+                <th>
+                  <button
+                    onClick={() => handleMarketDisplay("USDT")}
+                    className={`marketBaseDisplayBtn ${
+                      marketDisplay === "USDT"
+                        ? "marketBaseDisplayBtnSelected"
+                        : ""
+                    }`}
+                  >
+                    تتر(USDT)
+                  </button>
+                </th>
+                <th>
+                  <button
+                    onClick={() => handleMarketDisplay("BTC")}
+                    className={`marketBaseDisplayBtn ${
+                      marketDisplay === "BTC"
+                        ? "marketBaseDisplayBtnSelected"
+                        : ""
+                    }`}
+                  >
+                    بیتکوین(BTC)
+                  </button>
+                </th>
+              </tr>
               <tr className="theadRow">
                 <th
                   className={` tableHeader ${
@@ -342,7 +358,7 @@ function Finance() {
                   }`}
                   onClick={() => sorting("symbol", "currency")}
                 >
-                  Currency
+                  نام ارز
                   {/* {
                   sortCol === "currency" && order === "ASC" ? <img /> : ""
                 } */}
@@ -357,7 +373,7 @@ function Finance() {
                   }`}
                   onClick={() => sorting("stats", "bidPrice")}
                 >
-                  Bid Price
+                  قیمت خرید
                 </th>
                 <th
                   className={` tableHeader ${
@@ -369,7 +385,7 @@ function Finance() {
                   }`}
                   onClick={() => sorting("stats", "askPrice")}
                 >
-                  Ask Price
+                  قیمت فروش
                 </th>
                 <th
                   className={` tableHeader ${
@@ -381,7 +397,7 @@ function Finance() {
                   }`}
                   onClick={() => sorting("stats", "24h_ch")}
                 >
-                  Change
+                  تغییرات
                 </th>
                 <th
                   className={` tableHeader ${
@@ -393,7 +409,7 @@ function Finance() {
                   }`}
                   onClick={() => sorting("stats", "24h_volume")}
                 >
-                  Volume
+                  حجم معامله
                 </th>
               </tr>
             </thead>

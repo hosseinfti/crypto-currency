@@ -1,5 +1,7 @@
 body {
   direction: rtl;
+  padding: 0px;
+  margin: 0px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -20,6 +22,8 @@ body {
   }
 }
 
+
+
 table {
   border-collapse: collapse;
   text-align: center;
@@ -29,8 +33,9 @@ table {
 }
 .App {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .tbodyRows:last-child {
@@ -51,22 +56,48 @@ table {
   /* background-color: transparent;
   border-radius: 10px 10px;
   margin-bottom: 5px; */
-  margin: 5px 20px;
   padding: 10px;
+}
+.marketbaseBtns {
+  display: flex;
+  background-color: #f4f5f7;
+  border-radius: 10px 10px;
+  width: fit-content;
+}
+@keyframes MBbtns {
+  0% {
+    background-color: transparent;
+    /* border-radius: none; 
+      border: none;
+      box-shadow: none;
+    */
+  }
+  100% {
+    background-color: #fff;
+    /* border-radius: 8px; 
+    border: 1px solid #e1e1e1;
+    box-shadow: 1px 1px 1px 0px #e1e1e1; */
+    /* transform: translateX(5px); */
+  }
 }
 .marketBaseDisplayBtn {
   background-color: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+  padding: 5px 25px;
 }
 .marketBaseDisplay {
   margin: 8px 0;
 }
-.marketBaseDisplayBtn:hover {
-  border-bottom: 1px solid #e1e1e1;
+.marketBaseDisplayBtn:focus {
+  animation: MBbtns 1s;
 }
 .marketBaseDisplayBtnSelected {
-  border-bottom: 1px solid #484848 !important;
+  /* border-bottom: 1px solid #484848 !important; */
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 1px 1px 1px 0px #e1e1e1;
 }
 .currency {
   display: flex;
@@ -74,6 +105,9 @@ table {
   justify-content: flex-start;
   align-items: center;
   height: inherit;
+}
+.star {
+  margin: 0px 0px 0px 7px;
 }
 .star:hover {
   cursor: pointer;
@@ -114,6 +148,7 @@ table {
   color: red;
 }
 .calcBody {
+  margin-top: 70px;
   margin-bottom: 30px;
   text-align: center;
   /* display: flex;
@@ -129,7 +164,7 @@ table {
 }
 .convertIcon {
   cursor: pointer;
-  padding: 10px 13px;
+  padding: 10px 18px;
   border-radius: 100px;
   border: none;
 }
@@ -150,6 +185,7 @@ table {
   flex-direction: column;
   align-items: center;
   max-width: fit-content;
+  margin-bottom: 10px
 }
 .inputCurrency {
   margin: 5px 0;

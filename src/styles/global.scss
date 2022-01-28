@@ -6,9 +6,28 @@ $inputBorder-color: #d1d1d1;
 $calcBorder-color: #a786f7;
 $changeIcon-hover: #f1ebff;
 $calc-background: #fff;
+@font-face {
+  font-family: "Estedad-Regular";
+  src: url(../assets/fonts/Estedad/ttf/Estedad-Regular.ttf);
+}
 
 body {
   background-color: $calc-background;
+  font-family: Estedad-Regular;
+  #header {
+    color: $primary-color;
+    font-size: 30px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+    height: 50px;
+    box-shadow: 0px 0px 3px 1px $primary-color;
+  }
   .calcBody {
     background-color: $calc-background;
     border: solid 2px $calcBorder-color;
@@ -16,29 +35,31 @@ body {
     padding: 10px 0;
     box-shadow: -21px 22px 0px -8px $changeIcon-hover;
     .convertIcon:hover {
-        background-color: $changeIcon-hover;
-      }
+      background-color: $changeIcon-hover;
+    }
   }
   table {
     background-color: white;
     .searchDiv {
-        border: 1px solid $inputBorder-color;
-        border-radius: 7px 7px 7px 7px;
-
+      display: flex;
+      align-items: center;
+      border: 1px solid $inputBorder-color;
+      border-radius: 7px 7px 7px 7px;
+      margin: 8px 5px;
     }
     .searchDiv:hover {
-        background-color: $background-color;
-
+      background-color: $background-color;
     }
     .searchInput {
-        outline: none;
-        border: none;
-
+      background-color: transparent;
+      outline: none;
+      border: none;
     }
     .searchInput:focus {
-        border-color: #e1e1e1;
-      }
+      border-color: #e1e1e1;
+    }
     .searchInput:hover {
+      //   background-color: $background-color;
     }
     .theadRow {
       border: 2px 0px solid $tBorder-color;
@@ -51,5 +72,16 @@ body {
       /* box-shadow: 0 12px 15px -16px rgb(0 0 0 / 50%); */
       height: 45px;
     }
+  }
+  #footer {
+    width: 100%;
+    text-align: center;
+    color: $primary-color;
+    background-color: #fff;
+    box-shadow: 1px 2px 6px 1px $primary-color;
+    // position: fixed;
+    // bottom: 0px;
+    // left: 0px;
+    // right: 0px;
   }
 }

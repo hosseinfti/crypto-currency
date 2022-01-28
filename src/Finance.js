@@ -231,8 +231,8 @@ function Finance() {
               >
                 {uniqBaseCurrency.map((item) => {
                   return (
-                    <option key={item["symbol"]} value={item["baseAsset"]}>
-                      {item["baseAsset"]}
+                    <option key={item["symbol"]} value={item["faBaseAsset"]}>
+                      {item["faBaseAsset"]}
                     </option>
                   );
                 })}
@@ -272,8 +272,11 @@ function Finance() {
               >
                 {uniqQuoteCurrency.map((item) => {
                   return (
-                    <option key={item["symbol"]} value={item["quoteAsset"]}>
-                      {item["quoteAsset"]}
+                    <option
+                      key={item["symbol"]}
+                      value={item["faQuoteAsset"]}
+                    >
+                      {item["faQuoteAsset"]}
                     </option>
                   );
                 })}
@@ -295,12 +298,16 @@ function Finance() {
           <table>
             <thead>
               <tr className="marketBaseDisplay">
-                <th>
+                <th colSpan="2">
                   <div className="searchDiv">
+                    <img
+                      src={require("./assets/image/magnifying-glass.png")}
+                      width="20px"
+                    />
                     <input
                       className="searchInput"
                       type="text"
-                      placeholder="جستجو ..."
+                      placeholder="جستجو"
                       value={searchTerm}
                       onChange={handleChangeCurrency}
                       ref={searchRef}
@@ -310,41 +317,43 @@ function Finance() {
                 <th>
                   <span>پایه بازار :</span>
                 </th>
-                <th>
-                  <button
-                    onClick={() => handleMarketDisplay("TMN")}
-                    className={`marketBaseDisplayBtn ${
-                      marketDisplay === "TMN"
-                        ? "marketBaseDisplayBtnSelected"
-                        : ""
-                    }`}
-                  >
-                    تومان(TMN)
-                  </button>
-                </th>
-                <th>
-                  <button
-                    onClick={() => handleMarketDisplay("USDT")}
-                    className={`marketBaseDisplayBtn ${
-                      marketDisplay === "USDT"
-                        ? "marketBaseDisplayBtnSelected"
-                        : ""
-                    }`}
-                  >
-                    تتر(USDT)
-                  </button>
-                </th>
-                <th>
-                  <button
-                    onClick={() => handleMarketDisplay("BTC")}
-                    className={`marketBaseDisplayBtn ${
-                      marketDisplay === "BTC"
-                        ? "marketBaseDisplayBtnSelected"
-                        : ""
-                    }`}
-                  >
-                    بیتکوین(BTC)
-                  </button>
+                <th colSpan="2">
+                  <div className="marketbaseBtns">
+                    <button
+                      onClick={() => handleMarketDisplay("TMN")}
+                      className={`marketBaseDisplayBtn ${
+                        marketDisplay === "TMN"
+                          ? "marketBaseDisplayBtnSelected"
+                          : ""
+                      }`}
+                    >
+                      تومان
+                    </button>
+                    {/* </th> */}
+                    {/* <th> */}
+                    <button
+                      onClick={() => handleMarketDisplay("USDT")}
+                      className={`marketBaseDisplayBtn ${
+                        marketDisplay === "USDT"
+                          ? "marketBaseDisplayBtnSelected"
+                          : ""
+                      }`}
+                    >
+                      USDT
+                    </button>
+                    {/* </th>
+                <th> */}
+                    <button
+                      onClick={() => handleMarketDisplay("BTC")}
+                      className={`marketBaseDisplayBtn ${
+                        marketDisplay === "BTC"
+                          ? "marketBaseDisplayBtnSelected"
+                          : ""
+                      }`}
+                    >
+                      BTC
+                    </button>
+                  </div>
                 </th>
               </tr>
               <tr className="theadRow">
@@ -356,7 +365,7 @@ function Finance() {
                       ? "decending"
                       : ""
                   }`}
-                  onClick={() => sorting("symbol", "currency")}
+                  onClick={() => sorting("faBaseAsset", "currency")}
                 >
                   نام ارز
                   {/* {
@@ -399,7 +408,7 @@ function Finance() {
                 >
                   تغییرات
                 </th>
-                <th
+                <th lang="fa"
                   className={` tableHeader ${
                     sortCol === "24h_volume" && order === "ASC"
                       ? "ascending"
@@ -418,8 +427,8 @@ function Finance() {
                 .filter((item) => item["quoteAsset"] === marketDisplay)
                 .filter((item) => {
                   return searchTerm === ""
-                    ? item["symbol"]
-                    : item["symbol"]
+                    ? item["faBaseAsset"]
+                    : item["faBaseAsset"]
                         .toLowerCase()
                         .includes(searchTerm.toLowerCase());
                 })
@@ -449,7 +458,7 @@ function Finance() {
                             />
                           )}
                         </span>
-                        {item["symbol"]}
+                        {item["faBaseAsset"]}
                       </td>
                       <td className="numericTd">
                         {Number(item["stats"]["bidPrice"])
@@ -495,8 +504,8 @@ function Finance() {
                 })
                 .filter((item) => {
                   return searchTerm === ""
-                    ? item["symbol"]
-                    : item["symbol"]
+                    ? item["faBaseAsset"]
+                    : item["faBaseAsset"]
                         .toLowerCase()
                         .includes(searchTerm.toLowerCase());
                 })
@@ -533,7 +542,7 @@ function Finance() {
                               />
                             )}
                           </span>
-                          {item["symbol"]}
+                          {item["faBaseAsset"]}
                         </td>
 
                         <td className="numericTd">

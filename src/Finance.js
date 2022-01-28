@@ -272,10 +272,7 @@ function Finance() {
               >
                 {uniqQuoteCurrency.map((item) => {
                   return (
-                    <option
-                      key={item["symbol"]}
-                      value={item["faQuoteAsset"]}
-                    >
+                    <option key={item["symbol"]} value={item["faQuoteAsset"]}>
                       {item["faQuoteAsset"]}
                     </option>
                   );
@@ -408,7 +405,8 @@ function Finance() {
                 >
                   تغییرات
                 </th>
-                <th lang="fa"
+                <th
+                  lang="fa"
                   className={` tableHeader ${
                     sortCol === "24h_volume" && order === "ASC"
                       ? "ascending"
@@ -549,13 +547,23 @@ function Finance() {
                           {Number(item["stats"]["bidPrice"])
                             .toFixed(3)
                             .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })}
                         </td>
                         <td className="numericTd">
                           {Number(item["stats"]["askPrice"])
                             .toFixed(3)
                             .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })}
                         </td>
                         <td
                           className={` numericTd
@@ -571,13 +579,23 @@ function Finance() {
                           {Number(item["stats"]["24h_ch"])
                             .toFixed(3)
                             .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })}
                         </td>
                         <td className="numericTd">
                           {Number(item["stats"]["24h_volume"])
                             .toFixed(3)
                             .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })}
                         </td>
                       </tr>
                     </>

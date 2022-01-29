@@ -156,6 +156,16 @@ table {
   flex-direction: column; */
   /* width: fit-content; */
 }
+.dropDownIcon {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  z-index: 2;
+  transform: rotate(90deg);
+}
+.divDropDown {
+  position: relative;
+}
 .baseCurrency {
   display: flex;
   flex-direction: column;

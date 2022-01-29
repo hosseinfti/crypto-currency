@@ -10,11 +10,10 @@ $calc-background: #fff;
 @font-face {
   font-family: "Estedad-Regular";
   src: url(../assets/fonts/Estedad/ttf/Estedad-Regular.ttf);
-
 }
 @font-face {
-    font-family: "Estedad-Thin";
-    src: url(../assets/fonts/Estedad/ttf/Estedad-Thin.ttf);
+  font-family: "Estedad-Thin";
+  src: url(../assets/fonts/Estedad/ttf/Estedad-Thin.ttf);
 }
 
 body {
@@ -41,18 +40,20 @@ body {
     padding: 10px 0;
     box-shadow: -21px 22px 0px -8px $changeIcon-hover;
     .dropDown {
-        appearance: none;
-        border: 0;
-        outline: none;
-        border-radius: 8px;
-        background-color: $input-color;
+      appearance: none;
+      border: 0;
+      outline: none;
+      border-radius: 8px;
+      background-color: $input-color;
+      width: -webkit-fill-available;
+      padding: 5px 0px;
     }
     .inputCurrency {
-        margin: 5px 10px;
-        border: 1px solid $inputBorder-color;
-        border-radius: 10px;
-        opacity: 0.5;
-        outline: none;
+      // margin: 5px 10px;
+      border: 1px solid $inputBorder-color;
+      border-radius: 10px;
+      opacity: 0.5;
+      outline: none;
     }
     .convertIcon:hover {
       background-color: $changeIcon-hover;

@@ -46,10 +46,11 @@ body .calcBody .dropDown {
   outline: none;
   border-radius: 8px;
   background-color: #fafbff;
+  width: -webkit-fill-available;
+  padding: 5px 0px;
 }
 
 body .calcBody .inputCurrency {
-  margin: 5px 10px;
   border: 1px solid #d1d1d1;
   border-radius: 10px;
   opacity: 0.5;

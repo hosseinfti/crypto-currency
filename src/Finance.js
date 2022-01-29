@@ -224,10 +224,16 @@ function Finance() {
             >
               {" "}
               {/* <label>ارز پایه</label> */}
+              <div className="dropDown divDropDown currencyParts">
+              <img
+                  className="dropDownIcon"
+                  src={require("./assets/image/dropDown-Arrow.png")}
+                  width="15px"
+                />
               <select
                 value={selectedBaseCurrency}
                 onChange={(e) => setSelectedBaseCurrency(e.target.value)}
-                className="currencyParts dropDown"
+                className=" dropDown"
                 id="baseSelect"
               >
                 {uniqBaseCurrency.map((item) => {
@@ -238,6 +244,7 @@ function Finance() {
                   );
                 })}
               </select>
+              </div>
               <div>
                 <input
                   placeholder="مقدار را وارد کنید"
@@ -263,13 +270,19 @@ function Finance() {
               className={` quoteCurrency ${
                 reverseIcon === true ? "quoteCurrencyReverse" : ""
               }`}
-              >
+            >
               {" "}
               {/* <label>ارز متقابل</label> */}
+              <div className="dropDown divDropDown currencyParts">
+                <img
+                  className="dropDownIcon"
+                  src={require("./assets/image/dropDown-Arrow.png")}
+                  width="15px"
+                />
               <select
                 value={selectedQuoteCurrency}
                 onChange={(e) => setSelectedQuoteCurrency(e.target.value)}
-                className="currencyParts dropDown"
+                className="dropDown"
                 id="quoteSelect"
               >
                 {uniqQuoteCurrency.map((item) => {
@@ -280,6 +293,7 @@ function Finance() {
                   );
                 })}
               </select>
+              </div>
               <div>
                 <input
                   placeholder="مقدار را وارد کنید"
@@ -291,7 +305,7 @@ function Finance() {
             </div>
           </div>
         </div>
-          <br />
+        <br />
         <div className="afterCalc">
           <table>
             <thead>
@@ -462,7 +476,7 @@ function Finance() {
                         {item["faBaseAsset"]}
                       </td>
                       <td className="numericTd">
-                        { item["stats"]["bidPrice"] !== "-"
+                        {item["stats"]["bidPrice"] !== "-"
                           ? Number(item["stats"]["bidPrice"])
                               .toFixed(3)
                               .toString()
@@ -475,7 +489,7 @@ function Finance() {
                           : "-"}
                       </td>
                       <td className="numericTd">
-                        { item["stats"]["askPrice"] !== "-"
+                        {item["stats"]["askPrice"] !== "-"
                           ? Number(item["stats"]["askPrice"])
                               .toFixed(3)
                               .toString()
@@ -498,17 +512,17 @@ function Finance() {
                         }
                         `}
                       >
-                        {
-                          item["stats"]["24h_ch"] !== "-" ?
-                        Number(item["stats"]["24h_ch"])
-                          .toFixed(3)
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          }) : 0}
+                        {item["stats"]["24h_ch"] !== "-"
+                          ? Number(item["stats"]["24h_ch"])
+                              .toFixed(3)
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                              .replace(/\d/g, function (v) {
+                                return String.fromCharCode(
+                                  v.charCodeAt(0) + 0x06c0
+                                );
+                              })
+                          : 0}
                       </td>
                       <td className="numericTd">
                         {item["stats"]["24h_volume"] !== "-"
@@ -520,7 +534,7 @@ function Finance() {
                                 return String.fromCharCode(
                                   v.charCodeAt(0) + 0x06c0
                                 );
-                              })  
+                              })
                           : "-"}
                       </td>
                     </tr>
@@ -544,7 +558,12 @@ function Finance() {
                   return (
                     <>
                       <tr className="tbodyRows" key={item["symbol"]}>
-                        <td> {!favorite.length ? index + 1 : favorite.length + index + 1} </td>
+                        <td>
+                          {" "}
+                          {!favorite.length
+                            ? index + 1
+                            : favorite.length + index + 1}{" "}
+                        </td>
                         <td className="currency">
                           <span
                             onClick={() => handleFavorite(item)}

@@ -38,6 +38,24 @@ body .calcBody {
           box-shadow: -21px 22px 0px -8px #f1ebff;
 }
 
+body .calcBody .dropDown {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: none;
+  border-radius: 8px;
+  background-color: #fafbff;
+}
+
+body .calcBody .inputCurrency {
+  margin: 5px 10px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  opacity: 0.5;
+  outline: none;
+}
+
 body .calcBody .convertIcon:hover {
   background-color: #f1ebff;
 }

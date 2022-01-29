@@ -227,7 +227,7 @@ function Finance() {
               <select
                 value={selectedBaseCurrency}
                 onChange={(e) => setSelectedBaseCurrency(e.target.value)}
-                className="currencyParts"
+                className="currencyParts dropDown"
                 id="baseSelect"
               >
                 {uniqBaseCurrency.map((item) => {
@@ -269,7 +269,7 @@ function Finance() {
               <select
                 value={selectedQuoteCurrency}
                 onChange={(e) => setSelectedQuoteCurrency(e.target.value)}
-                className="currencyParts"
+                className="currencyParts dropDown"
                 id="quoteSelect"
               >
                 {uniqQuoteCurrency.map((item) => {

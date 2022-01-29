@@ -1,11 +1,12 @@
 $primary-color: #500fe9;
 $background-color: #f3f5f9;
 $tBorder-color: #eaebef;
-$input-color: #fcfcfc;
+$input-color: #fafbff;
 $inputBorder-color: #d1d1d1;
 $calcBorder-color: #a786f7;
 $changeIcon-hover: #f1ebff;
 $calc-background: #fff;
+
 @font-face {
   font-family: "Estedad-Regular";
   src: url(../assets/fonts/Estedad/ttf/Estedad-Regular.ttf);
@@ -39,6 +40,20 @@ body {
     border-radius: 18px;
     padding: 10px 0;
     box-shadow: -21px 22px 0px -8px $changeIcon-hover;
+    .dropDown {
+        appearance: none;
+        border: 0;
+        outline: none;
+        border-radius: 8px;
+        background-color: $input-color;
+    }
+    .inputCurrency {
+        margin: 5px 10px;
+        border: 1px solid $inputBorder-color;
+        border-radius: 10px;
+        opacity: 0.5;
+        outline: none;
+    }
     .convertIcon:hover {
       background-color: $changeIcon-hover;
     }

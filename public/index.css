@@ -58,7 +58,7 @@ table {
 } */
 .numericTd {
   direction: ltr;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   /* min-width: 120px; */
   text-align: center;
 }
@@ -115,6 +115,7 @@ table {
   justify-content: flex-start;
   align-items: center;
   height: inherit;
+  padding-right: 15px;
 }
 .star {
   margin: 0px 0px 0px 7px;
@@ -136,12 +137,12 @@ table {
 }
 .tableHeader {
   text-align: center;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   min-width: 140px;
 }
 .rowsNumber {
   min-width: 100% !important;
-  padding-right: 15px;
+  padding-right: 7px;
 }
 .tableHeader:hover {
   cursor: pointer;

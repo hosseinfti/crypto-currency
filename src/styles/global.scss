@@ -16,7 +16,7 @@ $calc-background: #fff;
   src: url(../assets/fonts/Estedad/ttf/Estedad-Thin.ttf);
 }
 
-body {
+body *{
   background-color: $calc-background;
   font-family: Estedad-Regular;
   #header {
@@ -26,6 +26,7 @@ body {
     top: 0px;
     left: 0px;
     right: 0px;
+    z-index: 100;
     background-color: #fff;
     width: 100%;
     text-align: center;

@@ -306,7 +306,7 @@ function Finance() {
           </div>
         </div>
         <br />
-        <div className="afterCalc">
+        <div className="tableDiv">
           <table>
             <thead>
               <tr className="marketBaseDisplay">
@@ -369,7 +369,7 @@ function Finance() {
                 </th>
               </tr>
               <tr className="theadRow">
-                <th> ردیف </th>
+                <th className="tableHeader rowsNumber"> ردیف </th>
                 <th
                   className={` tableHeader ${
                     sortCol === "currency" && order === "ASC"

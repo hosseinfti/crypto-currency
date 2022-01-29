@@ -3,7 +3,9 @@ body {
   padding: 0px;
   margin: 0px;
 }
-
+table {
+  min-height: 100vh;
+}
 @media only screen and (min-width: 600px) {
   .pairCurrency {
     display: flex;
@@ -21,12 +23,13 @@ body {
     align-items: center;
   }
 }
+
 /* @media only screen and (max-width: 770px) {
-  table {
+  table *{
 		display: block;
+    overflow-x: auto; 
   }
   .tableDiv { 
-    overflow-x: auto; 
     width: 100%;
 	}
 } */

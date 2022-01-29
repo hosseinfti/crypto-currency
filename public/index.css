@@ -12,6 +12,7 @@ table {
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+    margin: 10px;
   }
 }
 
@@ -21,6 +22,7 @@ table {
     flex-flow: column wrap;
     justify-content: space-around;
     align-items: center;
+    margin: 10px;
   }
 }
 

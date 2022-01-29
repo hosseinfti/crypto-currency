@@ -223,6 +223,7 @@ function Finance() {
               }`}
             >
               {" "}
+              {/* <label>ارز پایه</label> */}
               <select
                 value={selectedBaseCurrency}
                 onChange={(e) => setSelectedBaseCurrency(e.target.value)}
@@ -239,7 +240,7 @@ function Finance() {
               </select>
               <div>
                 <input
-                  placeholder="پرداخت می‌کنید"
+                  placeholder="مقدار را وارد کنید"
                   onChange={handleChangeBaseCurrency}
                   value={baseCurrency || ""}
                   className="inputCurrency currencyParts "
@@ -262,8 +263,9 @@ function Finance() {
               className={` quoteCurrency ${
                 reverseIcon === true ? "quoteCurrencyReverse" : ""
               }`}
-            >
+              >
               {" "}
+              {/* <label>ارز متقابل</label> */}
               <select
                 value={selectedQuoteCurrency}
                 onChange={(e) => setSelectedQuoteCurrency(e.target.value)}
@@ -280,7 +282,7 @@ function Finance() {
               </select>
               <div>
                 <input
-                  placeholder="دریافت می‌کنید"
+                  placeholder="مقدار را وارد کنید"
                   onChange={handleChangeQuoteCurrency}
                   value={quoteCurrency || ""}
                   className="inputCurrency currencyParts "
@@ -289,13 +291,12 @@ function Finance() {
             </div>
           </div>
         </div>
-        <div className="afterCalc">
           <br />
-
+        <div className="afterCalc">
           <table>
             <thead>
               <tr className="marketBaseDisplay">
-                <th colSpan="2">
+                <th colSpan="3">
                   <div className="searchDiv">
                     <img
                       src={require("./assets/image/magnifying-glass.png")}
@@ -354,6 +355,7 @@ function Finance() {
                 </th>
               </tr>
               <tr className="theadRow">
+                <th> ردیف </th>
                 <th
                   className={` tableHeader ${
                     sortCol === "currency" && order === "ASC"
@@ -430,9 +432,10 @@ function Finance() {
                         .toLowerCase()
                         .includes(searchTerm.toLowerCase());
                 })
-                .map((item) => {
+                .map((item, index) => {
                   return (
                     <tr className="tbodyRows" key={item["symbol"]}>
+                      <td> {index + 1} </td>
                       <td className="currency">
                         <span
                           onClick={() => handleFavorite(item)}
@@ -535,12 +538,13 @@ function Finance() {
                         .toLowerCase()
                         .includes(searchTerm.toLowerCase());
                 })
-                .map((item) => {
+                .map((item, index) => {
                   // item["isFavorite"] = false;
                   // item["id"] = index;
                   return (
                     <>
                       <tr className="tbodyRows" key={item["symbol"]}>
+                        <td> {!favorite.length ? index + 1 : favorite.length + index + 1} </td>
                         <td className="currency">
                           <span
                             onClick={() => handleFavorite(item)}

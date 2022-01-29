@@ -3,6 +3,11 @@
   src: url(../assets/fonts/Estedad/ttf/Estedad-Regular.ttf);
 }
 
+@font-face {
+  font-family: "Estedad-Thin";
+  src: url(../assets/fonts/Estedad/ttf/Estedad-Thin.ttf);
+}
+
 body {
   background-color: #fff;
   font-family: Estedad-Regular;

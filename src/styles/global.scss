@@ -61,7 +61,6 @@ body *{
       padding: 5px 0px;
     }
     .inputCurrency {
-      // margin: 5px 10px;
       border: 1px solid $inputBorder-color;
       border-radius: 10px;
       opacity: 0.5;
@@ -73,9 +72,13 @@ body *{
   }
   table {
     background-color: white;
-    // .tableHeader {
-    //     background-color: $background-color;
-    // }
+    .tableHeader:hover {
+        background-color: $calc-background;
+    }
+    .tableHeader:first-child:hover {
+        background-color: $background-color;
+        cursor: auto;
+    }
     .searchDiv {
       display: flex;
       align-items: center;
@@ -94,18 +97,13 @@ body *{
     .searchInput:focus {
       border-color: #e1e1e1;
     }
-    .searchInput:hover {
-      //   background-color: $background-color;
-    }
     .theadRow {
       border: 2px solid $tBorder-color;
-    //   box-shadow: 0 12px 15px -16px rgb(0 0 0 / 50%);
       height: 45px;
       background-color: $background-color;
     }
     .tbodyRows {
       border-bottom: 2px solid $tBorder-color;
-      /* box-shadow: 0 12px 15px -16px rgb(0 0 0 / 50%); */
       height: 45px;
     }
   }
@@ -115,11 +113,5 @@ body *{
     color: $primary-color;
     background-color: #fff;
     box-shadow: 1px 2px 6px 1px $primary-color;
-    // position: fixed;
-    // bottom: 0px;
-    // position: fixed;
-    // bottom: 0px;
-    // left: 0px;
-    // right: 0px;
   }
 }

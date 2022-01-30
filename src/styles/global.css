@@ -80,6 +80,15 @@ body * table {
   background-color: white;
 }
 
+body * table .tableHeader:hover {
+  background-color: #fff;
+}
+
+body * table .tableHeader:first-child:hover {
+  background-color: #f3f5f9;
+  cursor: auto;
+}
+
 body * table .searchDiv {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -114,7 +123,6 @@ body * table .theadRow {
 
 body * table .tbodyRows {
   border-bottom: 2px solid #eaebef;
-  /* box-shadow: 0 12px 15px -16px rgb(0 0 0 / 50%); */
   height: 45px;
 }
 

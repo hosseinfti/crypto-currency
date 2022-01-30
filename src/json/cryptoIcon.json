@@ -1,0 +1,151 @@
+[
+    {
+        "symbol" : "ADA",
+        "src" : "../assets/image/cryptoIcon/ADA.svg"
+
+    },
+    {
+        "symbol" : "ALICE",
+        "src" : "../assets/image/cryptoIcon/"
+    },
+    {
+        "symbol" : "ATOM",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "AXS",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "BCH",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "BNB",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "BTC",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "BTT",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "CAKE",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "CHZ",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "DASH",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "DOGE",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "DOT",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "ENJ",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "EOS",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "ETH",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "FIL",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "FTM",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "LINK",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "LTC",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "MANA",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "MATIC",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "RUNE",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "SAND",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "SHIB",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "TRX",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "UNI",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "USDT",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "XLM",
+        "src" : "../assets/image/cryptoIcon/"
+
+    },
+    {
+        "symbol" : "XRP",
+        "src" : "../assets/image/cryptoIcon/"
+
+    }
+]

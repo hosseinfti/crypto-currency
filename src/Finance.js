@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import queryString from "query-string";
+import cryptoSrc from "./json/cryptoIcon.json";
 
 function Finance() {
   //queryString
@@ -26,6 +27,11 @@ function Finance() {
   const [reverseIcon, setReverseIcon] = useState(false);
   //Ref
   const searchRef = useRef(null);
+
+  // currency.map((item) => {
+  //   const mapitem = item
+  // })
+  // const temp = cryptoSrc.filter(item => item["symbol"] === mapItem["baseAsset"] )
 
   const sorting = (obj1, obj2) => {
     setSortCol(obj2);
@@ -215,6 +221,7 @@ function Finance() {
   return (
     <>
       <div className="container">
+        <h1>بازار معامله گری ارزهای دیجیتال</h1>
         <div className="calcBody">
           <div className="pairCurrency">
             <div
@@ -225,25 +232,36 @@ function Finance() {
               {" "}
               {/* <label>ارز پایه</label> */}
               <div className="dropDown divDropDown currencyParts">
-              <img
+                <img
                   className="dropDownIcon"
                   src={require("./assets/image/dropDown-Arrow.png")}
                   width="15px"
                 />
-              <select
-                value={selectedBaseCurrency}
-                onChange={(e) => setSelectedBaseCurrency(e.target.value)}
-                className=" dropDown"
-                id="baseSelect"
-              >
-                {uniqBaseCurrency.map((item) => {
-                  return (
-                    <option key={item["symbol"]} value={item["faBaseAsset"]}>
-                      {item["faBaseAsset"]}
-                    </option>
-                  );
-                })}
-              </select>
+                <select
+                  value={selectedBaseCurrency}
+                  onChange={(e) => setSelectedBaseCurrency(e.target.value)}
+                  className=" dropDown"
+                  id="baseSelect"
+                >
+                  {uniqBaseCurrency.map((item) => {
+                    // const mapItem = item;
+                    // console.log(mapItem);
+                    // const temp = cryptoSrc.filter((item) => {
+                    //   return item["symbol"] === mapItem["baseAsset"];
+                    // });
+                    return (
+                      <>
+                        <option
+                          key={item["symbol"]}
+                          value={item["faBaseAsset"]}
+                        >
+                          {/* <img src={require(`${temp[0]["src"]}`)} /> */}
+                          {item["faBaseAsset"]}
+                        </option>
+                      </>
+                    );
+                  })}
+                </select>
               </div>
               <div>
                 <input
@@ -279,20 +297,20 @@ function Finance() {
                   src={require("./assets/image/dropDown-Arrow.png")}
                   width="15px"
                 />
-              <select
-                value={selectedQuoteCurrency}
-                onChange={(e) => setSelectedQuoteCurrency(e.target.value)}
-                className="dropDown"
-                id="quoteSelect"
-              >
-                {uniqQuoteCurrency.map((item) => {
-                  return (
-                    <option key={item["symbol"]} value={item["faQuoteAsset"]}>
-                      {item["faQuoteAsset"]}
-                    </option>
-                  );
-                })}
-              </select>
+                <select
+                  value={selectedQuoteCurrency}
+                  onChange={(e) => setSelectedQuoteCurrency(e.target.value)}
+                  className="dropDown"
+                  id="quoteSelect"
+                >
+                  {uniqQuoteCurrency.map((item) => {
+                    return (
+                      <option key={item["symbol"]} value={item["faQuoteAsset"]}>
+                        {item["faQuoteAsset"]}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
               <div>
                 <input
@@ -306,275 +324,163 @@ function Finance() {
           </div>
         </div>
         <br />
-        <div className="tableDiv">
-          <table>
-            <thead>
-              <tr className="marketBaseDisplay">
-                <th colSpan="3">
-                  <div className="searchDiv">
-                    <img
-                      src={require("./assets/image/magnifying-glass.png")}
-                      width="20px"
-                    />
-                    <input
-                      className="searchInput"
-                      type="text"
-                      placeholder="جستجو"
-                      value={searchTerm}
-                      onChange={handleChangeCurrency}
-                      ref={searchRef}
-                    />
-                  </div>
-                </th>
-                <th>
-                  <span>پایه بازار :</span>
-                </th>
-                <th colSpan="2">
-                  <div className="marketbaseBtns">
-                    <button
-                      onClick={() => handleMarketDisplay("TMN")}
-                      className={`marketBaseDisplayBtn ${
-                        marketDisplay === "TMN"
-                          ? "marketBaseDisplayBtnSelected"
-                          : ""
-                      }`}
-                    >
-                      تومان
-                    </button>
-                    {/* </th> */}
-                    {/* <th> */}
-                    <button
-                      onClick={() => handleMarketDisplay("USDT")}
-                      className={`marketBaseDisplayBtn ${
-                        marketDisplay === "USDT"
-                          ? "marketBaseDisplayBtnSelected"
-                          : ""
-                      }`}
-                    >
-                      USDT
-                    </button>
-                    {/* </th>
+        <div className="tableContainer">
+          <div className="tableDiv">
+            <table>
+              <thead>
+                <tr className="marketBaseDisplay">
+                  <th colSpan="3">
+                    <div className="searchDiv">
+                      <img
+                        src={require("./assets/image/magnifying-glass.png")}
+                        width="20px"
+                      />
+                      <input
+                        className="searchInput"
+                        type="text"
+                        placeholder="جستجو"
+                        value={searchTerm}
+                        onChange={handleChangeCurrency}
+                        ref={searchRef}
+                      />
+                    </div>
+                  </th>
+                  <th>
+                    <span>پایه بازار :</span>
+                  </th>
+                  <th colSpan="2">
+                    <div className="marketbaseBtns">
+                      <button
+                        onClick={() => handleMarketDisplay("TMN")}
+                        className={`marketBaseDisplayBtn ${
+                          marketDisplay === "TMN"
+                            ? "marketBaseDisplayBtnSelected"
+                            : ""
+                        }`}
+                      >
+                        تومان
+                      </button>
+                      {/* </th> */}
+                      {/* <th> */}
+                      <button
+                        onClick={() => handleMarketDisplay("USDT")}
+                        className={`marketBaseDisplayBtn ${
+                          marketDisplay === "USDT"
+                            ? "marketBaseDisplayBtnSelected"
+                            : ""
+                        }`}
+                      >
+                        USDT
+                      </button>
+                      {/* </th>
                 <th> */}
-                    <button
-                      onClick={() => handleMarketDisplay("BTC")}
-                      className={`marketBaseDisplayBtn ${
-                        marketDisplay === "BTC"
-                          ? "marketBaseDisplayBtnSelected"
-                          : ""
-                      }`}
-                    >
-                      BTC
-                    </button>
-                  </div>
-                </th>
-              </tr>
-              <tr className="theadRow">
-                <th className="tableHeader rowsNumber"> ردیف </th>
-                <th
-                  className={` tableHeader ${
-                    sortCol === "currency" && order === "ASC"
-                      ? "ascending"
-                      : sortCol === "currency" && order === "DSC"
-                      ? "decending"
-                      : ""
-                  }`}
-                  onClick={() => sorting("faBaseAsset", "currency")}
-                >
-                  نام ارز
-                  {/* {
+                      <button
+                        onClick={() => handleMarketDisplay("BTC")}
+                        className={`marketBaseDisplayBtn ${
+                          marketDisplay === "BTC"
+                            ? "marketBaseDisplayBtnSelected"
+                            : ""
+                        }`}
+                      >
+                        BTC
+                      </button>
+                    </div>
+                  </th>
+                </tr>
+                <tr className="theadRow">
+                  <th className="tableHeader rowsNumber"> ردیف </th>
+                  <th
+                    className={` tableHeader ${
+                      sortCol === "currency" && order === "ASC"
+                        ? "ascending"
+                        : sortCol === "currency" && order === "DSC"
+                        ? "decending"
+                        : ""
+                    }`}
+                    onClick={() => sorting("faBaseAsset", "currency")}
+                  >
+                    نام ارز
+                    {/* {
                   sortCol === "currency" && order === "ASC" ? <img /> : ""
                 } */}
-                </th>
-                <th
-                  className={` tableHeader ${
-                    sortCol === "bidPrice" && order === "ASC"
-                      ? "ascending"
-                      : sortCol === "bidPrice" && order === "DSC"
-                      ? "decending"
-                      : ""
-                  }`}
-                  onClick={() => sorting("stats", "bidPrice")}
-                >
-                  قیمت خرید
-                </th>
-                <th
-                  className={` tableHeader ${
-                    sortCol === "askPrice" && order === "ASC"
-                      ? "ascending"
-                      : sortCol === "askPrice" && order === "DSC"
-                      ? "decending"
-                      : ""
-                  }`}
-                  onClick={() => sorting("stats", "askPrice")}
-                >
-                  قیمت فروش
-                </th>
-                <th
-                  className={` tableHeader ${
-                    sortCol === "24h_ch" && order === "ASC"
-                      ? "ascending"
-                      : sortCol === "24h_ch" && order === "DSC"
-                      ? "decending"
-                      : ""
-                  }`}
-                  onClick={() => sorting("stats", "24h_ch")}
-                >
-                  تغییرات
-                </th>
-                <th
-                  lang="fa"
-                  className={` tableHeader ${
-                    sortCol === "24h_volume" && order === "ASC"
-                      ? "ascending"
-                      : sortCol === "24h_volume" && order === "DSC"
-                      ? "decending"
-                      : ""
-                  }`}
-                  onClick={() => sorting("stats", "24h_volume")}
-                >
-                  حجم معامله
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {favorite
-                .filter((item) => item["quoteAsset"] === marketDisplay)
-                .filter((item) => {
-                  return searchTerm === ""
-                    ? item["faBaseAsset"]
-                    : item["faBaseAsset"]
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase());
-                })
-                .map((item, index) => {
-                  return (
-                    <tr className="tbodyRows" key={item["symbol"]}>
-                      <td> {index + 1} </td>
-                      <td className="currency">
-                        <span
-                          onClick={() => handleFavorite(item)}
-                          className="star"
-                        >
-                          {!favorite.includes(item) ? (
-                            <img
-                              className="starOff"
-                              src={require("./starOff.png")}
-                              width="20px"
-                              height="20px"
-                              alt="starOff"
-                            />
-                          ) : (
-                            <img
-                              className="starOn"
-                              src={require("./starOn.png")}
-                              width="20px"
-                              height="20px"
-                              alt="starOn"
-                            />
-                          )}
-                        </span>
-                        {item["faBaseAsset"]}
-                      </td>
-                      <td className="numericTd">
-                        {item["stats"]["bidPrice"] !== "-"
-                          ? Number(item["stats"]["bidPrice"])
-                              .toFixed(3)
-                              .toString()
-                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : "-"}
-                      </td>
-                      <td className="numericTd">
-                        {item["stats"]["askPrice"] !== "-"
-                          ? Number(item["stats"]["askPrice"])
-                              .toFixed(3)
-                              .toString()
-                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : "-"}
-                      </td>
-                      <td
-                        className={` numericTd
-                        ${
-                          Number(item["stats"]["24h_ch"]) > 0
-                            ? "posetive"
-                            : Number(item["stats"]["24h_ch"]) < 0
-                            ? "negetive"
-                            : ""
-                        }
-                        `}
-                      >
-                        {item["stats"]["24h_ch"] !== "-"
-                          ? Number(item["stats"]["24h_ch"])
-                              .toFixed(3)
-                              .toString()
-                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : 0}
-                      </td>
-                      <td className="numericTd">
-                        {item["stats"]["24h_volume"] !== "-"
-                          ? Number(item["stats"]["24h_volume"])
-                              .toFixed(3)
-                              .toString()
-                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : "-"}
-                      </td>
-                    </tr>
-                  );
-                })}
-              {currency
-                .filter((item) => item["quoteAsset"] === marketDisplay)
-                .filter((item) => {
-                  return !favorite.includes(item);
-                })
-                .filter((item) => {
-                  return searchTerm === ""
-                    ? item["faBaseAsset"]
-                    : item["faBaseAsset"]
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase());
-                })
-                .map((item, index) => {
-                  // item["isFavorite"] = false;
-                  // item["id"] = index;
-                  return (
-                    <>
+                  </th>
+                  <th
+                    className={` tableHeader ${
+                      sortCol === "bidPrice" && order === "ASC"
+                        ? "ascending"
+                        : sortCol === "bidPrice" && order === "DSC"
+                        ? "decending"
+                        : ""
+                    }`}
+                    onClick={() => sorting("stats", "bidPrice")}
+                  >
+                    قیمت خرید
+                  </th>
+                  <th
+                    className={` tableHeader ${
+                      sortCol === "askPrice" && order === "ASC"
+                        ? "ascending"
+                        : sortCol === "askPrice" && order === "DSC"
+                        ? "decending"
+                        : ""
+                    }`}
+                    onClick={() => sorting("stats", "askPrice")}
+                  >
+                    قیمت فروش
+                  </th>
+                  <th
+                    className={` tableHeader ${
+                      sortCol === "24h_ch" && order === "ASC"
+                        ? "ascending"
+                        : sortCol === "24h_ch" && order === "DSC"
+                        ? "decending"
+                        : ""
+                    }`}
+                    onClick={() => sorting("stats", "24h_ch")}
+                  >
+                    تغییرات
+                  </th>
+                  <th
+                    lang="fa"
+                    className={` tableHeader ${
+                      sortCol === "24h_volume" && order === "ASC"
+                        ? "ascending"
+                        : sortCol === "24h_volume" && order === "DSC"
+                        ? "decending"
+                        : ""
+                    }`}
+                    onClick={() => sorting("stats", "24h_volume")}
+                  >
+                    حجم معامله
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {favorite
+                  .filter((item) => item["quoteAsset"] === marketDisplay)
+                  .filter((item) => {
+                    return searchTerm === ""
+                      ? item["faBaseAsset"]
+                      : item["faBaseAsset"]
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase());
+                  })
+                  .map((item, index) => {
+                    let mapItem = item;
+                    const temp = cryptoSrc.filter((item) => {
+                      return item["symbol"] === mapItem["baseAsset"];
+                    });
+                    return (
                       <tr className="tbodyRows" key={item["symbol"]}>
-                        <td>
-                          {" "}
-                          {!favorite.length
-                            ? index + 1
-                            : favorite.length + index + 1}{" "}
-                        </td>
+                        <td> {index + 1} </td>
                         <td className="currency">
                           <span
                             onClick={() => handleFavorite(item)}
                             className="star"
                           >
-                            {/* {favorite ? <starOn /> : <starOff />} */}
-                            {/* {favorite ? <span>&#9733;</span> : <span>&#9734;</span>} */}
-                            {/* <span>&#9734;</span>
-                        <span>&#9733;</span> */}
                             {!favorite.includes(item) ? (
                               <img
+                                draggable="false"
                                 className="starOff"
                                 src={require("./starOff.png")}
                                 width="20px"
@@ -583,6 +489,7 @@ function Finance() {
                               />
                             ) : (
                               <img
+                                draggable="false"
                                 className="starOn"
                                 src={require("./starOn.png")}
                                 width="20px"
@@ -591,9 +498,15 @@ function Finance() {
                               />
                             )}
                           </span>
+                          <img
+                            className="currencyIcon"
+                            src={require(`${temp[0]["src"]}`)}
+                            alt={temp[0]["symbol"]}
+                            width="20px"
+                            height="20px"
+                          />
                           {item["faBaseAsset"]}
                         </td>
-
                         <td className="numericTd">
                           {item["stats"]["bidPrice"] !== "-"
                             ? Number(item["stats"]["bidPrice"])
@@ -622,14 +535,14 @@ function Finance() {
                         </td>
                         <td
                           className={` numericTd
-                      ${
-                        Number(item["stats"]["24h_ch"]) > 0
-                          ? "posetive"
-                          : Number(item["stats"]["24h_ch"]) < 0
-                          ? "negetive"
-                          : ""
-                      }
-                      `}
+                        ${
+                          Number(item["stats"]["24h_ch"]) > 0
+                            ? "posetive"
+                            : Number(item["stats"]["24h_ch"]) < 0
+                            ? "negetive"
+                            : ""
+                        }
+                        `}
                         >
                           {item["stats"]["24h_ch"] !== "-"
                             ? Number(item["stats"]["24h_ch"])
@@ -641,7 +554,7 @@ function Finance() {
                                     v.charCodeAt(0) + 0x06c0
                                   );
                                 })
-                            : "-"}
+                            : 0}
                         </td>
                         <td className="numericTd">
                           {item["stats"]["24h_volume"] !== "-"
@@ -657,11 +570,145 @@ function Finance() {
                             : "-"}
                         </td>
                       </tr>
-                    </>
-                  );
-                })}
-            </tbody>
-          </table>
+                    );
+                  })}
+                {currency
+                  .filter((item) => item["quoteAsset"] === marketDisplay)
+                  .filter((item) => {
+                    return !favorite.includes(item);
+                  })
+                  .filter((item) => {
+                    return searchTerm === ""
+                      ? item["faBaseAsset"]
+                      : item["faBaseAsset"]
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase());
+                  })
+                  .map((item, index) => {
+                    let mapItem = item;
+                    const temp = cryptoSrc.filter((item) => {
+                      return item["symbol"] === mapItem["baseAsset"];
+                    });
+                    console.log(`"${temp[0]["src"]}"`);
+                    // item["isFavorite"] = false;
+                    // item["id"] = index;
+                    return (
+                      <>
+                        <tr className="tbodyRows" key={item["symbol"]}>
+                          <td>
+                            {" "}
+                            {!favorite.length
+                              ? index + 1
+                              : favorite.length + index + 1}{" "}
+                          </td>
+                          <td className="currency">
+                            <span
+                              onClick={() => handleFavorite(item)}
+                              className="star"
+                            >
+                              {/* {favorite ? <starOn /> : <starOff />} */}
+                              {/* {favorite ? <span>&#9733;</span> : <span>&#9734;</span>} */}
+                              {/* <span>&#9734;</span>
+                        <span>&#9733;</span> */}
+                              {!favorite.includes(item) ? (
+                                <img
+                                  draggable="false"
+                                  className="starOff"
+                                  src={require("./starOff.png")}
+                                  width="20px"
+                                  height="20px"
+                                  alt="starOff"
+                                />
+                              ) : (
+                                <img
+                                  draggable="false"
+                                  className="starOn"
+                                  src={require("./starOn.png")}
+                                  width="20px"
+                                  height="20px"
+                                  alt="starOn"
+                                />
+                              )}
+                            </span>
+                            <img
+                              className="currencyIcon"
+                              src={require(`${temp[0]["src"]}`)}
+                              alt={temp[0]["symbol"]}
+                              width="20px"
+                              height="20px"
+                            />
+                            <span>{item["faBaseAsset"]}</span>
+                          </td>
+
+                          <td className="numericTd">
+                            {item["stats"]["bidPrice"] !== "-"
+                              ? Number(item["stats"]["bidPrice"])
+                                  .toFixed(3)
+                                  .toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                  .replace(/\d/g, function (v) {
+                                    return String.fromCharCode(
+                                      v.charCodeAt(0) + 0x06c0
+                                    );
+                                  })
+                              : "-"}
+                          </td>
+                          <td className="numericTd">
+                            {item["stats"]["askPrice"] !== "-"
+                              ? Number(item["stats"]["askPrice"])
+                                  .toFixed(3)
+                                  .toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                  .replace(/\d/g, function (v) {
+                                    return String.fromCharCode(
+                                      v.charCodeAt(0) + 0x06c0
+                                    );
+                                  })
+                              : "-"}
+                          </td>
+                          <td
+                            className={` numericTd
+                      ${
+                        Number(item["stats"]["24h_ch"]) > 0
+                          ? "posetive"
+                          : Number(item["stats"]["24h_ch"]) < 0
+                          ? "negetive"
+                          : ""
+                      }
+                      `}
+                          >
+                            {item["stats"]["24h_ch"] !== "-"
+                              ? Number(item["stats"]["24h_ch"])
+                                  .toFixed(3)
+                                  .toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                  .replace(/\d/g, function (v) {
+                                    return String.fromCharCode(
+                                      v.charCodeAt(0) + 0x06c0
+                                    );
+                                  })
+                              : "-"}
+                          </td>
+                          <td className="numericTd">
+                            {item["stats"]["24h_volume"] !== "-"
+                              ? Number(item["stats"]["24h_volume"])
+                                  .toFixed(3)
+                                  .toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                  .replace(/\d/g, function (v) {
+                                    return String.fromCharCode(
+                                      v.charCodeAt(0) + 0x06c0
+                                    );
+                                  })
+                              : "-"}
+                          </td>
+                        </tr>
+                      </>
+                    );
+                  })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </>

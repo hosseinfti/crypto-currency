@@ -2,9 +2,21 @@ body {
   direction: rtl;
   padding: 0px;
   margin: 0px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 table {
   min-height: 100vh;
+  border-collapse: collapse;
+  text-align: center;
+  border-radius: 15px 15px;
+  box-shadow: 0 2px 15px -6px rgb(0 0 0 / 50%);
 }
 @media only screen and (min-width: 600px) {
   .pairCurrency {
@@ -26,32 +38,46 @@ table {
   }
 }
 
-/* @media only screen and (max-width: 770px) {
-  table *{
-		display: block;
-    overflow-x: auto; 
+@media only screen and (max-width: 775px) {
+  .tableContainer {
+    width: 100vw;
+    height: 100%;
   }
   .tableDiv { 
-    width: 100%;
+    overflow-x: scroll;
 	}
-} */
-
-
-
-table {
-  border-collapse: collapse;
-  text-align: center;
-  border-radius: 15px 15px;
-  box-shadow: 0 2px 15px -6px rgb(0 0 0 / 50%);
-  /* width: -webkit-fill-available; */
 }
-.App {
+.searchInput {
+  /* background-color: transparent;
+  border-radius: 10px 10px;
+  margin-bottom: 5px; */
+  padding: 10px;
+}
+.marketBaseDisplay {
+  margin: 8px 0;
+}
+.marketbaseBtns {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  background-color: #f4f5f7;
+  border-radius: 10px 10px;
+  width: fit-content;
 }
-
+.marketBaseDisplayBtn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 5px 25px;
+}
+.marketBaseDisplayBtn:focus {
+  animation: MBbtns 1s;
+}
+.marketBaseDisplayBtnSelected {
+  /* border-bottom: 1px solid #484848 !important; */
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 0px #e1e1e1;
+}
 .tbodyRows:last-child {
   border-bottom: none;
 }
@@ -66,18 +92,6 @@ table {
   /* padding-left: 20px; */
   /* min-width: 120px; */
   text-align: center;
-}
-.searchInput {
-  /* background-color: transparent;
-  border-radius: 10px 10px;
-  margin-bottom: 5px; */
-  padding: 10px;
-}
-.marketbaseBtns {
-  display: flex;
-  background-color: #f4f5f7;
-  border-radius: 10px 10px;
-  width: fit-content;
 }
 @keyframes MBbtns {
   0% {
@@ -95,25 +109,6 @@ table {
     /* transform: translateX(5px); */
   }
 }
-.marketBaseDisplayBtn {
-  background-color: transparent;
-  border: 1px solid transparent;
-  cursor: pointer;
-  padding: 5px 25px;
-}
-.marketBaseDisplay {
-  margin: 8px 0;
-}
-.marketBaseDisplayBtn:focus {
-  animation: MBbtns 1s;
-}
-.marketBaseDisplayBtnSelected {
-  /* border-bottom: 1px solid #484848 !important; */
-  background-color: #fff;
-  border-radius: 8px;
-  border: 1px solid #e1e1e1;
-  box-shadow: 1px 1px 1px 0px #e1e1e1;
-}
 .currency {
   display: flex;
   flex-direction: row;
@@ -121,6 +116,9 @@ table {
   align-items: center;
   height: inherit;
   padding-right: 15px;
+}
+.currencyIcon {
+  margin-left: 5px;
 }
 .star {
   margin: 0px 0px 0px 7px;
@@ -168,7 +166,6 @@ table {
   color: red;
 }
 .calcBody {
-  margin-top: 70px;
   margin-bottom: 30px;
   text-align: center;
   /* display: flex;

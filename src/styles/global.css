@@ -17,25 +17,25 @@ body {
   background-color: #fff;
 }
 
-body * {
+body, input, select {
   font-family: Estedad-Regular;
 }
 
-body * h1 {
+body h1, input h1, select h1 {
   margin-top: 70px;
   font-family: Estedad-Bold;
   text-align: center;
 }
 
-body * #header {
-  color: #500fe9;
+body #header, input #header, select #header {
+  color: #fff;
   font-size: 30px;
   position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
   z-index: 100;
-  background-color: #fff;
+  background-color: #3100AA;
   width: 100%;
   text-align: center;
   border-radius: 0px 0px 10px 10px;
@@ -44,16 +44,16 @@ body * #header {
           box-shadow: 0px 0px 3px 1px #500fe9;
 }
 
-body * .calcBody {
+body .calcBody, input .calcBody, select .calcBody {
   background-color: #fff;
   border: solid 2px #a786f7;
   border-radius: 18px;
   padding: 10px 0;
-  -webkit-box-shadow: -21px 22px 0px -8px #f1ebff;
-          box-shadow: -21px 22px 0px -8px #f1ebff;
+  -webkit-box-shadow: 0px 0px 11px 4px #f1ebff;
+          box-shadow: 0px 0px 11px 4px #f1ebff;
 }
 
-body * .calcBody .dropDown {
+body .calcBody .dropDown, input .calcBody .dropDown, select .calcBody .dropDown {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -65,31 +65,32 @@ body * .calcBody .dropDown {
   padding: 5px 0px;
 }
 
-body * .calcBody .inputCurrency {
+body .calcBody .inputCurrency, input .calcBody .inputCurrency, select .calcBody .inputCurrency {
   border: 1px solid #d1d1d1;
   border-radius: 10px;
   opacity: 0.5;
   outline: none;
 }
 
-body * .calcBody .convertIcon:hover {
+body .calcBody .convertIcon:hover, input .calcBody .convertIcon:hover, select .calcBody .convertIcon:hover {
   background-color: #f1ebff;
 }
 
-body * table {
+body table, input table, select table {
   background-color: white;
+  margin-bottom: 70px;
 }
 
-body * table .tableHeader:hover {
+body table .tableHeader:hover, input table .tableHeader:hover, select table .tableHeader:hover {
   background-color: #fff;
 }
 
-body * table .tableHeader:first-child:hover {
+body table .tableHeader:first-child:hover, input table .tableHeader:first-child:hover, select table .tableHeader:first-child:hover {
   background-color: #f3f5f9;
   cursor: auto;
 }
 
-body * table .searchDiv {
+body table .searchDiv, input table .searchDiv, select table .searchDiv {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,36 +102,45 @@ body * table .searchDiv {
   margin: 8px 5px;
 }
 
-body * table .searchDiv:hover {
+body table .searchDiv:hover, input table .searchDiv:hover, select table .searchDiv:hover {
   background-color: #f3f5f9;
 }
 
-body * table .searchInput {
+body table .searchInput, input table .searchInput, select table .searchInput {
   background-color: transparent;
   outline: none;
   border: none;
 }
 
-body * table .searchInput:focus {
+body table .searchInput:focus, input table .searchInput:focus, select table .searchInput:focus {
   border-color: #e1e1e1;
 }
 
-body * table .theadRow {
+body table .theadRow, input table .theadRow, select table .theadRow {
   border: 2px solid #eaebef;
   height: 45px;
   background-color: #f3f5f9;
 }
 
-body * table .tbodyRows {
+body table .tbodyRows, input table .tbodyRows, select table .tbodyRows {
   border-bottom: 2px solid #eaebef;
   height: 45px;
 }
 
-body * #footer {
+body #footer, input #footer, select #footer {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  text-align: center;
-  color: #500fe9;
-  background-color: #fff;
+  color: #ffffff;
+  background-color: #181818;
   -webkit-box-shadow: 1px 2px 6px 1px #500fe9;
           box-shadow: 1px 2px 6px 1px #500fe9;
 }

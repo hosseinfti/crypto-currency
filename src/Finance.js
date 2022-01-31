@@ -221,7 +221,7 @@ function Finance() {
   return (
     <>
       <div className="container">
-        <h1>بازار معامله گری ارزهای دیجیتال</h1>
+        <h1>بازار معامله‌گری ارزهای دیجیتال</h1>
         <div className="calcBody">
           <div className="pairCurrency">
             <div
@@ -350,37 +350,22 @@ function Finance() {
                   </th>
                   <th colSpan="2">
                     <div className="marketbaseBtns">
+                      <span className={`marketBaseDisplayBtnSelected ${marketDisplay === "TMN" ? "selected-tmn" : marketDisplay === "USDT" ? "selected-usdt" : "selected-btc"}`} />
                       <button
                         onClick={() => handleMarketDisplay("TMN")}
-                        className={`marketBaseDisplayBtn ${
-                          marketDisplay === "TMN"
-                            ? "marketBaseDisplayBtnSelected"
-                            : ""
-                        }`}
+                        className="marketBaseDisplayBtn"
                       >
                         تومان
                       </button>
-                      {/* </th> */}
-                      {/* <th> */}
                       <button
                         onClick={() => handleMarketDisplay("USDT")}
-                        className={`marketBaseDisplayBtn ${
-                          marketDisplay === "USDT"
-                            ? "marketBaseDisplayBtnSelected"
-                            : ""
-                        }`}
+                        className="marketBaseDisplayBtn"
                       >
                         USDT
                       </button>
-                      {/* </th>
-                <th> */}
                       <button
                         onClick={() => handleMarketDisplay("BTC")}
-                        className={`marketBaseDisplayBtn ${
-                          marketDisplay === "BTC"
-                            ? "marketBaseDisplayBtnSelected"
-                            : ""
-                        }`}
+                        className="marketBaseDisplayBtn"
                       >
                         BTC
                       </button>
@@ -400,9 +385,6 @@ function Finance() {
                     onClick={() => sorting("faBaseAsset", "currency")}
                   >
                     نام ارز
-                    {/* {
-                  sortCol === "currency" && order === "ASC" ? <img /> : ""
-                } */}
                   </th>
                   <th
                     className={` tableHeader ${
@@ -505,7 +487,7 @@ function Finance() {
                             width="20px"
                             height="20px"
                           />
-                          {item["faBaseAsset"]}
+                          <span className="currencyName">{item["faBaseAsset"]}</span>
                         </td>
                         <td className="numericTd">
                           {item["stats"]["bidPrice"] !== "-"
@@ -637,7 +619,7 @@ function Finance() {
                               width="20px"
                               height="20px"
                             />
-                            <span>{item["faBaseAsset"]}</span>
+                            <span className="currencyName">{item["faBaseAsset"]}</span>
                           </td>
 
                           <td className="numericTd">

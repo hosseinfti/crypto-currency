@@ -393,7 +393,16 @@ function Table(props) {
                   </td>
 
                   <td className="numericTd">
-                    {item["stats"]["bidPrice"] !== "-"
+                  {item["stats"]["bidPrice"] !== "-" && marketDisplay === "BTC"
+                    ? Number(item["stats"]["bidPrice"])
+                    .toFixed(6)
+                    .toString()
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : item["stats"]["bidPrice"] !== "-" && marketDisplay !== "BTC" 
                       ? Number(item["stats"]["bidPrice"])
                           .toFixed(3)
                           .toString()
@@ -406,7 +415,16 @@ function Table(props) {
                       : "-"}
                   </td>
                   <td className="numericTd">
-                    {item["stats"]["askPrice"] !== "-"
+                  {item["stats"]["askPrice"] !== "-" && marketDisplay === "BTC"
+                    ? Number(item["stats"]["askPrice"])
+                    .toFixed(6)
+                    .toString()
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : item["stats"]["askPrice"] !== "-" && marketDisplay !== "BTC" 
                       ? Number(item["stats"]["askPrice"])
                           .toFixed(3)
                           .toString()

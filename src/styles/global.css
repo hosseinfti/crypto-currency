@@ -62,7 +62,7 @@ body .calcBody .dropDown, input .calcBody .dropDown, select .calcBody .dropDown 
   border-radius: 8px;
   background-color: #fafbff;
   width: -webkit-fill-available;
-  padding: 5px 0px;
+  padding: 5px 5px 5px 0px;
 }
 
 body .calcBody .inputCurrency, input .calcBody .inputCurrency, select .calcBody .inputCurrency {

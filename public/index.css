@@ -38,7 +38,7 @@ table {
   }
 }
 
-@media only screen and (max-width: 775px) {
+@media only screen and (max-width: 865px) {
   .tableContainer {
     width: 100vw;
     height: 100%;
@@ -48,10 +48,10 @@ table {
   }
 }
 .searchInput {
-  /* background-color: transparent;
-  border-radius: 10px 10px;
-  margin-bottom: 5px; */
   padding: 10px;
+}
+.searchIcon {
+  margin-right: 10px;
 }
 .marketBaseDisplay {
   margin: 8px 0;
@@ -149,7 +149,7 @@ table {
 .tableHeader {
   text-align: center;
   /* padding-left: 20px; */
-  min-width: 140px;
+  min-width: 160px;
 }
 .rowsNumber {
   min-width: 100% !important;

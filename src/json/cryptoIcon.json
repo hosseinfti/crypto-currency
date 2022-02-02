@@ -1,151 +1,151 @@
 [
     {
         "symbol" : "ADA",
-        "src" : "./assets/image/cryptoIcon/ADA.svg"
+        "src" : "../assets/image/cryptoIcon/ADA.svg"
 
     },
     {
         "symbol" : "ALICE",
-        "src" : "./assets/image/cryptoIcon/ALICE.svg"
+        "src" : "../assets/image/cryptoIcon/ALICE.svg"
     },
     {
         "symbol" : "ATOM",
-        "src" : "./assets/image/cryptoIcon/ATOM.svg"
+        "src" : "../assets/image/cryptoIcon/ATOM.svg"
 
     },
     {
         "symbol" : "AXS",
-        "src" : "./assets/image/cryptoIcon/AXS.svg"
+        "src" : "../assets/image/cryptoIcon/AXS.svg"
 
     },
     {
         "symbol" : "BCH",
-        "src" : "./assets/image/cryptoIcon/BCH.svg"
+        "src" : "../assets/image/cryptoIcon/BCH.svg"
 
     },
     {
         "symbol" : "BNB",
-        "src" : "./assets/image/cryptoIcon/BNB.svg"
+        "src" : "../assets/image/cryptoIcon/BNB.svg"
 
     },
     {
         "symbol" : "BTC",
-        "src" : "./assets/image/cryptoIcon/BTC.svg"
+        "src" : "../assets/image/cryptoIcon/BTC.svg"
 
     },
     {
         "symbol" : "BTT",
-        "src" : "./assets/image/cryptoIcon/BTT.svg"
+        "src" : "../assets/image/cryptoIcon/BTT.svg"
 
     },
     {
         "symbol" : "CAKE",
-        "src" : "./assets/image/cryptoIcon/CAKE.svg"
+        "src" : "../assets/image/cryptoIcon/CAKE.svg"
 
     },
     {
         "symbol" : "CHZ",
-        "src" : "./assets/image/cryptoIcon/CHZ.svg"
+        "src" : "../assets/image/cryptoIcon/CHZ.svg"
 
     },
     {
         "symbol" : "DASH",
-        "src" : "./assets/image/cryptoIcon/DASH.svg"
+        "src" : "../assets/image/cryptoIcon/DASH.svg"
 
     },
     {
         "symbol" : "DOGE",
-        "src" : "./assets/image/cryptoIcon/DOGE.svg"
+        "src" : "../assets/image/cryptoIcon/DOGE.svg"
 
     },
     {
         "symbol" : "DOT",
-        "src" : "./assets/image/cryptoIcon/DOT.svg"
+        "src" : "../assets/image/cryptoIcon/DOT.svg"
 
     },
     {
         "symbol" : "ENJ",
-        "src" : "./assets/image/cryptoIcon/ENJ.svg"
+        "src" : "../assets/image/cryptoIcon/ENJ.svg"
 
     },
     {
         "symbol" : "EOS",
-        "src" : "./assets/image/cryptoIcon/EOS.svg"
+        "src" : "../assets/image/cryptoIcon/EOS.svg"
 
     },
     {
         "symbol" : "ETH",
-        "src" : "./assets/image/cryptoIcon/ETH.svg"
+        "src" : "../assets/image/cryptoIcon/ETH.svg"
 
     },
     {
         "symbol" : "FIL",
-        "src" : "./assets/image/cryptoIcon/FIL.svg"
+        "src" : "../assets/image/cryptoIcon/FIL.svg"
 
     },
     {
         "symbol" : "FTM",
-        "src" : "./assets/image/cryptoIcon/FTM.svg"
+        "src" : "../assets/image/cryptoIcon/FTM.svg"
 
     },
     {
         "symbol" : "LINK",
-        "src" : "./assets/image/cryptoIcon/LINK.svg"
+        "src" : "../assets/image/cryptoIcon/LINK.svg"
 
     },
     {
         "symbol" : "LTC",
-        "src" : "./assets/image/cryptoIcon/LTC.svg"
+        "src" : "../assets/image/cryptoIcon/LTC.svg"
 
     },
     {
         "symbol" : "MANA",
-        "src" : "./assets/image/cryptoIcon/MANA.svg"
+        "src" : "../assets/image/cryptoIcon/MANA.svg"
 
     },
     {
         "symbol" : "MATIC",
-        "src" : "./assets/image/cryptoIcon/MATIC.svg"
+        "src" : "../assets/image/cryptoIcon/MATIC.svg"
 
     },
     {
         "symbol" : "RUNE",
-        "src" : "./assets/image/cryptoIcon/RUNE.svg"
+        "src" : "../assets/image/cryptoIcon/RUNE.svg"
 
     },
     {
         "symbol" : "SAND",
-        "src" : "./assets/image/cryptoIcon/SAND.svg"
+        "src" : "../assets/image/cryptoIcon/SAND.svg"
 
     },
     {
         "symbol" : "SHIB",
-        "src" : "./assets/image/cryptoIcon/SHIB.svg"
+        "src" : "../assets/image/cryptoIcon/SHIB.svg"
 
     },
     {
         "symbol" : "TRX",
-        "src" : "./assets/image/cryptoIcon/TRX.svg"
+        "src" : "../assets/image/cryptoIcon/TRX.svg"
 
     },
     {
         "symbol" : "UNI",
-        "src" : "./assets/image/cryptoIcon/UNI.svg"
+        "src" : "../assets/image/cryptoIcon/UNI.svg"
 
     },
     {
         "symbol" : "USDT",
-        "src" : "./assets/image/cryptoIcon/USDT.svg"
+        "src" : "../assets/image/cryptoIcon/USDT.svg"
 
     },
     {
         "symbol" : "XLM",
-        "src" : "./assets/image/cryptoIcon/XLM.svg"
+        "src" : "../assets/image/cryptoIcon/XLM.svg"
 
     },
     {
         "symbol" : "XRP",
-        "src" : "./assets/image/cryptoIcon/XRP.svg"
+        "src" : "../assets/image/cryptoIcon/XRP.svg"
 
     }
 ]

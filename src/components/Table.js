@@ -231,7 +231,6 @@ function Table(props) {
       </thead>
       <tbody>
         {favorite
-          .filter((item) => item["quoteAsset"] === marketDisplay)
           .filter((item) => {
             return searchTerm === ""
               ? item["faBaseAsset"]

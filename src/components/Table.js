@@ -281,45 +281,38 @@ function Table(props) {
                 <td className="numericTd">
                   {item["stats"]["bidPrice"] !== "-" && marketDisplay === "BTC"
                     ? Number(item["stats"]["bidPrice"])
-                    .toString()
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : item["stats"]["bidPrice"] !== "-" && marketDisplay !== "BTC" 
-                      ? Number(item["stats"]["bidPrice"])
-                          .toFixed(3)
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : "-"}
-                  </td>
-                  <td className="numericTd">
+                        .toString()
+                        .replace(/\d/g, function (v) {
+                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
+                        })
+                    : item["stats"]["bidPrice"] !== "-" &&
+                      marketDisplay !== "BTC"
+                    ? Number(item["stats"]["bidPrice"])
+                        .toFixed(3)
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                        .replace(/\d/g, function (v) {
+                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
+                        })
+                    : "-"}
+                </td>
+                <td className="numericTd">
                   {item["stats"]["askPrice"] !== "-" && marketDisplay === "BTC"
                     ? Number(item["stats"]["askPrice"])
-                    .toString()
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : item["stats"]["askPrice"] !== "-" && marketDisplay !== "BTC" 
-                      ? Number(item["stats"]["askPrice"])
-                          .toFixed(3)
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : "-"}
-                  </td>
+                        .toString()
+                        .replace(/\d/g, function (v) {
+                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
+                        })
+                    : item["stats"]["askPrice"] !== "-" &&
+                      marketDisplay !== "BTC"
+                    ? Number(item["stats"]["askPrice"])
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                        .replace(/\d/g, function (v) {
+                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
+                        })
+                    : "-"}
+                </td>
                 <td
                   className={` numericTd
                   ${
@@ -344,7 +337,6 @@ function Table(props) {
                 <td className="numericTd">
                   {item["stats"]["24h_quoteVolume"] !== "-"
                     ? Number(item["stats"]["24h_quoteVolume"])
-                        .toFixed(3)
                         .toString()
                         .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                         .replace(/\d/g, function (v) {
@@ -376,10 +368,9 @@ function Table(props) {
               <>
                 <tr className="tbodyRows" key={item["symbol"]}>
                   <td>
-                    {" "}
                     {!favorite.length
                       ? index + 1
-                      : favorite.length + index + 1}{" "}
+                      : favorite.length + index + 1}
                   </td>
                   <td className="currency">
                     <span onClick={() => handleFavorite(item)} className="star">
@@ -414,15 +405,17 @@ function Table(props) {
                   </td>
 
                   <td className="numericTd">
-                  {item["stats"]["bidPrice"] !== "-" && marketDisplay === "BTC"
-                    ? Number(item["stats"]["bidPrice"])
-                    .toString()
+                    {item["stats"]["bidPrice"] !== "-" &&
+                    marketDisplay === "BTC"
+                      ? Number(item["stats"]["bidPrice"])
+                          .toString()
                           .replace(/\d/g, function (v) {
                             return String.fromCharCode(
                               v.charCodeAt(0) + 0x06c0
                             );
                           })
-                      : item["stats"]["bidPrice"] !== "-" && marketDisplay !== "BTC" 
+                      : item["stats"]["bidPrice"] !== "-" &&
+                        marketDisplay !== "BTC"
                       ? Number(item["stats"]["bidPrice"])
                           .toFixed(3)
                           .toString()
@@ -435,15 +428,17 @@ function Table(props) {
                       : "-"}
                   </td>
                   <td className="numericTd">
-                  {item["stats"]["askPrice"] !== "-" && marketDisplay === "BTC"
-                    ? Number(item["stats"]["askPrice"])
-                    .toString()
+                    {item["stats"]["askPrice"] !== "-" &&
+                    marketDisplay === "BTC"
+                      ? Number(item["stats"]["askPrice"])
+                          .toString()
                           .replace(/\d/g, function (v) {
                             return String.fromCharCode(
                               v.charCodeAt(0) + 0x06c0
                             );
                           })
-                      : item["stats"]["askPrice"] !== "-" && marketDisplay !== "BTC" 
+                      : item["stats"]["askPrice"] !== "-" &&
+                        marketDisplay !== "BTC"
                       ? Number(item["stats"]["askPrice"])
                           .toFixed(3)
                           .toString()
@@ -467,16 +462,16 @@ function Table(props) {
                 `}
                   >
                     {item["stats"]["24h_ch"] !== "-" && marketDisplay === "BTC"
-                    ? Number(item["stats"]["24h_ch"])
-                    .toString()
+                      ? Number(item["stats"]["24h_ch"])
+                          .toString()
                           .replace(/\d/g, function (v) {
                             return String.fromCharCode(
                               v.charCodeAt(0) + 0x06c0
                             );
                           })
-                      : item["stats"]["24h_ch"] !== "-" && marketDisplay !== "BTC" 
+                      : item["stats"]["24h_ch"] !== "-" &&
+                        marketDisplay !== "BTC"
                       ? Number(item["stats"]["24h_ch"])
-                          .toFixed(3)
                           .toString()
                           .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                           .replace(/\d/g, function (v) {
@@ -487,17 +482,18 @@ function Table(props) {
                       : "-"}
                   </td>
                   <td className="numericTd">
-                  {item["stats"]["24h_quoteVolume"] !== "-" && marketDisplay === "BTC"
-                    ? Number(item["stats"]["24h_quoteVolume"])
-                    .toString()
+                    {item["stats"]["24h_quoteVolume"] !== "-" &&
+                    marketDisplay === "BTC"
+                      ? Number(item["stats"]["24h_quoteVolume"])
+                          .toString()
                           .replace(/\d/g, function (v) {
                             return String.fromCharCode(
                               v.charCodeAt(0) + 0x06c0
                             );
                           })
-                      : item["stats"]["24h_quoteVolume"] !== "-" && marketDisplay !== "BTC" 
+                      : item["stats"]["24h_quoteVolume"] !== "-" &&
+                        marketDisplay !== "BTC"
                       ? Number(item["stats"]["24h_quoteVolume"])
-                          .toFixed(3)
                           .toString()
                           .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                           .replace(/\d/g, function (v) {

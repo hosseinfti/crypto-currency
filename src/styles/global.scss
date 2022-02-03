@@ -16,15 +16,16 @@ $calc-background: #fff;
   src: url(../assets/fonts/Estedad/ttf/Estedad-Thin.ttf);
 }
 @font-face {
-    font-family: "Estedad-Bold";
-    src: url(../assets/fonts/Estedad/ttf/Estedad-Bold.ttf);
-  }
-body {
-    background-color: $calc-background;
-
+  font-family: "Estedad-Bold";
+  src: url(../assets/fonts/Estedad/ttf/Estedad-Bold.ttf);
 }
-body, input, select{
-  font-family: Estedad-Regular ;
+body {
+  background-color: $calc-background;
+}
+body,
+input,
+select {
+  font-family: Estedad-Regular;
   h1 {
     margin-top: 70px;
     font-family: Estedad-Bold;
@@ -38,7 +39,7 @@ body, input, select{
     left: 0px;
     right: 0px;
     z-index: 100;
-    background-color: #3100AA;
+    background-color: #3100aa;
     width: 100%;
     text-align: center;
     border-radius: 0px 0px 10px 10px;
@@ -51,7 +52,7 @@ body, input, select{
     border-radius: 18px;
     padding: 10px 0;
     box-shadow: 0px 0px 11px 4px #f1ebff;
-    .dropDown {
+    .dropdown {
       appearance: none;
       border: 0;
       outline: none;
@@ -59,6 +60,74 @@ body, input, select{
       background-color: $input-color;
       width: -webkit-fill-available;
       padding: 5px 5px 5px 0px;
+    }
+    .selected-drop-down {
+      background-color: $input-color;
+      // height: 56px;
+      // width: 168px;
+      cursor: pointer;
+      border-radius: 10px;
+      // margin-right: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+    }
+    .drop-down {
+      background-color: $input-color;
+      width: 167px;;
+      position: absolute;
+      top:60px;
+      right: 20px;
+      z-index: 2;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 170px;
+      border-radius: 10px 10px 10px 10px;
+      box-shadow: 0 6px 12px rgb(0 0 0 / 16%);
+    }
+    .drop-down-None {
+      // background-color: $input-color;
+      // width: fit-content;
+      display: none;
+      // position: absolute;
+      // z-index: 2;
+      // overflow-y: auto;
+      // overflow-x: hidden;
+      // height: 140px;
+      // border-radius: 10px 10px 10px 10px;
+      // box-shadow: 0 6px 12px rgb(0 0 0 / 16%);
+      
+    }
+    .drop-down-Item {
+      border-bottom: 1px solid $inputBorder-color;
+    }
+    // .drop-down-Item:last-child {
+    //   border: none;
+    // }
+    .drop-down-Item:hover {
+      background-color: $inputBorder-color;
+      cursor: pointer;
+    }
+    .searchInputDropDown {
+      padding-right: 40px;
+      width: 120px;
+    }
+    .searchQuoteDivDropDown {
+      position: relative;
+    }
+    .searchBaseDivDropDown {
+      position: relative;
+    }
+    .searchBaseIconDropDown {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+    }
+    .searchQuoteIconDropDown {
+      position: absolute;
+      top: 5px;
+      right: 10px;
     }
     .inputCurrency {
       border: 1px solid $inputBorder-color;
@@ -74,11 +143,11 @@ body, input, select{
     background-color: white;
     margin-bottom: 70px;
     .tableHeader:hover {
-        background-color: $calc-background;
+      background-color: $calc-background;
     }
     .tableHeader:first-child:hover {
-        background-color: $background-color;
-        cursor: auto;
+      background-color: $background-color;
+      cursor: auto;
     }
     .searchDiv {
       display: flex;

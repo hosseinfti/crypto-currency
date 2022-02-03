@@ -181,10 +181,14 @@ table {
   /* width: fit-content; */
 }
 .dropDownIcon {
-  position: absolute;
-  left: 15px;
-  bottom: 15px;
+  /* position: absolute; */
+  /* left: 15px;
+  bottom: 15px; */
   transform: rotate(90deg);
+  padding-bottom: 15px;
+}
+.dropDownText {
+  padding-right: 15px;
 }
 .divDropDown {
   position: relative;
@@ -192,6 +196,7 @@ table {
 .baseCurrency {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .baseCurrencyReverse {
   order: 3;
@@ -210,6 +215,8 @@ table {
 .quoteCurrency {
   display: flex;
   flex-direction: column;
+  position: relative;
+
 }
 .quoteCurrencyReverse {
   order: 1;
@@ -222,6 +229,6 @@ table {
   margin-bottom: 10px;
 }
 .currencyParts {
-  margin: 5px 10px;
+  margin: 15px 20px;
   padding: 10px;
 }

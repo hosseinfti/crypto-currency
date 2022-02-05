@@ -1,151 +1,187 @@
 [
     {
         "symbol" : "ADA",
-        "src" : "../assets/image/cryptoIcon/ADA.svg"
+        "src" : "../assets/image/cryptoIcon/ADA.svg",
+        "faAsset": "کاردانو"
 
     },
     {
         "symbol" : "ALICE",
-        "src" : "../assets/image/cryptoIcon/ALICE.svg"
+        "src" : "../assets/image/cryptoIcon/ALICE.svg",
+        "faAsset": "آلیس"
     },
     {
         "symbol" : "ATOM",
-        "src" : "../assets/image/cryptoIcon/ATOM.svg"
+        "src" : "../assets/image/cryptoIcon/ATOM.svg",
+        "faAsset": "اتم"
 
     },
     {
         "symbol" : "AXS",
-        "src" : "../assets/image/cryptoIcon/AXS.svg"
+        "src" : "../assets/image/cryptoIcon/AXS.svg",
+        "faAsset": "اکسی"
 
     },
     {
         "symbol" : "BCH",
-        "src" : "../assets/image/cryptoIcon/BCH.svg"
+        "src" : "../assets/image/cryptoIcon/BCH.svg",
+        "faAsset": "بیت کوین کش"
 
     },
     {
         "symbol" : "BNB",
-        "src" : "../assets/image/cryptoIcon/BNB.svg"
+        "src" : "../assets/image/cryptoIcon/BNB.svg",
+        "faAsset": "بایننس کوین"
 
     },
     {
         "symbol" : "BTC",
-        "src" : "../assets/image/cryptoIcon/BTC.svg"
+        "src" : "../assets/image/cryptoIcon/BTC.svg",
+        "faAsset": "بیت کوین"
 
     },
     {
         "symbol" : "BTT",
-        "src" : "../assets/image/cryptoIcon/BTT.svg"
+        "src" : "../assets/image/cryptoIcon/BTT.svg",
+        "faAsset": "بیت تورنت"
 
     },
     {
         "symbol" : "CAKE",
-        "src" : "../assets/image/cryptoIcon/CAKE.svg"
+        "src" : "../assets/image/cryptoIcon/CAKE.svg",
+        "faAsset": "پن کیک سوآپ"
 
     },
     {
         "symbol" : "CHZ",
-        "src" : "../assets/image/cryptoIcon/CHZ.svg"
+        "src" : "../assets/image/cryptoIcon/CHZ.svg",
+        "faAsset": "چیلیز"
 
     },
     {
         "symbol" : "DASH",
-        "src" : "../assets/image/cryptoIcon/DASH.svg"
+        "src" : "../assets/image/cryptoIcon/DASH.svg",
+        "faAsset": "دش"
 
     },
     {
         "symbol" : "DOGE",
-        "src" : "../assets/image/cryptoIcon/DOGE.svg"
+        "src" : "../assets/image/cryptoIcon/DOGE.svg",
+        "faAsset": "دوج کوین"
 
     },
     {
         "symbol" : "DOT",
-        "src" : "../assets/image/cryptoIcon/DOT.svg"
+        "src" : "../assets/image/cryptoIcon/DOT.svg",
+        "faAsset": "پولکادات"
 
     },
     {
         "symbol" : "ENJ",
-        "src" : "../assets/image/cryptoIcon/ENJ.svg"
+        "src" : "../assets/image/cryptoIcon/ENJ.svg",
+        "faAsset": "انجین"
 
     },
     {
         "symbol" : "EOS",
-        "src" : "../assets/image/cryptoIcon/EOS.svg"
+        "src" : "../assets/image/cryptoIcon/EOS.svg",
+        "faAsset": "ایاس"
 
     },
     {
         "symbol" : "ETH",
-        "src" : "../assets/image/cryptoIcon/ETH.svg"
+        "src" : "../assets/image/cryptoIcon/ETH.svg",
+        "faAsset": "اتریوم"
 
     },
     {
         "symbol" : "FIL",
-        "src" : "../assets/image/cryptoIcon/FIL.svg"
+        "src" : "../assets/image/cryptoIcon/FIL.svg",
+        "faAsset": "فایل کوین"
 
     },
     {
         "symbol" : "FTM",
-        "src" : "../assets/image/cryptoIcon/FTM.svg"
+        "src" : "../assets/image/cryptoIcon/FTM.svg",
+        "faAsset": "فانتوم"
 
     },
     {
         "symbol" : "LINK",
-        "src" : "../assets/image/cryptoIcon/LINK.svg"
+        "src" : "../assets/image/cryptoIcon/LINK.svg",
+        "faAsset": "چین لینک"
 
     },
     {
         "symbol" : "LTC",
-        "src" : "../assets/image/cryptoIcon/LTC.svg"
+        "src" : "../assets/image/cryptoIcon/LTC.svg",
+        "faAsset": "لایت کوین"
 
     },
     {
         "symbol" : "MANA",
-        "src" : "../assets/image/cryptoIcon/MANA.svg"
+        "src" : "../assets/image/cryptoIcon/MANA.svg",
+        "faAsset": "مانا"
 
     },
     {
         "symbol" : "MATIC",
-        "src" : "../assets/image/cryptoIcon/MATIC.svg"
+        "src" : "../assets/image/cryptoIcon/MATIC.svg",
+        "faAsset": "متیک"
 
     },
     {
         "symbol" : "RUNE",
-        "src" : "../assets/image/cryptoIcon/RUNE.svg"
+        "src" : "../assets/image/cryptoIcon/RUNE.svg",
+        "faAsset": "تورچین"
 
     },
     {
         "symbol" : "SAND",
-        "src" : "../assets/image/cryptoIcon/SAND.svg"
+        "src" : "../assets/image/cryptoIcon/SAND.svg",
+        "faAsset": "سندباکس"
 
     },
     {
         "symbol" : "SHIB",
-        "src" : "../assets/image/cryptoIcon/SHIB.svg"
+        "src" : "../assets/image/cryptoIcon/SHIB.svg",
+        "faAsset": "شیبا"
 
     },
     {
         "symbol" : "TRX",
-        "src" : "../assets/image/cryptoIcon/TRX.svg"
+        "src" : "../assets/image/cryptoIcon/TRX.svg",
+        "faAsset": "ترون"
 
     },
     {
         "symbol" : "UNI",
-        "src" : "../assets/image/cryptoIcon/UNI.svg"
+        "src" : "../assets/image/cryptoIcon/UNI.svg",
+        "faAsset": "یونی سوآپ"
 
     },
     {
         "symbol" : "USDT",
-        "src" : "../assets/image/cryptoIcon/USDT.svg"
+        "src" : "../assets/image/cryptoIcon/USDT.svg",
+        "faAsset": "تتر"
 
     },
     {
         "symbol" : "XLM",
-        "src" : "../assets/image/cryptoIcon/XLM.svg"
+        "src" : "../assets/image/cryptoIcon/XLM.svg",
+        "faAsset": "استلار"
 
     },
     {
         "symbol" : "XRP",
-        "src" : "../assets/image/cryptoIcon/XRP.svg"
+        "src" : "../assets/image/cryptoIcon/XRP.svg",
+        "faAsset": "ریپل"
+
+    },    
+    {
+        "symbol" : "TMN",
+        "src" : "../assets/image/cryptoIcon/TMN.svg",
+        "faAsset": "تومان"
 
     }
 ]

@@ -12,12 +12,6 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-table {
-  border-collapse: collapse;
-  text-align: center;
-  border-radius: 15px 15px;
-  box-shadow: 0 2px 15px -6px rgb(0 0 0 / 50%);
-}
 @media only screen and (min-width: 600px) {
   .pairCurrency {
     display: flex;
@@ -28,7 +22,7 @@ table {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 670px) {
   .pairCurrency {
     display: flex;
     flex-flow: column wrap;
@@ -38,22 +32,27 @@ table {
   }
 }
 
-@media only screen and (max-width: 865px) {
+@media only screen and (max-width: 936px) {
+  table {
+    margin: 0px 20px;
+  }
   .tableContainer {
     width: 100vw;
     height: 100%;
   }
   .tableDiv {
     overflow-x: scroll;
+    margin-bottom: 70px;
   }
 }
 .searchInput {
-  padding: 10px;
+  padding: 8px;
 }
 .searchIcon {
   margin-right: 10px;
 }
-.marketBaseDisplay {
+.theaedRow1 {
+  height: 60px;
   margin: 8px 0;
 }
 .marketbaseBtns {
@@ -62,6 +61,8 @@ table {
   background-color: #f4f5f7;
   border-radius: 10px 10px;
   width: fit-content;
+  float: left;
+  margin-left: 5px;
 }
 .marketBaseDisplayBtn {
   z-index: 1;
@@ -69,15 +70,18 @@ table {
   border: 1px solid transparent;
   cursor: pointer;
   padding: 5px 25px;
-  width: 85px;
+  width: 73px;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* .marketBaseDisplayBtn:focus {
   animation: MBbtns 1s;
 } */
 .marketBaseDisplayBtnSelected {
-  width: 83px;
-  height: 38px;
+  width: 71px;
+  height: 37px;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -87,28 +91,50 @@ table {
   border-radius: 8px;
   box-shadow: 1px 1px 1px 0px #e1e1e1;
 }
+.marketBaseTitle {
+  display: inline-block;
+  margin: 6px;
+}
 .selected-tmn {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(0px);
 }
 .selected-usdt {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(-85px);
+  transform: translateX(-73px);
 }
 .selected-btc {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(-170px);
+  transform: translateX(-146px);
 }
-.tbodyRows:last-child {
-  border-bottom: none;
+.rowIndex {
+  opacity: 0.5;
+}
+.currencyNameParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .currencyName {
   white-space: nowrap;
 }
+.currencyIndex {
+  opacity: 0.5;
+  font-size: 12px;
+  /* color: #768391; */
+}
 .numericTd {
   direction: ltr;
   text-align: center;
+  position: relative;
 }
+
+/* .numericSpan {
+  position: absolute;
+  top: 10px;
+  right: 2px;
+  left: 2px;
+} */
 /* @keyframes MBbtns {
   0% {
     background-color: transparent;
@@ -123,13 +149,13 @@ table {
   justify-content: flex-start;
   align-items: center;
   height: inherit;
-  padding-right: 15px;
+  padding-right: 10px;
 }
 .currencyIcon {
   margin-left: 5px;
 }
 .star {
-  margin: 0px 0px 0px 7px;
+  margin: 2px 0px 0px 7px;
 }
 .star:hover {
   cursor: pointer;
@@ -149,7 +175,10 @@ table {
 .tableHeader {
   text-align: center;
   /* padding-left: 20px; */
-  min-width: 160px;
+  min-width: 150px;
+}
+.volumeHeader {
+  width: 185px;
 }
 .rowsNumber {
   min-width: 100% !important;
@@ -167,9 +196,6 @@ table {
 .posetive {
   color: green;
 }
-.posetive::before {
-  content: "+";
-}
 .negetive {
   color: red;
 }
@@ -179,19 +205,6 @@ table {
   /* display: flex;
   flex-direction: column; */
   /* width: fit-content; */
-}
-.dropDownIcon {
-  /* position: absolute; */
-  /* left: 15px;
-  bottom: 15px; */
-  transform: rotate(90deg);
-  padding-bottom: 15px;
-}
-.dropDownText {
-  padding-right: 15px;
-}
-.divDropDown {
-  position: relative;
 }
 .baseCurrency {
   display: flex;
@@ -216,7 +229,6 @@ table {
   display: flex;
   flex-direction: column;
   position: relative;
-
 }
 .quoteCurrencyReverse {
   order: 1;
@@ -230,5 +242,6 @@ table {
 }
 .currencyParts {
   margin: 15px 20px;
-  padding: 10px;
+  padding: 15px;
+  width: 200px;
 }

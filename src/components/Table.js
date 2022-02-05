@@ -110,8 +110,8 @@ function Table(props) {
   return (
     <table>
       <thead>
-        <tr className="marketBaseDisplay">
-          <th colSpan="3">
+        <tr className="theaedRow1">
+          <th className="searchTh" colSpan="2">
             <div className="searchDiv">
               <img
                 className="searchIcon"
@@ -129,10 +129,10 @@ function Table(props) {
               />
             </div>
           </th>
-          <th>
-            <span>پایه بازار :</span>
-          </th>
+          <th></th>
+          <th></th>
           <th colSpan="2">
+            <span className="marketBaseTitle">پایه بازار :</span>
             <div className="marketbaseBtns">
               <span
                 className={`marketBaseDisplayBtnSelected ${
@@ -147,24 +147,30 @@ function Table(props) {
                 onClick={() => handleMarketDisplay("TMN")}
                 className="marketBaseDisplayBtn"
               >
+                <span>
                 تومان
+                </span>
               </button>
               <button
                 onClick={() => handleMarketDisplay("USDT")}
                 className="marketBaseDisplayBtn"
               >
+                <span>
                 USDT
+                </span>
               </button>
               <button
                 onClick={() => handleMarketDisplay("BTC")}
                 className="marketBaseDisplayBtn"
               >
+                <span>
                 BTC
+                </span>
               </button>
             </div>
           </th>
         </tr>
-        <tr className="theadRow">
+        <tr className="theadRow2">
           <th className="tableHeader rowsNumber"> ردیف </th>
           <th
             className={` tableHeader ${
@@ -216,7 +222,7 @@ function Table(props) {
           </th>
           <th
             lang="fa"
-            className={` tableHeader ${
+            className={` volumeHeader tableHeader ${
               sortCol === "24h_quoteVolume" && order === "ASC"
                 ? "ascending"
                 : sortCol === "24h_quoteVolume" && order === "DSC"
@@ -245,7 +251,7 @@ function Table(props) {
             });
             return (
               <tr className="tbodyRows" key={item["symbol"]}>
-                <td> {index + 1} </td>
+                <td className="rowIndex"> {index + 1} </td>
                 <td className="currency">
                   <span onClick={() => handleFavorite(item)} className="star">
                     {!favorite.includes(item) ? (
@@ -253,8 +259,8 @@ function Table(props) {
                         draggable="false"
                         className="starOff"
                         src={require("../assets/image/favorite/starOff.png")}
-                        width="20px"
-                        height="20px"
+                        width="25px"
+                        // height="20px"
                         alt="starOff"
                       />
                     ) : (
@@ -262,8 +268,8 @@ function Table(props) {
                         draggable="false"
                         className="starOn"
                         src={require("../assets/image/favorite/starOn.png")}
-                        width="20px"
-                        height="20px"
+                        width="25px"
+                        // height="20px"
                         alt="starOn"
                       />
                     )}
@@ -272,46 +278,63 @@ function Table(props) {
                     className="currencyIcon"
                     src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
                     alt={temp[0]["symbol"]}
-                    width="20px"
-                    height="20px"
+                    width="25px"
+                    // height="20px"
                   />
-                  <span className="currencyName">{item["faBaseAsset"]}</span>
+                  <div className="currencyNameParent">
+                    <span className="currencyName">{item["faBaseAsset"]}</span>
+                    <span className="currencyIndex"> {item["baseAsset"]} </span>
+                    </div>
                 </td>
 
                 <td className="numericTd">
-                  {item["stats"]["bidPrice"] !== "-" && marketDisplay === "BTC"
-                    ? Number(item["stats"]["bidPrice"])
-                        .toString()
-                        .replace(/\d/g, function (v) {
-                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
-                        })
-                    : item["stats"]["bidPrice"] !== "-" &&
-                      marketDisplay !== "BTC"
-                    ? Number(item["stats"]["bidPrice"])
-                        .toFixed(3)
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                        .replace(/\d/g, function (v) {
-                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
-                        })
-                    : "-"}
+                  <span className="numericSpan">
+                    {item["stats"]["bidPrice"] !== "-" &&
+                    marketDisplay === "BTC"
+                      ? Number(item["stats"]["bidPrice"])
+                          .toString()
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : item["stats"]["bidPrice"] !== "-" &&
+                        marketDisplay !== "BTC"
+                      ? Number(item["stats"]["bidPrice"])
+                          // .toFixed(3)
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : "-"}
+                  </span>
                 </td>
                 <td className="numericTd">
-                  {item["stats"]["askPrice"] !== "-" && marketDisplay === "BTC"
-                    ? Number(item["stats"]["askPrice"])
-                        .toString()
-                        .replace(/\d/g, function (v) {
-                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
-                        })
-                    : item["stats"]["askPrice"] !== "-" &&
-                      marketDisplay !== "BTC"
-                    ? Number(item["stats"]["askPrice"])
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                        .replace(/\d/g, function (v) {
-                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
-                        })
-                    : "-"}
+                  <span className="numericSpan">
+                    {item["stats"]["askPrice"] !== "-" &&
+                    marketDisplay === "BTC"
+                      ? Number(item["stats"]["askPrice"])
+                          .toString()
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : item["stats"]["askPrice"] !== "-" &&
+                        marketDisplay !== "BTC"
+                      ? Number(item["stats"]["askPrice"])
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : "-"}
+                  </span>
                 </td>
                 <td
                   className={` numericTd
@@ -324,26 +347,45 @@ function Table(props) {
                   }
                   `}
                 >
-                  {item["stats"]["24h_ch"] !== "-"
-                    ? Number(item["stats"]["24h_ch"])
-                        .toFixed(3)
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                        .replace(/\d/g, function (v) {
-                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
-                        })
-                    : "-"}
+                  <span className="numericSpan">
+                  {item["stats"]["24h_ch"] > 0 ? "+" : ""}{item["stats"]["24h_ch"] !== "-"
+                      ? Number(item["stats"]["24h_ch"])
+                          // .toFixed(3)
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : "-"} %
+                  </span>
                 </td>
                 <td className="numericTd">
-                  {item["stats"]["24h_quoteVolume"] !== "-"
-                    ? Number(item["stats"]["24h_quoteVolume"])
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                        .replace(/\d/g, function (v) {
-                          return String.fromCharCode(v.charCodeAt(0) + 0x06c0);
-                        })
-                    : "-"}
-                </td>
+                    <span className="numericSpan">
+                      {item["stats"]["24h_quoteVolume"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["24h_quoteVolume"])
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["24h_quoteVolume"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["24h_quoteVolume"])
+                            .toFixed(0)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"}
+                    </span>
+                  </td>
               </tr>
             );
           })}
@@ -367,10 +409,8 @@ function Table(props) {
             return (
               <>
                 <tr className="tbodyRows" key={item["symbol"]}>
-                  <td>
-                    {!favorite.length
-                      ? index + 1
-                      : favorite.length + index + 1}
+                  <td className="rowIndex">
+                    {!favorite.length ? index + 1 : favorite.length + index + 1}
                   </td>
                   <td className="currency">
                     <span onClick={() => handleFavorite(item)} className="star">
@@ -379,8 +419,8 @@ function Table(props) {
                           draggable="false"
                           className="starOff"
                           src={require("../assets/image/favorite/starOff.png")}
-                          width="20px"
-                          height="20px"
+                          width="25px"
+                          // height="20px"
                           alt="starOff"
                         />
                       ) : (
@@ -388,8 +428,8 @@ function Table(props) {
                           draggable="false"
                           className="starOn"
                           src={require("../assets/image/favorite/starOn.png")}
-                          width="20px"
-                          height="20px"
+                          width="25px"
+                          // height="20px"
                           alt="starOn"
                         />
                       )}
@@ -398,110 +438,124 @@ function Table(props) {
                       className="currencyIcon"
                       src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
                       alt={temp[0]["symbol"]}
-                      width="20px"
-                      height="20px"
+                      width="25px"
+                      // height="20px"
                     />
+                    <div className="currencyNameParent">
                     <span className="currencyName">{item["faBaseAsset"]}</span>
+                    <span className="currencyIndex"> {item["baseAsset"]} </span>
+                    </div>
                   </td>
 
                   <td className="numericTd">
-                    {item["stats"]["bidPrice"] !== "-" &&
-                    marketDisplay === "BTC"
-                      ? Number(item["stats"]["bidPrice"])
-                          .toString()
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : item["stats"]["bidPrice"] !== "-" &&
-                        marketDisplay !== "BTC"
-                      ? Number(item["stats"]["bidPrice"])
-                          .toFixed(3)
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : "-"}
+                    <span className="numericSpan">
+                      {item["stats"]["bidPrice"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["bidPrice"])
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["bidPrice"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["bidPrice"])
+                            // .toFixed(3)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"}
+                    </span>
                   </td>
                   <td className="numericTd">
-                    {item["stats"]["askPrice"] !== "-" &&
-                    marketDisplay === "BTC"
-                      ? Number(item["stats"]["askPrice"])
-                          .toString()
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : item["stats"]["askPrice"] !== "-" &&
-                        marketDisplay !== "BTC"
-                      ? Number(item["stats"]["askPrice"])
-                          .toFixed(3)
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : "-"}
+                    <span className="numericSpan">
+                      {item["stats"]["askPrice"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["askPrice"])
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["askPrice"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["askPrice"])
+                            // .toFixed(3)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"}
+                    </span>
                   </td>
                   <td
                     className={` numericTd
-                ${
-                  Number(item["stats"]["24h_ch"]) > 0
-                    ? "posetive"
-                    : Number(item["stats"]["24h_ch"]) < 0
-                    ? "negetive"
-                    : ""
-                }
+                    ${
+                      Number(item["stats"]["24h_ch"]) > 0
+                        ? "posetive"
+                        : Number(item["stats"]["24h_ch"]) < 0
+                        ? "negetive"
+                        : ""
+                    }
                 `}
                   >
-                    {item["stats"]["24h_ch"] !== "-" && marketDisplay === "BTC"
-                      ? Number(item["stats"]["24h_ch"])
-                          .toString()
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : item["stats"]["24h_ch"] !== "-" &&
-                        marketDisplay !== "BTC"
-                      ? Number(item["stats"]["24h_ch"])
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : "-"}
+                    <span className="numericSpan">
+                      {item["stats"]["24h_ch"] > 0 ? "+" : ""}{item["stats"]["24h_ch"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["24h_ch"])
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["24h_ch"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["24h_ch"])
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"} %
+                    </span>
                   </td>
                   <td className="numericTd">
-                    {item["stats"]["24h_quoteVolume"] !== "-" &&
-                    marketDisplay === "BTC"
-                      ? Number(item["stats"]["24h_quoteVolume"])
-                          .toString()
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : item["stats"]["24h_quoteVolume"] !== "-" &&
-                        marketDisplay !== "BTC"
-                      ? Number(item["stats"]["24h_quoteVolume"])
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                          .replace(/\d/g, function (v) {
-                            return String.fromCharCode(
-                              v.charCodeAt(0) + 0x06c0
-                            );
-                          })
-                      : "-"}
+                    <span className="numericSpan">
+                      {item["stats"]["24h_quoteVolume"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["24h_quoteVolume"])
+                            // .toFixed(0)
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["24h_quoteVolume"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["24h_quoteVolume"])
+                            .toFixed(0)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"}
+                    </span>
                   </td>
                 </tr>
               </>

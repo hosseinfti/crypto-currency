@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Sorting from "./utils/Sorting";
 import Table from "./components/Table";
 import Calculator from "./components/Calculator";
 
@@ -21,7 +20,6 @@ function Finance() {
         <Calculator currency={currency} />
         <div className="tableContainer">
           <div className="tableDiv">
-            <Sorting name="ali" />
             <Table currency={currency} setCurrency={setCurrency} />
           </div>
         </div>

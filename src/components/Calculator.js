@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import cryptoSrc from "../json/cryptoIcon.json";
 
 function Calculator(props) {
   const [baseCurrency, setBaseCurrency] = useState();
@@ -12,6 +13,15 @@ function Calculator(props) {
   const [noneBase, setNoneBase] = useState(false);
   const [baseSearch, setBaseSearch] = useState("");
   const [quoteSearch, setQuoteSearch] = useState("");
+
+  // const [baseAsset, setBaseAsset] = useState("BTC")
+  // const [quoteAsset, setQuoteAsset] = useState("USDT")
+  const selectedBaseAsset = cryptoSrc.filter((item) => {
+    return item["faAsset"] === selectedBaseCurrency;
+  });
+  const selectedQuoteAsset = cryptoSrc.filter((item) => {
+    return item["faAsset"] === selectedQuoteCurrency;
+  });
 
   useEffect(() => {
     const quoteSeen = new Set();
@@ -88,7 +98,6 @@ function Calculator(props) {
   }
   function changeQuoteSearch(e) {
     setQuoteSearch(e.target.value);
-
   }
 
   return (
@@ -125,7 +134,21 @@ function Calculator(props) {
             onClick={() => setNoneBase(noneBase ? false : true)}
             className="selected-drop-down currencyParts"
           >
-            <span className="dropDownText">{selectedBaseCurrency}</span>
+            <div className="selectedAssetAndIconDiv">
+              <img
+                className="selectedDropDownIcon"
+                src={require(`../assets/image/cryptoIcon/${selectedBaseAsset[0]["symbol"]}.svg`)}
+                alt={selectedBaseAsset[0]["symbol"]}
+                width="25px"
+              />
+
+              <span className="selectedDropDownText">
+                {selectedBaseCurrency}
+              </span>
+              <span className="selectedDropDownIndex">
+                ({selectedBaseAsset[0]["symbol"]})
+              </span>
+            </div>
             <img
               className="dropDownIcon"
               src={require("../assets/image/arrow/dropDown-Arrow.png")}
@@ -133,33 +156,56 @@ function Calculator(props) {
               alt="arrow"
             />
           </div>
-          <div className={` ${noneBase ? "drop-down" : "drop-down-None"}`}>
+          <div
+            className={`drop-down-base ${
+              noneBase ? "drop-down" : "drop-down-None"
+            }`}
+          >
             <div className="searchBaseDivDropDown">
-              <input
-                value={baseSearch}
-                onChange={(e) => changeBasaeSearch(e)}
-                className="searchInputDropDown inputCurrency"
-                type="text"
-              />
               <img
-                className="searchBaseIconDropDown"
+                className="searchIconDropDown"
                 src={require("../assets/image/search/magnifying-glass.png")}
                 alt="searchIcon"
                 width="20px"
               />
+              <input
+                value={baseSearch}
+                placeholder="نام ارز"
+                onChange={(e) => changeBasaeSearch(e)}
+                className="searchInputDropDown"
+                type="text"
+              />
             </div>
             {uniqBaseCurrency
               .filter((item) => {
-                return baseSearch === "" ? item["faBaseAsset"] : item["faBaseAsset"].includes(baseSearch);
+                return baseSearch === ""
+                  ? item["faBaseAsset"]
+                  : item["faBaseAsset"].includes(baseSearch);
               })
               .map((item) => {
+                let mapItem = item;
+                const temp = cryptoSrc.filter((item) => {
+                  return item["symbol"] === mapItem["baseAsset"];
+                });
                 return (
-                  <div
-                    key={item["symbol"]}
-                    onClick={(e) => changeBase(e)}
-                    className="drop-down-Item"
-                  >
-                    {item["faBaseAsset"]}
+                  <div className="drop-down-Item">
+                    <img
+                      className="drop-down-Icon"
+                      src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                      alt={temp[0]["symbol"]}
+                      width="20px"
+                    />
+                    <div
+                      key={item["symbol"]}
+                      onClick={(e) => changeBase(e)}
+                      className="drop-down-currency"
+                    >
+                      {item["faBaseAsset"]}
+                    </div>
+                    <div className="drop-down-Index">
+                      {" "}
+                      ({item["baseAsset"]}){" "}
+                    </div>
                   </div>
                 );
               })}
@@ -223,7 +269,20 @@ function Calculator(props) {
             onClick={() => setNoneQuote(noneQuote ? false : true)}
             className="selected-drop-down currencyParts"
           >
-            <span className="dropDownText">{selectedQuoteCurrency}</span>
+            <div className="selectedAssetAndIconDiv">
+              <img
+                className="selectedDropDownIcon"
+                src={require(`../assets/image/cryptoIcon/${selectedQuoteAsset[0]["symbol"]}.svg`)}
+                alt={selectedQuoteAsset[0]["symbol"]}
+                width="25px"
+              />
+              <span className="selectedDropDownText">
+                {selectedQuoteCurrency}
+              </span>
+              <span className="selectedDropDownIndex">
+                ({selectedQuoteAsset[0]["symbol"]})
+              </span>
+            </div>
             <img
               className="dropDownIcon"
               src={require("../assets/image/arrow/dropDown-Arrow.png")}
@@ -233,34 +292,53 @@ function Calculator(props) {
           </div>
           <div className={` ${noneQuote ? "drop-down" : "drop-down-None"}`}>
             <div className="searchQuoteDivDropDown">
-              <input
-              value={quoteSearch}
-              onChange={(e) => changeQuoteSearch(e)}
-                className="searchInputDropDown inputCurrency"
-                type="text"
-              />
               <img
-                className="searchQuoteIconDropDown"
+                className="searchIconDropDown"
                 src={require("../assets/image/search/magnifying-glass.png")}
                 alt="searchIcon"
                 width="20px"
               />
+              <input
+                value={quoteSearch}
+                placeholder="نام ارز"
+                onChange={(e) => changeQuoteSearch(e)}
+                className="searchInputDropDown"
+                type="text"
+              />
             </div>
             {uniqQuoteCurrency
-            .filter((item) => {
-              return quoteSearch === "" ? item["faQuoteAsset"] : item["faQuoteAsset"].includes(quoteSearch);
-            })
-            .map((item) => {
-              return (
-                <div
-                  key={item["symbol"]}
-                  onClick={(e) => changeQuote(e)}
-                  className="drop-down-Item"
-                >
-                  {item["faQuoteAsset"]}
-                </div>
-              );
-            })}
+              .filter((item) => {
+                return quoteSearch === ""
+                  ? item["faQuoteAsset"]
+                  : item["faQuoteAsset"].includes(quoteSearch);
+              })
+              .map((item) => {
+                let mapItem = item;
+                const temp = cryptoSrc.filter((item) => {
+                  return item["symbol"] === mapItem["quoteAsset"];
+                });
+                return (
+                  <div className="drop-down-Item">
+                    <img
+                      className="drop-down-Item-Icon"
+                      src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                      alt={temp[0]["symbol"]}
+                      width="20px"
+                    />
+                    <div
+                      key={item["symbol"]}
+                      onClick={(e) => changeQuote(e)}
+                      className="drop-down-currency"
+                    >
+                      {item["faQuoteAsset"]}
+                    </div>
+                    <div className="drop-down-Index">
+                      {" "}
+                      ({item["quoteAsset"]}){" "}
+                    </div>
+                  </div>
+                );
+              })}
           </div>
           {/* </div> */}
           <div>

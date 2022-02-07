@@ -584,15 +584,16 @@ function Table(props) {
                 </>
               );
             })}
+                  <tr className="noResult-tr">
+                    <td colSpan="6" className="noResultTable">
+                      {searchTerm && searchedList.length === 0
+                        ? "نتیجه‌ای یافت نشد"
+                        : ""}
+                    </td>
+                  </tr>
         </tbody>
       </table>
       {/* <div className="loadin"> {loading === true ? "Loading" : "" } </div> */}
-      <div className="noResultTable">
-        {" "}
-        {searchTerm && searchedList.length === 0
-          ? "نتیجه‌ای یافت نشد"
-          : ""}{" "}
-      </div>
     </>
   );
 }

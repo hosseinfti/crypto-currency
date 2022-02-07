@@ -80,11 +80,11 @@ function Calculator(props) {
   }
 
   function changeBase(event) {
-    setSelectedBaseCurrency(event.target.innerText);
+    setSelectedBaseCurrency(event.currentTarget.id);
     setIsBaseDropDownOpen(false);
   }
   function changeQuote(event) {
-    setSelectedQuoteCurrency(event.target.innerText);
+    setSelectedQuoteCurrency(event.currentTarget.id);
     setIsQuoteDropDownOpen(false);
   }
 
@@ -177,24 +177,22 @@ function Calculator(props) {
                   return item["symbol"] === mapItem["baseAsset"];
                 });
                 return (
-                  <div className="drop-down-Item">
+                  <div
+                    key={item["symbol"]}
+                    id={item["faBaseAsset"]}
+                    className="drop-down-Item"
+                    onClick={(e) => changeBase(e)}
+                  >
                     <img
                       className="drop-down-Icon"
                       src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
                       alt={temp[0]["symbol"]}
                       width="20px"
                     />
-                    <div
-                      key={item["symbol"]}
-                      onClick={(e) => changeBase(e)}
-                      className="drop-down-currency"
-                    >
+                    <div key={item["symbol"]} className="drop-down-currency">
                       {item["faBaseAsset"]}
                     </div>
-                    <div className="drop-down-Index">
-                      {" "}
-                      ({item["baseAsset"]}){" "}
-                    </div>
+                    <div className="drop-down-Index">({item["baseAsset"]})</div>
                   </div>
                 );
               })}
@@ -294,7 +292,11 @@ function Calculator(props) {
                   return item["symbol"] === mapItem["quoteAsset"];
                 });
                 return (
-                  <div className="drop-down-Item">
+                  <div className="drop-down-Item"
+                  key={item["symbol"]}
+                  id={item["faQuoteAsset"]}
+                  onClick={(e) => changeQuote(e)}
+                  >
                     <img
                       className="drop-down-Item-Icon"
                       src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
@@ -303,7 +305,6 @@ function Calculator(props) {
                     />
                     <div
                       key={item["symbol"]}
-                      onClick={(e) => changeQuote(e)}
                       className="drop-down-currency"
                     >
                       {item["faQuoteAsset"]}

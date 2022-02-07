@@ -88,25 +88,21 @@ function Calculator(props) {
     setIsQuoteDropDownOpen(false);
   }
 
-
   function changeBasaeSearch(e) {
     setBaseSearchTerm(e.target.value);
     const newList = uniqBaseCurrency.filter((item) => {
       return item["faBaseAsset"].includes(e.target.value);
     });
-    setBaseSearchedList(newList)
+    setBaseSearchedList(newList);
     // console.log(newList);
   }
-
-
-
 
   function changeQuoteSearch(e) {
     setQuoteSearchTerm(e.target.value);
     const newList = uniqQuoteCurrency.filter((item) => {
       return item["faQuoteAsset"].includes(e.target.value);
     });
-    setQuoteSearchedList(newList)
+    setQuoteSearchedList(newList);
     // console.log(newList);
   }
 
@@ -121,6 +117,7 @@ function Calculator(props) {
           <div
             onClick={() => setIsBaseDropDownOpen(!isBaseDropDownOpen)}
             className="selected-drop-down currencyParts"
+            // tabIndex="0"
           >
             <div className="selectedAssetAndIconDiv">
               <img
@@ -201,7 +198,13 @@ function Calculator(props) {
                   </div>
                 );
               })}
-            <div className="noResultBase"> {/*baseSearchTerm && */baseSearchedList.length ===0 ? "نتیجه ای یافت نشد" : ""} </div>
+            <div className="noResultBaseDiv">
+              <span className="noResultBase">
+                {baseSearchTerm && baseSearchedList.length === 0
+                  ? "نتیجه‌ای یافت نشد"
+                  : ""}
+              </span>
+            </div>
           </div>
           <div>
             <input
@@ -311,7 +314,13 @@ function Calculator(props) {
                   </div>
                 );
               })}
-            <div className="noResultQuote"> {/*quoteSearchTerm && */quoteSearchedList.length === 0 ? "نتیجه ای یافت نشد" : "" } </div>
+            <div className="noResultQuoteDiv">
+              <span className="noResultQuote">
+                {quoteSearchTerm && quoteSearchedList.length === 0
+                  ? "نتیجه‌ای یافت نشد"
+                  : ""}
+              </span>
+            </div>
           </div>
           <div>
             <input

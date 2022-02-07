@@ -576,7 +576,7 @@ function Table(props) {
       </tbody>
     </table>
     {/* <div className="loadin"> {loading === true ? "Loading" : "" } </div> */}
-    <div className="noResult"> {searchTerm && searchedList.length === 0 ? "نتیجه ای یافت نشد" : ""} </div>
+    <div className="noResultTable"> {searchTerm && searchedList.length === 0 ? "نتیجه‌ای یافت نشد" : ""} </div>
     </>
   );
 }

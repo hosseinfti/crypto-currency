@@ -214,16 +214,6 @@ body {
 .baseCurrencyReverse {
   order: 3;
 }
-.convertIcon {
-  cursor: pointer;
-  padding: 10px 18px;
-  border-radius: 100px;
-  border: none;
-}
-
-.convertIconReverse {
-  order: 2;
-}
 
 .quoteCurrency {
   display: flex;

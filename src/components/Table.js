@@ -1,5 +1,5 @@
 // import axios from "axios";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import queryString from "query-string";
 import cryptoSrc from "../json/cryptoIcon.json";
@@ -12,10 +12,13 @@ function Table(props) {
   //   const [currency, setCurrency] = useState([]);
   const [defaultCurrency, setDefaultCurrency] = useState([]);
   const [searchTerm, setSearchTerm] = useState(search);
+  const [searchedList, setSearcedList] = useState([]);
+  const [loading, setLoading] = useState(true)
   const [sortCol, setSortCol] = useState();
   const [order, setOrder] = useState("DEF");
   const [favorite, setFavorite] = useState([]);
   const [marketDisplay, setMarketDisplay] = useState("USDT");
+  
 
   const searchRef = useRef(null);
 
@@ -37,6 +40,11 @@ function Table(props) {
 
   function handleChangeCurrency(event) {
     setSearchTerm(event.target.value);
+    const newList = props.currency.filter((item) => {
+      return item["faBaseAsset"].includes(event.target.value) &&
+        item["quoteAsset"] === marketDisplay
+    });
+    setSearcedList(newList);
   }
 
   function handleFavorite(item) {
@@ -108,6 +116,7 @@ function Table(props) {
   };
 
   return (
+    <>
     <table>
       <thead>
         <tr className="theaedRow1">
@@ -147,25 +156,19 @@ function Table(props) {
                 onClick={() => handleMarketDisplay("TMN")}
                 className="marketBaseDisplayBtn"
               >
-                <span>
-                تومان
-                </span>
+                <span>تومان</span>
               </button>
               <button
                 onClick={() => handleMarketDisplay("USDT")}
                 className="marketBaseDisplayBtn"
               >
-                <span>
-                USDT
-                </span>
+                <span>USDT</span>
               </button>
               <button
                 onClick={() => handleMarketDisplay("BTC")}
                 className="marketBaseDisplayBtn"
               >
-                <span>
-                BTC
-                </span>
+                <span>BTC</span>
               </button>
             </div>
           </th>
@@ -284,7 +287,7 @@ function Table(props) {
                   <div className="currencyNameParent">
                     <span className="currencyName">{item["faBaseAsset"]}</span>
                     <span className="currencyIndex"> {item["baseAsset"]} </span>
-                    </div>
+                  </div>
                 </td>
 
                 <td className="numericTd">
@@ -348,7 +351,8 @@ function Table(props) {
                   `}
                 >
                   <span className="numericSpan">
-                  {item["stats"]["24h_ch"] > 0 ? "+" : ""}{item["stats"]["24h_ch"] !== "-"
+                    {item["stats"]["24h_ch"] > 0 ? "+" : ""}
+                    {item["stats"]["24h_ch"] !== "-"
                       ? Number(item["stats"]["24h_ch"])
                           // .toFixed(3)
                           .toString()
@@ -358,34 +362,35 @@ function Table(props) {
                               v.charCodeAt(0) + 0x06c0
                             );
                           })
-                      : "-"} %
+                      : "-"}{" "}
+                    %
                   </span>
                 </td>
                 <td className="numericTd">
-                    <span className="numericSpan">
-                      {item["stats"]["24h_quoteVolume"] !== "-" &&
-                      marketDisplay === "BTC"
-                        ? Number(item["stats"]["24h_quoteVolume"])
-                            .toString()
-                            .replace(/\d/g, function (v) {
-                              return String.fromCharCode(
-                                v.charCodeAt(0) + 0x06c0
-                              );
-                            })
-                        : item["stats"]["24h_quoteVolume"] !== "-" &&
-                          marketDisplay !== "BTC"
-                        ? Number(item["stats"]["24h_quoteVolume"])
-                            .toFixed(0)
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                            .replace(/\d/g, function (v) {
-                              return String.fromCharCode(
-                                v.charCodeAt(0) + 0x06c0
-                              );
-                            })
-                        : "-"}
-                    </span>
-                  </td>
+                  <span className="numericSpan">
+                    {item["stats"]["24h_quoteVolume"] !== "-" &&
+                    marketDisplay === "BTC"
+                      ? Number(item["stats"]["24h_quoteVolume"])
+                          .toString()
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : item["stats"]["24h_quoteVolume"] !== "-" &&
+                        marketDisplay !== "BTC"
+                      ? Number(item["stats"]["24h_quoteVolume"])
+                          .toFixed(0)
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                          .replace(/\d/g, function (v) {
+                            return String.fromCharCode(
+                              v.charCodeAt(0) + 0x06c0
+                            );
+                          })
+                      : "-"}
+                  </span>
+                </td>
               </tr>
             );
           })}
@@ -442,8 +447,13 @@ function Table(props) {
                       // height="20px"
                     />
                     <div className="currencyNameParent">
-                    <span className="currencyName">{item["faBaseAsset"]}</span>
-                    <span className="currencyIndex"> {item["baseAsset"]} </span>
+                      <span className="currencyName">
+                        {item["faBaseAsset"]}
+                      </span>
+                      <span className="currencyIndex">
+                        {" "}
+                        {item["baseAsset"]}{" "}
+                      </span>
                     </div>
                   </td>
 
@@ -509,7 +519,8 @@ function Table(props) {
                 `}
                   >
                     <span className="numericSpan">
-                      {item["stats"]["24h_ch"] > 0 ? "+" : ""}{item["stats"]["24h_ch"] !== "-" &&
+                      {item["stats"]["24h_ch"] > 0 ? "+" : ""}
+                      {item["stats"]["24h_ch"] !== "-" &&
                       marketDisplay === "BTC"
                         ? Number(item["stats"]["24h_ch"])
                             .toString()
@@ -528,7 +539,8 @@ function Table(props) {
                                 v.charCodeAt(0) + 0x06c0
                               );
                             })
-                        : "-"} %
+                        : "-"}{" "}
+                      %
                     </span>
                   </td>
                   <td className="numericTd">
@@ -563,6 +575,9 @@ function Table(props) {
           })}
       </tbody>
     </table>
+    {/* <div className="loadin"> {loading === true ? "Loading" : "" } </div> */}
+    <div className="noResult"> {searchTerm && searchedList.length === 0 ? "نتیجه ای یافت نشد" : ""} </div>
+    </>
   );
 }
 export default Table;

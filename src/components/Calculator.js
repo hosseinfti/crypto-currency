@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import cryptoSrc from "../json/cryptoIcon.json";
 
 function Calculator(props) {
@@ -9,13 +9,13 @@ function Calculator(props) {
   const [selectedBaseCurrency, setSelectedBaseCurrency] = useState("بیت کوین");
   const [selectedQuoteCurrency, setSelectedQuoteCurrency] = useState("تتر");
   const [reverseIcon, setReverseIcon] = useState(false);
-  const [noneQuote, setNoneQuote] = useState(false);
-  const [noneBase, setNoneBase] = useState(false);
-  const [baseSearch, setBaseSearch] = useState("");
-  const [quoteSearch, setQuoteSearch] = useState("");
+  const [isQuoteDropDownOpen, setIsQuoteDropDownOpen] = useState(false);
+  const [isBaseDropDownOpen, setIsBaseDropDownOpen] = useState(false);
+  const [baseSearchTerm, setBaseSearchTerm] = useState("");
+  const [quoteSearchTerm, setQuoteSearchTerm] = useState("");
+  const [quoteSearchedList, setQuoteSearchedList] = useState([]);
+  const [baseSearchedList, setBaseSearchedList] = useState([]);
 
-  // const [baseAsset, setBaseAsset] = useState("BTC")
-  // const [quoteAsset, setQuoteAsset] = useState("USDT")
   const selectedBaseAsset = cryptoSrc.filter((item) => {
     return item["faAsset"] === selectedBaseCurrency;
   });
@@ -79,25 +79,35 @@ function Calculator(props) {
     setQuoteCurrency(event.target.value);
   }
 
-  // let map =  ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-  // function changeLangNumToEn(event) {
-  //   event.value = event.value.replace(/\d/g, function(match){
-  //     return map[match]
-  //   })
-  // }
   function changeBase(event) {
     setSelectedBaseCurrency(event.target.innerText);
-    setNoneBase(false);
+    setIsBaseDropDownOpen(false);
   }
   function changeQuote(event) {
     setSelectedQuoteCurrency(event.target.innerText);
-    setNoneQuote(false);
+    setIsQuoteDropDownOpen(false);
   }
+
+
   function changeBasaeSearch(e) {
-    setBaseSearch(e.target.value);
+    setBaseSearchTerm(e.target.value);
+    const newList = uniqBaseCurrency.filter((item) => {
+      return item["faBaseAsset"].includes(e.target.value);
+    });
+    setBaseSearchedList(newList)
+    // console.log(newList);
   }
+
+
+
+
   function changeQuoteSearch(e) {
-    setQuoteSearch(e.target.value);
+    setQuoteSearchTerm(e.target.value);
+    const newList = uniqQuoteCurrency.filter((item) => {
+      return item["faQuoteAsset"].includes(e.target.value);
+    });
+    setQuoteSearchedList(newList)
+    // console.log(newList);
   }
 
   return (
@@ -108,30 +118,8 @@ function Calculator(props) {
             reverseIcon === true ? "baseCurrencyReverse" : ""
           }`}
         >
-          {/* <div className="dropDown divDropDown currencyParts"> */}
-
-          {/* <select
-              value={selectedBaseCurrency}
-              onChange={(e) => setSelectedBaseCurrency(e.target.value)}
-              className=" dropDown"
-              id="baseSelect"
-            >
-              {uniqBaseCurrency.map((item) => {
-                return (
-                  <>
-                    <div>
-                      <option key={item["symbol"]} value={item["baseAsset"]}>
-                        {item["faBaseAsset"]}
-                      </option>
-                    </div>
-                  </>
-                );
-              })}
-            </select> */}
           <div
-            // onm={setNoneBase(false)}
-            // onClickCapture={() => setNoneBase(false)}
-            onClick={() => setNoneBase(noneBase ? false : true)}
+            onClick={() => setIsBaseDropDownOpen(!isBaseDropDownOpen)}
             className="selected-drop-down currencyParts"
           >
             <div className="selectedAssetAndIconDiv">
@@ -150,7 +138,11 @@ function Calculator(props) {
               </span>
             </div>
             <img
-              className="dropDownIcon"
+              className={` ${
+                isBaseDropDownOpen === false
+                  ? "dropDownIconClose"
+                  : "dropDownIconOpen"
+              } `}
               src={require("../assets/image/arrow/dropDown-Arrow.png")}
               width="15px"
               alt="arrow"
@@ -158,7 +150,7 @@ function Calculator(props) {
           </div>
           <div
             className={`drop-down-base ${
-              noneBase ? "drop-down" : "drop-down-None"
+              isBaseDropDownOpen ? "drop-down" : "drop-down-None"
             }`}
           >
             <div className="searchBaseDivDropDown">
@@ -169,7 +161,7 @@ function Calculator(props) {
                 width="20px"
               />
               <input
-                value={baseSearch}
+                value={baseSearchTerm}
                 placeholder="نام ارز"
                 onChange={(e) => changeBasaeSearch(e)}
                 className="searchInputDropDown"
@@ -178,9 +170,9 @@ function Calculator(props) {
             </div>
             {uniqBaseCurrency
               .filter((item) => {
-                return baseSearch === ""
+                return baseSearchTerm === ""
                   ? item["faBaseAsset"]
-                  : item["faBaseAsset"].includes(baseSearch);
+                  : item["faBaseAsset"].includes(baseSearchTerm);
               })
               .map((item) => {
                 let mapItem = item;
@@ -209,20 +201,21 @@ function Calculator(props) {
                   </div>
                 );
               })}
+            <div className="noResultBase"> {/*baseSearchTerm && */baseSearchedList.length ===0 ? "نتیجه ای یافت نشد" : ""} </div>
           </div>
-
-          {/* </div> */}
           <div>
             <input
+              type="number"
               placeholder="مقدار را وارد کنید"
               onChange={handleChangeBaseCurrency}
               value={baseCurrency || ""}
               className="inputCurrency currencyParts "
-              // oninput={changeLangNumToEn(this)}
             />
           </div>
         </div>
-        <div
+        <img
+          src={require("../assets/image/exchange/money-exchange.png")}
+          width="30px"
           onClick={() => {
             reverseIcon === false
               ? setReverseIcon(true)
@@ -231,42 +224,14 @@ function Calculator(props) {
           className={` convertIcon ${
             reverseIcon === true ? "convertIconReverse" : ""
           }`}
-        >
-          &#8646;
-        </div>
+        />
         <div
           className={` quoteCurrency ${
             reverseIcon === true ? "quoteCurrencyReverse" : ""
           }`}
         >
-          {/* <div className="dropDown divDropDown currencyParts"> */}
-          {/* <img
-              className="dropDownIcon"
-              src={require("../assets/image/arrow/dropDown-Arrow.png")}
-              width="15px"
-              alt="arrow"
-            /> */}
-          {/* <select
-              value={selectedQuoteCurrency}
-              onChange={(e) => setSelectedQuoteCurrency(e.target.value)}
-              className="dropDown"
-              id="quoteSelect"
-            >
-              {uniqQuoteCurrency.map((item) => {
-                return (
-                  <div>
-                    <div className=""></div>
-                    <option key={item["symbol"]} value={item["quoteAsset"]}>
-                      {item["faQuoteAsset"]}
-                    </option>
-                  </div>
-                );
-              })}
-            </select> */}
           <div
-            // onMouseOver={setNoneQuote(false)}
-            // onMouseUp={setNoneQuote(false)}
-            onClick={() => setNoneQuote(noneQuote ? false : true)}
+            onClick={() => setIsQuoteDropDownOpen(!isQuoteDropDownOpen)}
             className="selected-drop-down currencyParts"
           >
             <div className="selectedAssetAndIconDiv">
@@ -284,13 +249,21 @@ function Calculator(props) {
               </span>
             </div>
             <img
-              className="dropDownIcon"
+              className={` ${
+                isQuoteDropDownOpen === false
+                  ? "dropDownIconClose"
+                  : "dropDownIconOpen"
+              } `}
               src={require("../assets/image/arrow/dropDown-Arrow.png")}
               width="15px"
               alt="arrow"
             />
           </div>
-          <div className={` ${noneQuote ? "drop-down" : "drop-down-None"}`}>
+          <div
+            className={` ${
+              isQuoteDropDownOpen ? "drop-down" : "drop-down-None"
+            }`}
+          >
             <div className="searchQuoteDivDropDown">
               <img
                 className="searchIconDropDown"
@@ -299,7 +272,7 @@ function Calculator(props) {
                 width="20px"
               />
               <input
-                value={quoteSearch}
+                value={quoteSearchTerm}
                 placeholder="نام ارز"
                 onChange={(e) => changeQuoteSearch(e)}
                 className="searchInputDropDown"
@@ -308,9 +281,9 @@ function Calculator(props) {
             </div>
             {uniqQuoteCurrency
               .filter((item) => {
-                return quoteSearch === ""
+                return quoteSearchTerm === ""
                   ? item["faQuoteAsset"]
-                  : item["faQuoteAsset"].includes(quoteSearch);
+                  : item["faQuoteAsset"].includes(quoteSearchTerm);
               })
               .map((item) => {
                 let mapItem = item;
@@ -333,16 +306,16 @@ function Calculator(props) {
                       {item["faQuoteAsset"]}
                     </div>
                     <div className="drop-down-Index">
-                      {" "}
-                      ({item["quoteAsset"]}){" "}
+                      ({item["quoteAsset"]})
                     </div>
                   </div>
                 );
               })}
+            <div className="noResultQuote"> {/*quoteSearchTerm && */quoteSearchedList.length === 0 ? "نتیجه ای یافت نشد" : "" } </div>
           </div>
-          {/* </div> */}
           <div>
             <input
+              type="number"
               placeholder="مقدار را وارد کنید"
               onChange={handleChangeQuoteCurrency}
               value={quoteCurrency || ""}

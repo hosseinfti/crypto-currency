@@ -292,10 +292,11 @@ function Calculator(props) {
                   return item["symbol"] === mapItem["quoteAsset"];
                 });
                 return (
-                  <div className="drop-down-Item"
-                  key={item["symbol"]}
-                  id={item["faQuoteAsset"]}
-                  onClick={(e) => changeQuote(e)}
+                  <div
+                    className="drop-down-Item"
+                    key={item["symbol"]}
+                    id={item["faQuoteAsset"]}
+                    onClick={(e) => changeQuote(e)}
                   >
                     <img
                       className="drop-down-Item-Icon"
@@ -303,10 +304,7 @@ function Calculator(props) {
                       alt={temp[0]["symbol"]}
                       width="20px"
                     />
-                    <div
-                      key={item["symbol"]}
-                      className="drop-down-currency"
-                    >
+                    <div key={item["symbol"]} className="drop-down-currency">
                       {item["faQuoteAsset"]}
                     </div>
                     <div className="drop-down-Index">

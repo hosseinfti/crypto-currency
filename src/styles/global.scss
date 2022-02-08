@@ -228,12 +228,25 @@ button {
     box-shadow: 0 2px 15px -6px rgb(0 0 0 / 50%);
     background-color: white;
 
+    .tableHeader {
+      text-align: center;
+      min-width: 150px;
+    }
     .tableHeader:hover {
       background-color: $calc-background;
+      cursor: pointer;
+
     }
     .tableHeader:first-child:hover {
       background-color: $background-color;
       cursor: auto;
+    }
+    .ascendingIcon {
+      transform: rotate(-90deg);
+
+    }
+    .descendingIcon {
+      transform: rotate(90deg);
     }
     .searchTh {
       position: relative;

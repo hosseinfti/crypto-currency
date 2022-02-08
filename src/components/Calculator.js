@@ -217,6 +217,7 @@ function Calculator(props) {
         <img
           src={require("../assets/image/exchange/money-exchange.png")}
           width="30px"
+          alt="exchangeIcon"
           onClick={() => {
             reverseIcon === false
               ? setReverseIcon(true)

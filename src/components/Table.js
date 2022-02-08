@@ -13,7 +13,7 @@ function Table(props) {
   const [defaultCurrency, setDefaultCurrency] = useState([]);
   const [searchTerm, setSearchTerm] = useState(search);
   const [searchedList, setSearcedList] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [sortCol, setSortCol] = useState();
   const [order, setOrder] = useState("DEF");
   const [favorite, setFavorite] = useState([]);
@@ -186,7 +186,26 @@ function Table(props) {
               }`}
               onClick={() => sorting("faBaseAsset", "currency")}
             >
-              نام ارز
+              <span>نام ارز</span>
+              <span>
+                {sortCol === "currency" && order === "ASC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="ascendingIcon"
+                    width="15px"
+                    alt="ascend"
+                  />
+                ) : sortCol === "currency" && order === "DSC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="descendingIcon"
+                    width="15px"
+                    alt="decsend"
+                  />
+                ) : (
+                  ""
+                )}
+              </span>
             </th>
             <th
               className={` tableHeader ${
@@ -198,7 +217,27 @@ function Table(props) {
               }`}
               onClick={() => sorting("stats", "bidPrice")}
             >
-              قیمت خرید
+              <span>قیمت خرید</span>
+              <span>
+                {" "}
+                {sortCol === "bidPrice" && order === "ASC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="ascendingIcon"
+                    width="15px"
+                    alt="ascend"
+                  />
+                ) : sortCol === "bidPrice" && order === "DSC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="descendingIcon"
+                    width="15px"
+                    alt="decsend"
+                  />
+                ) : (
+                  ""
+                )}
+              </span>
             </th>
             <th
               className={` tableHeader ${
@@ -210,7 +249,27 @@ function Table(props) {
               }`}
               onClick={() => sorting("stats", "askPrice")}
             >
-              قیمت فروش
+              <span>قیمت فروش</span>
+              <span>
+                {" "}
+                {sortCol === "askPrice" && order === "ASC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="ascendingIcon"
+                    width="15px"
+                    alt="ascend"
+                  />
+                ) : sortCol === "askPrice" && order === "DSC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="descendingIcon"
+                    width="15px"
+                    alt="decsend"
+                  />
+                ) : (
+                  ""
+                )}
+              </span>
             </th>
             <th
               className={` tableHeader ${
@@ -222,7 +281,27 @@ function Table(props) {
               }`}
               onClick={() => sorting("stats", "24h_ch")}
             >
-              تغییرات
+              <span>تغییرات</span>
+              <span>
+                {" "}
+                {sortCol === "24h_ch" && order === "ASC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="ascendingIcon"
+                    width="15px"
+                    alt="ascend"
+                  />
+                ) : sortCol === "24h_ch" && order === "DSC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="descendingIcon"
+                    width="15px"
+                    alt="decsend"
+                  />
+                ) : (
+                  ""
+                )}
+              </span>
             </th>
             <th
               lang="fa"
@@ -235,7 +314,27 @@ function Table(props) {
               }`}
               onClick={() => sorting("stats", "24h_quoteVolume")}
             >
-              حجم معامله
+              <span>حجم معامله</span>
+              <span>
+                {" "}
+                {sortCol === "24h_quoteVolume" && order === "ASC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="ascendingIcon"
+                    width="15px"
+                    alt="ascend"
+                  />
+                ) : sortCol === "24h_quoteVolume" && order === "DSC" ? (
+                  <img
+                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    className="descendingIcon"
+                    width="15px"
+                    alt="decsend"
+                  />
+                ) : (
+                  ""
+                )}
+              </span>
             </th>
           </tr>
         </thead>
@@ -584,13 +683,13 @@ function Table(props) {
                 </>
               );
             })}
-                  <tr className="noResult-tr">
-                    <td colSpan="6" className="noResultTable">
-                      {searchTerm && searchedList.length === 0
-                        ? "نتیجه‌ای یافت نشد"
-                        : ""}
-                    </td>
-                  </tr>
+          <tr className="noResult-tr">
+            <td colSpan="6" className="noResultTable">
+              {searchTerm && searchedList.length === 0
+                ? "نتیجه‌ای یافت نشد"
+                : ""}
+            </td>
+          </tr>
         </tbody>
       </table>
       {/* <div className="loadin"> {loading === true ? "Loading" : "" } </div> */}

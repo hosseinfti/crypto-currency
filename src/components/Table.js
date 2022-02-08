@@ -683,11 +683,15 @@ function Table(props) {
                 </>
               );
             })}
-          <tr className="noResult-tr">
+          <tr
+            className={`${
+              searchTerm && searchedList.length === 0
+                ? "noResult-tr"
+                : "noResult-tr-none"
+            }`}
+          >
             <td colSpan="6" className="noResultTable">
-              {searchTerm && searchedList.length === 0
-                ? "نتیجه‌ای یافت نشد"
-                : ""}
+                نتیجه‌ای یافت نشد!
             </td>
           </tr>
         </tbody>

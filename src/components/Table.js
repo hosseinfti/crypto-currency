@@ -30,6 +30,7 @@ function Table(props) {
       search: searchTerm ? searchTerm : undefined,
     };
     const urlStringfy = queryString.stringify(url);
+    // eslint-disable-next-line no-use-before-define
     navigation(`?${urlStringfy}`);
   }, [searchTerm]);
 

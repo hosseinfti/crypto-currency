@@ -37,11 +37,9 @@ button {
     align-items: center;
     justify-content: center;
     height: 90vh;
-    
   }
   .notFoundIMG {
-  margin-top: 100px;
-
+    margin-block: 45px;
   }
   .notFoundEN {
     font-size: 13px;
@@ -49,12 +47,39 @@ button {
     margin-top: 5px;
   }
   .notFoundFA {
-    font-size: 30px;
+    font-size: 20px;
     color: $primary-color;
-    margin-top: 30px;
+    margin-top: 25px;
+    // margin-top: 30px;
     // box-shadow: 1px 1px 1px 1px $primary-color;
     // border-radius: 1px 1px;
-    padding: 6px 20px;
+    // padding: 6px 20px;
+  }
+  .returnHome {
+    font-size: 15px;
+    padding: 12px 30px;
+    border-radius: 30px 30px;
+    // box-shadow: 0px 0px 5px -1px #500fe9;
+    animation: boldShadow 500ms ease-in-out infinite alternate;
+    cursor: pointer;
+
+  }
+  @keyframes boldShadow {
+    0% {
+      box-shadow: 0px 0px 5px -1px #500fe9;
+    }
+    100% {
+      box-shadow: 0px 0px 13px 3px #500fe9;
+    }
+  }
+  .returnHome:hover {
+    box-shadow: 0px 0px 5px -1px #500fe9;
+    animation: none;
+
+  }
+  .returnHomeLink {
+    text-decoration: none;
+    color: #181818;
   }
   #header {
     color: #fff;
@@ -235,7 +260,6 @@ button {
     .tableHeader:hover {
       background-color: $calc-background;
       cursor: pointer;
-
     }
     .tableHeader:first-child:hover {
       background-color: $background-color;
@@ -243,7 +267,6 @@ button {
     }
     .ascendingIcon {
       transform: rotate(-90deg);
-
     }
     .descendingIcon {
       transform: rotate(90deg);

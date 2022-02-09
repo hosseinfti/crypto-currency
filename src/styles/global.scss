@@ -6,6 +6,7 @@ $inputBorder-color: #d1d1d1;
 $calcBorder-color: #a786f7;
 $changeIcon-hover: #f1ebff;
 $calc-background: #fff;
+$neutral-color: #181818;
 
 @font-face {
   font-family: "Estedad-Regular";
@@ -36,7 +37,8 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    height: 92vh;
+    width: 100vw;
   }
   .notFoundIMG {
     margin-block: 45px;
@@ -48,7 +50,7 @@ button {
   }
   .notFoundFA {
     font-size: 20px;
-    color: $primary-color;
+    color: $neutral-color;
     margin-top: 25px;
     // margin-top: 30px;
     // box-shadow: 1px 1px 1px 1px $primary-color;
@@ -79,7 +81,7 @@ button {
   }
   .returnHomeLink {
     text-decoration: none;
-    color: #181818;
+    color: $neutral-color;
   }
   #header {
     color: #fff;
@@ -100,7 +102,7 @@ button {
     background-color: $calc-background;
     border: solid 2px $calcBorder-color;
     border-radius: 18px;
-    padding: 10px 0;
+    padding: 25px 15px;
     box-shadow: 0px 0px 11px 4px #f1ebff;
     // .dropdown {
     //   appearance: none;
@@ -118,6 +120,7 @@ button {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 25px;
     }
     .selectedAssetAndIconDiv {
       display: flex;
@@ -148,8 +151,7 @@ button {
       background-color: $input-color;
       width: 229px;
       position: absolute;
-      top: 60px;
-      right: 20px;
+      top: 62px;
       z-index: 2;
       overflow-y: auto;
       overflow-x: hidden;
@@ -165,8 +167,7 @@ button {
       background-color: $input-color;
       width: 229px;
       position: absolute;
-      top: 60px;
-      right: 20px;
+      top: 62px;
       z-index: 2;
       overflow-y: auto;
       overflow-x: hidden;
@@ -232,6 +233,7 @@ button {
     .convertIcon {
       cursor: pointer;
       padding: 10px 10px;
+      margin: 10px 15px;
       border-radius: 100px;
       border: none;
       transform: rotate(360deg);
@@ -348,7 +350,7 @@ button {
     align-items: center;
     width: 100%;
     color: #ffffff;
-    background-color: #181818;
+    background-color: $neutral-color;
     box-shadow: 1px 2px 6px 1px $primary-color;
   }
 }

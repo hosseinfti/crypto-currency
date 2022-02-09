@@ -13,6 +13,7 @@ function Finance() {
       .then((res3) => setCurrency(res3))
       .catch((e) => console.log(e));
   }, []);
+  
   return (
     <>
       <div className="container">

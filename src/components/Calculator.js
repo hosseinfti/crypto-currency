@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import cryptoSrc from "../json/cryptoIcon.json";
 
 function Calculator(props) {
@@ -15,6 +15,9 @@ function Calculator(props) {
   const [quoteSearchTerm, setQuoteSearchTerm] = useState("");
   const [quoteSearchedList, setQuoteSearchedList] = useState([]);
   const [baseSearchedList, setBaseSearchedList] = useState([]);
+
+  const clickRefBase = useRef();
+  const clickRefQuote = useRef();
 
   const selectedBaseAsset = cryptoSrc.filter((item) => {
     return item["faAsset"] === selectedBaseCurrency;
@@ -40,6 +43,70 @@ function Calculator(props) {
     });
     setUniqBaseCurrency(filteredBaseCurrency);
   }, [props.currency]);
+
+  // const BDDElement = document.getElementsByClassName("calcBody");
+  // window.onclick =  (event) => {
+  //   if (event.target !== BDDElement) {
+  //     changeDDOpen();
+  //   }
+  // };
+  // function changeDDOpen() {
+  //   setIsBaseDropDownOpen(false)
+  //   setIsQuoteDropDownOpen(false)
+  // }
+
+  // useEffect(() => {
+  //   const BDDElement = document.getElementsByClassName("selected-drop-down");
+  //   window.onclick =  (event) => {
+  //     if (event.target !== BDDElement) {
+  //       changeDDOpen();
+  //     }
+  //   };
+  // },[isBaseDropDownOpen])
+
+  // useEffect(() => {
+  //     if(isBaseDropDownOpen) {
+  //       window.addEventListener('click',changeBDD)
+  //     }else {
+  //       window.removeEventListener('click',changeBDD)
+  //     }
+  //   },[isBaseDropDownOpen])
+
+  //   useEffect(() => {
+  //     if(isQuoteDropDownOpen) {
+  //       window.addEventListener('click',changeQDD)
+  //     }else {
+  //       window.removeEventListener('click',changeQDD)
+  //     }
+  //   },[isQuoteDropDownOpen])
+
+  //   function changeBDD() {
+  //     setIsBaseDropDownOpen(false)
+  //   }
+  //   function changeQDD() {
+  //     setIsQuoteDropDownOpen(false)
+  //   }
+
+  useOnClickOutside(clickRefBase, () => setIsBaseDropDownOpen(false));
+  useOnClickOutside(clickRefQuote, () => setIsQuoteDropDownOpen(false));
+
+
+  function useOnClickOutside(clickRef, handler) {
+    useEffect(() => {
+      const listener = (event) => {
+        if (!clickRef.current || clickRef.current.contains(event.target)) {
+          return;
+        }
+        handler(event);
+      };
+      document.addEventListener("mousedown", listener);
+      document.addEventListener("touchstart", listener);
+      return () => {
+        document.removeEventListener("mousedown", listener);
+        document.removeEventListener("touchstart", listener);
+      };
+    },[clickRef, handler]);
+  }
 
   function convertToQuote(baseCrncy) {
     const baseCurrencyThatShouldConvert = props.currency.filter((item) => {
@@ -114,94 +181,98 @@ function Calculator(props) {
             reverseIcon === true ? "baseCurrencyReverse" : ""
           }`}
         >
-          <div
-            onClick={() => setIsBaseDropDownOpen(!isBaseDropDownOpen)}
-            className="selected-drop-down currencyParts"
-            // tabIndex="0"
-          >
-            <div className="selectedAssetAndIconDiv">
-              <img
-                className="selectedDropDownIcon"
-                src={require(`../assets/image/cryptoIcon/${selectedBaseAsset[0]["symbol"]}.svg`)}
-                alt={selectedBaseAsset[0]["symbol"]}
-                width="25px"
-              />
+          <div ref={clickRefBase}>
+            <div
+              className="selected-drop-down currencyParts"
+              onClick={() => setIsBaseDropDownOpen(!isBaseDropDownOpen)}
+            >
+              <div className="selectedAssetAndIconDiv">
+                <img
+                  className="selectedDropDownIcon"
+                  src={require(`../assets/image/cryptoIcon/${selectedBaseAsset[0]["symbol"]}.svg`)}
+                  alt={selectedBaseAsset[0]["symbol"]}
+                  width="25px"
+                />
 
-              <span className="selectedDropDownText">
-                {selectedBaseCurrency}
-              </span>
-              <span className="selectedDropDownIndex">
-                ({selectedBaseAsset[0]["symbol"]})
-              </span>
-            </div>
-            <img
-              className={` ${
-                isBaseDropDownOpen === false
-                  ? "dropDownIconClose"
-                  : "dropDownIconOpen"
-              } `}
-              src={require("../assets/image/arrow/dropDown-Arrow.png")}
-              width="15px"
-              alt="arrow"
-            />
-          </div>
-          <div
-            className={`drop-down-base ${
-              isBaseDropDownOpen ? "drop-down" : "drop-down-None"
-            }`}
-          >
-            <div className="searchBaseDivDropDown">
+                <span className="selectedDropDownText">
+                  {selectedBaseCurrency}
+                </span>
+                <span className="selectedDropDownIndex">
+                  ({selectedBaseAsset[0]["symbol"]})
+                </span>
+              </div>
               <img
-                className="searchIconDropDown"
-                src={require("../assets/image/search/magnifying-glass.png")}
-                alt="searchIcon"
-                width="20px"
-              />
-              <input
-                value={baseSearchTerm}
-                placeholder="نام ارز"
-                onChange={(e) => changeBasaeSearch(e)}
-                className="searchInputDropDown"
-                type="text"
+                className={` ${
+                  isBaseDropDownOpen === false
+                    ? "dropDownIconClose"
+                    : "dropDownIconOpen"
+                } `}
+                src={require("../assets/image/arrow/dropDown-Arrow.png")}
+                width="15px"
+                alt="arrow"
               />
             </div>
-            {uniqBaseCurrency
-              .filter((item) => {
-                return baseSearchTerm === ""
-                  ? item["faBaseAsset"]
-                  : item["faBaseAsset"].includes(baseSearchTerm);
-              })
-              .map((item) => {
-                let mapItem = item;
-                const temp = cryptoSrc.filter((item) => {
-                  return item["symbol"] === mapItem["baseAsset"];
-                });
-                return (
-                  <div
-                    key={item["symbol"]}
-                    id={item["faBaseAsset"]}
-                    className="drop-down-Item"
-                    onClick={(e) => changeBase(e)}
-                  >
-                    <img
-                      className="drop-down-Icon"
-                      src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                      alt={temp[0]["symbol"]}
-                      width="20px"
-                    />
-                    <div key={item["symbol"]} className="drop-down-currency">
-                      {item["faBaseAsset"]}
+            <div
+              className={`drop-down-base ${
+                isBaseDropDownOpen ? "drop-down" : "drop-down-None"
+              }`}
+            >
+              <div className="searchBaseDivDropDown">
+                <img
+                  className="searchIconDropDown"
+                  src={require("../assets/image/search/magnifying-glass.png")}
+                  alt="searchIcon"
+                  width="20px"
+                />
+                <input
+                  value={baseSearchTerm}
+                  placeholder="نام ارز"
+                  onChange={(e) => changeBasaeSearch(e)}
+                  className="searchInputDropDown"
+                  type="text"
+                />
+                {/* <div className="searchInputDropDown">نام ارز</div> */}
+              </div>
+              {uniqBaseCurrency
+                .filter((item) => {
+                  return baseSearchTerm === ""
+                    ? item["faBaseAsset"]
+                    : item["faBaseAsset"].includes(baseSearchTerm);
+                })
+                .map((item) => {
+                  let mapItem = item;
+                  const temp = cryptoSrc.filter((item) => {
+                    return item["symbol"] === mapItem["baseAsset"];
+                  });
+                  return (
+                    <div
+                      key={item["symbol"]}
+                      id={item["faBaseAsset"]}
+                      className="drop-down-Item"
+                      onClick={(e) => changeBase(e)}
+                    >
+                      <img
+                        className="drop-down-Icon"
+                        src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                        alt={temp[0]["symbol"]}
+                        width="20px"
+                      />
+                      <div key={item["symbol"]} className="drop-down-currency">
+                        {item["faBaseAsset"]}
+                      </div>
+                      <div className="drop-down-Index">
+                        ({item["baseAsset"]})
+                      </div>
                     </div>
-                    <div className="drop-down-Index">({item["baseAsset"]})</div>
-                  </div>
-                );
-              })}
-            <div className="noResultBaseDiv">
-              <span className="noResultBase">
-                {baseSearchTerm && baseSearchedList.length === 0
-                  ? "نتیجه‌ای یافت نشد"
-                  : ""}
-              </span>
+                  );
+                })}
+              <div className="noResultBaseDiv">
+                <span className="noResultBase">
+                  {baseSearchTerm && baseSearchedList.length === 0
+                    ? "نتیجه‌ای یافت نشد"
+                    : ""}
+                </span>
+              </div>
             </div>
           </div>
           <div>
@@ -232,94 +303,96 @@ function Calculator(props) {
             reverseIcon === true ? "quoteCurrencyReverse" : ""
           }`}
         >
-          <div
-            onClick={() => setIsQuoteDropDownOpen(!isQuoteDropDownOpen)}
-            className="selected-drop-down currencyParts"
-          >
-            <div className="selectedAssetAndIconDiv">
+          <div ref={clickRefQuote}>
+            <div
+              className="selected-drop-down currencyParts"
+              onClick={() => setIsQuoteDropDownOpen(!isQuoteDropDownOpen)}
+            >
+              <div className="selectedAssetAndIconDiv">
+                <img
+                  className="selectedDropDownIcon"
+                  src={require(`../assets/image/cryptoIcon/${selectedQuoteAsset[0]["symbol"]}.svg`)}
+                  alt={selectedQuoteAsset[0]["symbol"]}
+                  width="25px"
+                />
+                <span className="selectedDropDownText">
+                  {selectedQuoteCurrency}
+                </span>
+                <span className="selectedDropDownIndex">
+                  ({selectedQuoteAsset[0]["symbol"]})
+                </span>
+              </div>
               <img
-                className="selectedDropDownIcon"
-                src={require(`../assets/image/cryptoIcon/${selectedQuoteAsset[0]["symbol"]}.svg`)}
-                alt={selectedQuoteAsset[0]["symbol"]}
-                width="25px"
+                className={` ${
+                  isQuoteDropDownOpen === false
+                    ? "dropDownIconClose"
+                    : "dropDownIconOpen"
+                } `}
+                src={require("../assets/image/arrow/dropDown-Arrow.png")}
+                width="15px"
+                alt="arrow"
               />
-              <span className="selectedDropDownText">
-                {selectedQuoteCurrency}
-              </span>
-              <span className="selectedDropDownIndex">
-                ({selectedQuoteAsset[0]["symbol"]})
-              </span>
             </div>
-            <img
+            <div
               className={` ${
-                isQuoteDropDownOpen === false
-                  ? "dropDownIconClose"
-                  : "dropDownIconOpen"
-              } `}
-              src={require("../assets/image/arrow/dropDown-Arrow.png")}
-              width="15px"
-              alt="arrow"
-            />
-          </div>
-          <div
-            className={` ${
-              isQuoteDropDownOpen ? "drop-down" : "drop-down-None"
-            }`}
-          >
-            <div className="searchQuoteDivDropDown">
-              <img
-                className="searchIconDropDown"
-                src={require("../assets/image/search/magnifying-glass.png")}
-                alt="searchIcon"
-                width="20px"
-              />
-              <input
-                value={quoteSearchTerm}
-                placeholder="نام ارز"
-                onChange={(e) => changeQuoteSearch(e)}
-                className="searchInputDropDown"
-                type="text"
-              />
-            </div>
-            {uniqQuoteCurrency
-              .filter((item) => {
-                return quoteSearchTerm === ""
-                  ? item["faQuoteAsset"]
-                  : item["faQuoteAsset"].includes(quoteSearchTerm);
-              })
-              .map((item) => {
-                let mapItem = item;
-                const temp = cryptoSrc.filter((item) => {
-                  return item["symbol"] === mapItem["quoteAsset"];
-                });
-                return (
-                  <div
-                    className="drop-down-Item"
-                    key={item["symbol"]}
-                    id={item["faQuoteAsset"]}
-                    onClick={(e) => changeQuote(e)}
-                  >
-                    <img
-                      className="drop-down-Item-Icon"
-                      src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                      alt={temp[0]["symbol"]}
-                      width="20px"
-                    />
-                    <div key={item["symbol"]} className="drop-down-currency">
-                      {item["faQuoteAsset"]}
+                isQuoteDropDownOpen ? "drop-down" : "drop-down-None"
+              }`}
+            >
+              <div className="searchQuoteDivDropDown">
+                <img
+                  className="searchIconDropDown"
+                  src={require("../assets/image/search/magnifying-glass.png")}
+                  alt="searchIcon"
+                  width="20px"
+                />
+                <input
+                  value={quoteSearchTerm}
+                  placeholder="نام ارز"
+                  onChange={(e) => changeQuoteSearch(e)}
+                  className="searchInputDropDown"
+                  type="text"
+                />
+              </div>
+              {uniqQuoteCurrency
+                .filter((item) => {
+                  return quoteSearchTerm === ""
+                    ? item["faQuoteAsset"]
+                    : item["faQuoteAsset"].includes(quoteSearchTerm);
+                })
+                .map((item) => {
+                  let mapItem = item;
+                  const temp = cryptoSrc.filter((item) => {
+                    return item["symbol"] === mapItem["quoteAsset"];
+                  });
+                  return (
+                    <div
+                      className="drop-down-Item"
+                      key={item["symbol"]}
+                      id={item["faQuoteAsset"]}
+                      onClick={(e) => changeQuote(e)}
+                    >
+                      <img
+                        className="drop-down-Item-Icon"
+                        src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                        alt={temp[0]["symbol"]}
+                        width="20px"
+                      />
+                      <div key={item["symbol"]} className="drop-down-currency">
+                        {item["faQuoteAsset"]}
+                      </div>
+                      <div className="drop-down-Index">
+                        ({item["quoteAsset"]})
+                      </div>
                     </div>
-                    <div className="drop-down-Index">
-                      ({item["quoteAsset"]})
-                    </div>
-                  </div>
-                );
-              })}
-            <div className="noResultQuoteDiv">
-              <span className="noResultQuote">
-                {quoteSearchTerm && quoteSearchedList.length === 0
-                  ? "نتیجه‌ای یافت نشد"
-                  : ""}
-              </span>
+                  );
+                })}
+              <div className="noResultQuoteDiv">
+                <span className="noResultQuote">
+                  {quoteSearchTerm && quoteSearchedList.length === 0
+                    ? "نتیجه‌ای یافت نشد"
+                    : ""}
+                </span>
+              </div>
             </div>
           </div>
           <div>

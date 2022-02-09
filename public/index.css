@@ -223,7 +223,7 @@ body {
   margin-bottom: 10px;
 }
 .currencyParts {
-  margin: 15px 20px;
+  /* margin: 15px 0px; */
   padding: 15px;
   width: 200px;
 }

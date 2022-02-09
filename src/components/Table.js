@@ -32,7 +32,7 @@ function Table(props) {
     const urlStringfy = queryString.stringify(url);
     // eslint-disable-next-line no-use-before-define
     navigation(`?${urlStringfy}`);
-  }, [searchTerm]);
+  }, [searchTerm, navigation]);
 
   useEffect(() => {
     setDefaultCurrency([...props.currency]);

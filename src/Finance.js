@@ -13,7 +13,11 @@ function Finance() {
       .then((res3) => setCurrency(res3))
       .catch((e) => console.log(e));
   }, []);
-  
+
+  function handleSetCurrency(e) {
+    setCurrency(e)
+  }
+
   return (
     <>
       <div className="container">
@@ -21,7 +25,7 @@ function Finance() {
         <Calculator currency={currency} />
         <div className="tableContainer">
           <div className="tableDiv">
-            <Table currency={currency} setCurrency={setCurrency} />
+            <Table currency={currency} setCurrency={handleSetCurrency} />
           </div>
         </div>
       </div>

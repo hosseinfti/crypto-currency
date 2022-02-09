@@ -518,7 +518,6 @@ function Table(props) {
                 return item["symbol"] === mapItem["baseAsset"];
               });
               return (
-                <>
                   <tr className="tbodyRows" key={item["symbol"]}>
                     <td className="rowIndex">
                       {!favorite.length
@@ -681,7 +680,6 @@ function Table(props) {
                       </span>
                     </td>
                   </tr>
-                </>
               );
             })}
           <tr

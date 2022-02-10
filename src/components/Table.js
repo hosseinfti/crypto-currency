@@ -19,6 +19,10 @@ function Table(props) {
   const [favorite, setFavorite] = useState([]);
   const [marketDisplay, setMarketDisplay] = useState("USDT");
 
+  const uniqFav = favorite.filter(
+    (item) => item["quoteAsset"] === marketDisplay
+  );
+
   const searchRef = useRef(null);
 
   useEffect(() => {
@@ -51,7 +55,7 @@ function Table(props) {
 
   function handleFavorite(item) {
     setFavorite(
-      !favorite.includes(item)
+      !favorite.includes(item) && item["quoteAsset"] === marketDisplay
         ? [...favorite, item].reverse()
         : favorite.filter((i) => i !== item)
     );
@@ -60,62 +64,162 @@ function Table(props) {
     setMarketDisplay(crncy);
   }
 
+  // const sorting = (obj1, obj2) => {
+  //   setSortCol((prevstate) => {
+  //     if (prevstate === obj2) {
+  //       if (order === "ASC") {
+  //         setOrder("DSC");
+  //       } else if (order === "DSC") {
+  //         setOrder("DEF");
+  //       } else {
+  //         setOrder("ASC");
+  //       }
+  //     } else {
+  //       setOrder("ASC");
+  //     }
+  //     return obj2;
+  //   });
+  //   useEffect(() => {
+  //     if (obj1 === "stats") {
+  //       if (order === "ASC") {
+  //         const sorted = props.currency.sort((a, b) => {
+  //           return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1;
+  //         });
+  //         props.setCurrency(sorted);
+  //       } else if (order === "DSC") {
+  //         const sorted = props.currency.sort((a, b) => {
+  //           return Number(a[obj1][obj2]) < Number(b[obj1][obj2]) ? 1 : -1;
+  //         });
+  //         props.setCurrency(sorted);
+  //       } else {
+  //         props.setCurrency(defaultCurrency);
+  //       }
+  //     } else if (order === "ASC") {
+  //       const sorted = props.currency.sort((a, b) => {
+  //         return a[obj1][obj2] > b[obj1][obj2] ? 1 : -1;
+  //       });
+  //       props.setCurrency(sorted);
+  //     } else if (order === "DSC") {
+  //       const sorted = props.currency.sort((a, b) => {
+  //         return a[obj1][obj2] < b[obj1][obj2] ? 1 : -1;
+  //       });
+  //       props.setCurrency(sorted);
+  //     } else {
+  //       props.setCurrency(defaultCurrency);
+  //     }
+  //   }, [order]);
+  // };
+
   const sorting = (obj1, obj2) => {
-    setSortCol(obj2);
     if (sortCol === obj2) {
       if (obj1 === "stats") {
         if (order === "DEF") {
-          const sorted = props.currency.sort((a, b) =>
-            Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1
-          );
+          const sorted = props.currency.sort((a, b) => {
+            return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1;
+          });
           props.setCurrency(sorted);
           setOrder("ASC");
         } else if (order === "ASC") {
-          const sorted = props.currency.sort((a, b) =>
-            Number(a[obj1][obj2]) < Number(b[obj1][obj2]) ? 1 : -1
-          );
+          const sorted = props.currency.sort((a, b) => {
+            return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? -1 : 1;
+          });
           props.setCurrency(sorted);
           setOrder("DSC");
         } else {
-          const sorted = defaultCurrency;
-          props.setCurrency(sorted);
+          props.setCurrency(defaultCurrency);
           setOrder("DEF");
         }
       } else {
         if (order === "DEF") {
-          const sorted = props.currency.sort((a, b) =>
-            a[obj1] > b[obj1] ? 1 : -1
-          );
+          const sorted = props.currency.sort((a, b) => {
+            return a[obj1] > b[obj1] ? 1 : -1;
+          });
           props.setCurrency(sorted);
           setOrder("ASC");
-        }
-        if (order === "ASC") {
-          const sorted = props.currency.sort((a, b) =>
-            a[obj1] < b[obj1] ? 1 : -1
-          );
+        } else if (order === "ASC") {
+          const sorted = props.currency.sort((a, b) => {
+            return a[obj1] > b[obj1] ? -1 : 1;
+          });
           props.setCurrency(sorted);
           setOrder("DSC");
-        }
-        if (order === "DSC") {
-          const sorted = defaultCurrency;
-          props.setCurrency(sorted);
+        } else {
+          props.setCurrency(defaultCurrency);
           setOrder("DEF");
         }
       }
-    } else if (obj1 === "stats") {
-      const sorted = props.currency.sort((a, b) =>
-        Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1
-      );
-      props.setCurrency(sorted);
-      setOrder("ASC");
     } else {
-      const sorted = props.currency.sort((a, b) =>
-        a[obj1] > b[obj1] ? 1 : -1
-      );
-      props.setCurrency(sorted);
-      setOrder("ASC");
+      if (obj1 === "stats") {
+        const sorted = props.currency.sort((a, b) => {
+          return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1;
+        });
+        props.setCurrency(sorted);
+        setOrder("ASC");
+        setSortCol(obj2);
+      } else {
+        const sorted = props.currency.sort((a, b) => {
+          return a[obj1] > b[obj2] ? 1 : -1;
+        });
+        props.setCurrency(sorted);
+        setOrder("ASC");
+        setSortCol(obj2);
+      }
     }
   };
+
+  // const sorting = (obj1, obj2) => {
+  //   if (sortCol === obj2) {
+  //     if (obj1 === "stats") {
+  //       if (order === "DEF") {
+  //         const sorted = props.currency.sort((a, b) =>
+  //           Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1
+  //         );
+  //         props.setCurrency(sorted);
+  //         setOrder("ASC");
+  //       } else if (order === "ASC") {
+  //         const sorted = props.currency.sort((a, b) =>
+  //           Number(a[obj1][obj2]) < Number(b[obj1][obj2]) ? 1 : -1
+  //         );
+  //         props.setCurrency(sorted);
+  //         setOrder("DSC");
+  //       } else {
+  //         const sorted = defaultCurrency;
+  //         props.setCurrency(sorted);
+  //         setOrder("DEF");
+  //       }
+  //     } else {
+  //       if (order === "DEF") {
+  //         const sorted = props.currency.sort((a, b) =>
+  //           a[obj1] > b[obj1] ? 1 : -1
+  //         );
+  //         props.setCurrency(sorted);
+  //         setOrder("ASC");
+  //       } else if (order === "ASC") {
+  //         const sorted = props.currency.sort((a, b) =>
+  //           a[obj1] < b[obj1] ? 1 : -1
+  //         );
+  //         props.setCurrency(sorted);
+  //         setOrder("DSC");
+  //       } else {
+  //         const sorted = defaultCurrency;
+  //         props.setCurrency(sorted);
+  //         setOrder("DEF");
+  //       }
+  //     }
+  //   } else if (obj1 === "stats") {
+  //     const sorted = props.currency.sort((a, b) =>
+  //       Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1
+  //     );
+  //     props.setCurrency(sorted);
+  //     setOrder("ASC");
+  //   } else {
+  //     const sorted = props.currency.sort((a, b) =>
+  //       a[obj1] > b[obj1] ? 1 : -1
+  //     );
+  //     props.setCurrency(sorted);
+  //     setOrder("ASC");
+  //   }
+  //   setSortCol(obj2);
+  // };
 
   return (
     <>
@@ -341,6 +445,7 @@ function Table(props) {
         </thead>
         <tbody>
           {favorite
+            .filter((item) => item["quoteAsset"] === marketDisplay)
             .filter((item) => {
               return searchTerm === ""
                 ? item["faBaseAsset"]
@@ -354,8 +459,12 @@ function Table(props) {
                 return item["symbol"] === mapItem["baseAsset"];
               });
               return (
-                <tr className="tbodyRows" key={item["symbol"]}>
-                  <td className="rowIndex"> {index + 1} </td>
+                <tr
+                  className="tbodyRows"
+                  key={item["symbol"]}
+                  id={item["symbol"]}
+                >
+                  <td className="rowIndex"> {uniqFav.length} </td>
                   <td className="currency">
                     <span onClick={() => handleFavorite(item)} className="star">
                       {!favorite.includes(item) ? (
@@ -518,107 +627,106 @@ function Table(props) {
                 return item["symbol"] === mapItem["baseAsset"];
               });
               return (
-                  <tr className="tbodyRows" key={item["symbol"]}>
-                    <td className="rowIndex">
-                      {!favorite.length
-                        ? index + 1
-                        : favorite.length + index + 1}
-                    </td>
-                    <td className="currency">
-                      <span
-                        onClick={() => handleFavorite(item)}
-                        className="star"
-                      >
-                        {!favorite.includes(item) ? (
-                          <img
-                            draggable="false"
-                            className="starOff"
-                            src={require("../assets/image/favorite/starOff.png")}
-                            width="25px"
-                            // height="20px"
-                            alt="starOff"
-                          />
-                        ) : (
-                          <img
-                            draggable="false"
-                            className="starOn"
-                            src={require("../assets/image/favorite/starOn.png")}
-                            width="25px"
-                            // height="20px"
-                            alt="starOn"
-                          />
-                        )}
+                <tr
+                  className="tbodyRows"
+                  key={item["symbol"]}
+                  id={item["symbol"]}
+                >
+                  <td className="rowIndex">
+                    {!favorite.length ? index + 1 : uniqFav.length + index + 1}
+                  </td>
+                  <td className="currency">
+                    <span onClick={() => handleFavorite(item)} className="star">
+                      {!favorite.includes(item) ? (
+                        <img
+                          draggable="false"
+                          className="starOff"
+                          src={require("../assets/image/favorite/starOff.png")}
+                          width="25px"
+                          // height="20px"
+                          alt="starOff"
+                        />
+                      ) : (
+                        <img
+                          draggable="false"
+                          className="starOn"
+                          src={require("../assets/image/favorite/starOn.png")}
+                          width="25px"
+                          // height="20px"
+                          alt="starOn"
+                        />
+                      )}
+                    </span>
+                    <img
+                      className="currencyIcon"
+                      src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                      alt={temp[0]["symbol"]}
+                      width="25px"
+                      // height="20px"
+                    />
+                    <div className="currencyNameParent">
+                      <span className="currencyName">
+                        {item["faBaseAsset"]}
                       </span>
-                      <img
-                        className="currencyIcon"
-                        src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                        alt={temp[0]["symbol"]}
-                        width="25px"
-                        // height="20px"
-                      />
-                      <div className="currencyNameParent">
-                        <span className="currencyName">
-                          {item["faBaseAsset"]}
-                        </span>
-                        <span className="currencyIndex">
-                          {" "}
-                          {item["baseAsset"]}{" "}
-                        </span>
-                      </div>
-                    </td>
+                      <span className="currencyIndex">
+                        {" "}
+                        {item["baseAsset"]}{" "}
+                      </span>
+                    </div>
+                  </td>
 
-                    <td className="numericTd">
-                      <span className="numericSpan">
-                        {item["stats"]["bidPrice"] !== "-" &&
-                        marketDisplay === "BTC"
-                          ? Number(item["stats"]["bidPrice"])
-                              .toString()
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : item["stats"]["bidPrice"] !== "-" &&
-                            marketDisplay !== "BTC"
-                          ? Number(item["stats"]["bidPrice"])
-                              // .toFixed(3)
-                              .toString()
-                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : "-"}
-                      </span>
-                    </td>
-                    <td className="numericTd">
-                      <span className="numericSpan">
-                        {item["stats"]["askPrice"] !== "-" &&
-                        marketDisplay === "BTC"
-                          ? Number(item["stats"]["askPrice"])
-                              .toString()
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : item["stats"]["askPrice"] !== "-" &&
-                            marketDisplay !== "BTC"
-                          ? Number(item["stats"]["askPrice"])
-                              // .toFixed(3)
-                              .toString()
-                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : "-"}
-                      </span>
-                    </td>
-                    <td
-                      className={` numericTd
+                  <td className="numericTd">
+                    <span className="numericSpan">
+                      {item["stats"]["bidPrice"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["bidPrice"])
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["bidPrice"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["bidPrice"])
+                            // .toFixed(3)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"}
+                    </span>
+                  </td>
+                  <td className="numericTd">
+                    <span className="numericSpan">
+                      {item["stats"]["askPrice"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["askPrice"])
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["askPrice"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["askPrice"])
+                            // .toFixed(3)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"}
+                    </span>
+                  </td>
+                  <td
+                    className={` numericTd
                     ${
                       Number(item["stats"]["24h_ch"]) > 0
                         ? "posetive"
@@ -627,59 +735,59 @@ function Table(props) {
                         : ""
                     }
                 `}
-                    >
-                      <span className="numericSpan">
-                        {item["stats"]["24h_ch"] > 0 ? "+" : ""}
-                        {item["stats"]["24h_ch"] !== "-" &&
-                        marketDisplay === "BTC"
-                          ? Number(item["stats"]["24h_ch"])
-                              .toString()
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : item["stats"]["24h_ch"] !== "-" &&
-                            marketDisplay !== "BTC"
-                          ? Number(item["stats"]["24h_ch"])
-                              .toString()
-                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : "-"}{" "}
-                        %
-                      </span>
-                    </td>
-                    <td className="numericTd">
-                      <span className="numericSpan">
-                        {item["stats"]["24h_quoteVolume"] !== "-" &&
-                        marketDisplay === "BTC"
-                          ? Number(item["stats"]["24h_quoteVolume"])
-                              // .toFixed(0)
-                              .toString()
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : item["stats"]["24h_quoteVolume"] !== "-" &&
-                            marketDisplay !== "BTC"
-                          ? Number(item["stats"]["24h_quoteVolume"])
-                              .toFixed(0)
-                              .toString()
-                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                              .replace(/\d/g, function (v) {
-                                return String.fromCharCode(
-                                  v.charCodeAt(0) + 0x06c0
-                                );
-                              })
-                          : "-"}
-                      </span>
-                    </td>
-                  </tr>
+                  >
+                    <span className="numericSpan">
+                      {item["stats"]["24h_ch"] > 0 ? "+" : ""}
+                      {item["stats"]["24h_ch"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["24h_ch"])
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["24h_ch"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["24h_ch"])
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"}{" "}
+                      %
+                    </span>
+                  </td>
+                  <td className="numericTd">
+                    <span className="numericSpan">
+                      {item["stats"]["24h_quoteVolume"] !== "-" &&
+                      marketDisplay === "BTC"
+                        ? Number(item["stats"]["24h_quoteVolume"])
+                            // .toFixed(0)
+                            .toString()
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : item["stats"]["24h_quoteVolume"] !== "-" &&
+                          marketDisplay !== "BTC"
+                        ? Number(item["stats"]["24h_quoteVolume"])
+                            .toFixed(0)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                            .replace(/\d/g, function (v) {
+                              return String.fromCharCode(
+                                v.charCodeAt(0) + 0x06c0
+                              );
+                            })
+                        : "-"}
+                    </span>
+                  </td>
+                </tr>
               );
             })}
           <tr
@@ -690,7 +798,7 @@ function Table(props) {
             }`}
           >
             <td colSpan="6" className="noResultTable">
-                نتیجه‌ای یافت نشد!
+              نتیجه‌ای یافت نشد!
             </td>
           </tr>
         </tbody>

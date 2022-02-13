@@ -1,4 +1,3 @@
-// import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import queryString from "query-string";
@@ -9,7 +8,6 @@ function Table(props) {
   const navigation = useNavigate();
   const { search = "" } = queryString.parse(location.search);
 
-  //   const [currency, setCurrency] = useState([]);
   const [defaultCurrency, setDefaultCurrency] = useState([]);
   const [searchTerm, setSearchTerm] = useState(search);
   const [searchedList, setSearcedList] = useState([]);
@@ -34,7 +32,6 @@ function Table(props) {
       search: searchTerm ? searchTerm : undefined,
     };
     const urlStringfy = queryString.stringify(url);
-    // eslint-disable-next-line no-use-before-define
     navigation(`?${urlStringfy}`);
   }, [searchTerm, navigation]);
 
@@ -110,116 +107,138 @@ function Table(props) {
   //   }, [order]);
   // };
 
+  // const sorting = (obj1, obj2) => {
+  //   if (sortCol === obj2) {
+  //     if (obj1 === "stats") {
+  //       if (order === "DEF") {
+  //         const sorted = props.currency.sort((a, b) => {
+  //           return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1;
+  //         });
+  //         props.setCurrency(sorted);
+  //         setOrder("ASC");
+  //       } else if (order === "ASC") {
+  //         const sorted = props.currency.sort((a, b) => {
+  //           return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? -1 : 1;
+  //         });
+  //         props.setCurrency(sorted);
+  //         setOrder("DSC");
+  //       } else {
+  //         props.setCurrency(defaultCurrency);
+  //         setOrder("DEF");
+  //       }
+  //     } else {
+  //       if (order === "DEF") {
+  //         const sorted = props.currency.sort((a, b) => {
+  //           return a[obj1] > b[obj1] ? 1 : -1;
+  //         });
+  //         props.setCurrency(sorted);
+  //         setOrder("ASC");
+  //       } else if (order === "ASC") {
+  //         const sorted = props.currency.sort((a, b) => {
+  //           return a[obj1] > b[obj1] ? -1 : 1;
+  //         });
+  //         props.setCurrency(sorted);
+  //         setOrder("DSC");
+  //       } else {
+  //         props.setCurrency(defaultCurrency);
+  //         setOrder("DEF");
+  //       }
+  //     }
+  //   } else {
+  //     if (obj1 === "stats") {
+  //       const sorted = props.currency.sort((a, b) => {
+  //         return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1;
+  //       });
+  //       props.setCurrency(sorted);
+  //       setOrder("ASC");
+  //       setSortCol(obj2);
+  //     } else {
+  //       const sorted = props.currency.sort((a, b) => {
+  //         return a[obj1] > b[obj2] ? 1 : -1;
+  //       });
+  //       props.setCurrency(sorted);
+  //       setOrder("ASC");
+  //       setSortCol(obj2);
+  //     }
+  //   }
+  // };
+
   const sorting = (obj1, obj2) => {
     if (sortCol === obj2) {
       if (obj1 === "stats") {
         if (order === "DEF") {
           const sorted = props.currency.sort((a, b) => {
-            return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1;
-          });
+            return Number(a[obj1][obj2]) > Number(b[obj1][obj2])
+            ? 1
+            : Number(b[obj1][obj2]) > Number(a[obj1][obj2]) 
+            ||
+            a[obj1][obj2] === "-" 
+            ? -1
+            : 0
+          }
+            );
           props.setCurrency(sorted);
           setOrder("ASC");
         } else if (order === "ASC") {
           const sorted = props.currency.sort((a, b) => {
-            return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? -1 : 1;
-          });
+
+             return Number(a[obj1][obj2]) < Number(b[obj1][obj2])
+              ||
+              a[obj1][obj2] === "-"
+                ? 1
+                : Number(b[obj1][obj2]) < Number(a[obj1][obj2])
+                ? -1
+                : 0
+          }
+          );
           props.setCurrency(sorted);
           setOrder("DSC");
         } else {
-          props.setCurrency(defaultCurrency);
+          const sorted = defaultCurrency;
+          props.setCurrency(sorted);
           setOrder("DEF");
         }
       } else {
         if (order === "DEF") {
-          const sorted = props.currency.sort((a, b) => {
-            return a[obj1] > b[obj1] ? 1 : -1;
-          });
+          const sorted = props.currency.sort((a, b) =>
+            a[obj1].localeCompare(b[obj1])
+          );
           props.setCurrency(sorted);
           setOrder("ASC");
         } else if (order === "ASC") {
-          const sorted = props.currency.sort((a, b) => {
-            return a[obj1] > b[obj1] ? -1 : 1;
-          });
+          const sorted = props.currency.sort((a, b) =>
+            b[obj1].localeCompare(a[obj1])
+          );
           props.setCurrency(sorted);
           setOrder("DSC");
         } else {
-          props.setCurrency(defaultCurrency);
+          const sorted = defaultCurrency;
+          props.setCurrency(sorted);
           setOrder("DEF");
         }
       }
+    } else if (obj1 === "stats") {
+      const sorted = props.currency.sort((a, b) => {
+        return Number(a[obj1][obj2]) > Number(b[obj1][obj2])
+          ? 1
+          : Number(a[obj1][obj2]) < Number(b[obj1][obj2]) 
+          ||
+            a[obj1][obj2] === "-"
+          ? -1
+          : 0;
+      });
+      props.setCurrency(sorted);
+      setOrder("ASC");
+      setSortCol(obj2);
     } else {
-      if (obj1 === "stats") {
-        const sorted = props.currency.sort((a, b) => {
-          return Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1;
-        });
-        props.setCurrency(sorted);
-        setOrder("ASC");
-        setSortCol(obj2);
-      } else {
-        const sorted = props.currency.sort((a, b) => {
-          return a[obj1] > b[obj2] ? 1 : -1;
-        });
-        props.setCurrency(sorted);
-        setOrder("ASC");
-        setSortCol(obj2);
-      }
+      const sorted = props.currency.sort((a, b) =>
+        a[obj1].localeCompare(b[obj1])
+      );
+      props.setCurrency(sorted);
+      setOrder("ASC");
+      setSortCol(obj2);
     }
   };
-
-  // const sorting = (obj1, obj2) => {
-  //   if (sortCol === obj2) {
-  //     if (obj1 === "stats") {
-  //       if (order === "DEF") {
-  //         const sorted = props.currency.sort((a, b) =>
-  //           Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1
-  //         );
-  //         props.setCurrency(sorted);
-  //         setOrder("ASC");
-  //       } else if (order === "ASC") {
-  //         const sorted = props.currency.sort((a, b) =>
-  //           Number(a[obj1][obj2]) < Number(b[obj1][obj2]) ? 1 : -1
-  //         );
-  //         props.setCurrency(sorted);
-  //         setOrder("DSC");
-  //       } else {
-  //         const sorted = defaultCurrency;
-  //         props.setCurrency(sorted);
-  //         setOrder("DEF");
-  //       }
-  //     } else {
-  //       if (order === "DEF") {
-  //         const sorted = props.currency.sort((a, b) =>
-  //           a[obj1] > b[obj1] ? 1 : -1
-  //         );
-  //         props.setCurrency(sorted);
-  //         setOrder("ASC");
-  //       } else if (order === "ASC") {
-  //         const sorted = props.currency.sort((a, b) =>
-  //           a[obj1] < b[obj1] ? 1 : -1
-  //         );
-  //         props.setCurrency(sorted);
-  //         setOrder("DSC");
-  //       } else {
-  //         const sorted = defaultCurrency;
-  //         props.setCurrency(sorted);
-  //         setOrder("DEF");
-  //       }
-  //     }
-  //   } else if (obj1 === "stats") {
-  //     const sorted = props.currency.sort((a, b) =>
-  //       Number(a[obj1][obj2]) > Number(b[obj1][obj2]) ? 1 : -1
-  //     );
-  //     props.setCurrency(sorted);
-  //     setOrder("ASC");
-  //   } else {
-  //     const sorted = props.currency.sort((a, b) =>
-  //       a[obj1] > b[obj1] ? 1 : -1
-  //     );
-  //     props.setCurrency(sorted);
-  //     setOrder("ASC");
-  //   }
-  //   setSortCol(obj2);
-  // };
 
   return (
     <>

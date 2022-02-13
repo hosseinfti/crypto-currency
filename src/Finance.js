@@ -14,8 +14,8 @@ function Finance() {
       .catch((e) => console.log(e));
   }, []);
 
-  function handleSetCurrency(e) {
-    setCurrency(e)
+  function handleSetCurrency(currency) {
+    setCurrency(currency)
   }
 
   return (

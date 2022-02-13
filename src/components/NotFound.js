@@ -10,11 +10,11 @@ function NotFound() {
         width="40%"
         alt="notFound"
       />
-        <div className="returnHome">
       <Link className="returnHomeLink" to="/">
+        <div className="returnHome">
             بازگشت به صفحه‌ی اصلی
-      </Link>
         </div>
+      </Link>
       <div className="notFoundFA"> صفحه مورد نظر یافت نشد! </div>
       <div className="notFoundEN">Error 404 - Page Not Found</div>
     </div>

@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <div id="footer">
-        <footer>&copy; کلیه حقوق این سایت متعلق به هیچ کسی نمی‌باشد</footer>
+        <footer>۱۴۰۰ &copy; کلیه حقوق متعلق به سایت Bestcoin است. </footer>
       </div>
     </>
   );

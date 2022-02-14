@@ -483,7 +483,7 @@ function Table(props) {
                   key={item["symbol"]}
                   id={item["symbol"]}
                 >
-                  <td className="rowIndex"> {uniqFav.length} </td>
+                  <td className="rowIndex"> {index + 1} </td>
                   <td className="currency">
                     <span onClick={() => handleFavorite(item)} className="star">
                       {!favorite.includes(item) ? (

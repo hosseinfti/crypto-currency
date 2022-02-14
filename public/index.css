@@ -33,18 +33,18 @@ body {
 }
 
 @media only screen and (max-width: 936px) {
-  table {
+  .tableDiv {
     margin: 0px 20px;
+    overflow-x: auto;
   }
   .tableContainer {
     width: 100vw;
     height: 100%;
   }
-  .tableDiv {
-    overflow-x: auto;
-  }
 }
 .tableDiv {
+  border-radius: 15px 15px;
+  box-shadow: 0 2px 15px -6px rgb(0 0 0 / 50%);
   margin-bottom: 70px;
 }
 .searchInput {

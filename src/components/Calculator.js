@@ -90,7 +90,6 @@ function Calculator(props) {
   useOnClickOutside(clickRefBase, () => setIsBaseDropDownOpen(false));
   useOnClickOutside(clickRefQuote, () => setIsQuoteDropDownOpen(false));
 
-
   function useOnClickOutside(clickRef, handler) {
     useEffect(() => {
       const listener = (event) => {
@@ -105,7 +104,7 @@ function Calculator(props) {
         document.removeEventListener("mousedown", listener);
         document.removeEventListener("touchstart", listener);
       };
-    },[clickRef, handler]);
+    }, [clickRef, handler]);
   }
 
   function convertToQuote(baseCrncy) {
@@ -266,7 +265,13 @@ function Calculator(props) {
                     </div>
                   );
                 })}
-              <div className="noResultBaseDiv">
+              <div
+                className={`${
+                  baseSearchTerm && baseSearchedList.length === 0
+                    ? "noResultBaseDiv"
+                    : ""
+                }`}
+              >
                 <span className="noResultBase">
                   {baseSearchTerm && baseSearchedList.length === 0
                     ? "نتیجه‌ای یافت نشد"
@@ -386,7 +391,13 @@ function Calculator(props) {
                     </div>
                   );
                 })}
-              <div className="noResultQuoteDiv">
+              <div
+                className={`${
+                  quoteSearchTerm && quoteSearchedList.length === 0
+                    ? "noResultQuoteDiv"
+                    : ""
+                }`}
+              >
                 <span className="noResultQuote">
                   {quoteSearchTerm && quoteSearchedList.length === 0
                     ? "نتیجه‌ای یافت نشد"

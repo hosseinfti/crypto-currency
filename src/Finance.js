@@ -1,7 +1,7 @@
 import axios from "axios";
 import React,{ useState, useEffect } from "react";
-import Table from "./components/Table";
-import Calculator from "./components/Calculator";
+import Table from "./components/table/Table";
+import Calculator from "./components/calculator/Calculator";
 
 function Finance() {
   const [currency, setCurrency] = useState([]);

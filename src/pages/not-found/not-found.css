@@ -1,0 +1,17 @@
+.notFoundIMG {
+    width: 400px
+}
+@media only screen and (max-width: 400px) {
+    .notFoundIMG {
+        width: 80%;
+    }
+    .returnHome {
+        padding: 3px 10px !important;
+        border-radius: 30px 30px;
+        animation: boldShadow 500ms ease-in-out infinite alternate;
+        cursor: pointer;
+      }
+      .notFoundEN {
+        margin-top: 5px;
+      }
+}

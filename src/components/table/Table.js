@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import queryString from "query-string";
-import cryptoSrc from "../json/cryptoIcon.json";
+import cryptoSrc from "../../json/cryptoIcon.json";
 
 function Table(props) {
   const location = useLocation();
@@ -249,7 +249,7 @@ function Table(props) {
               <div className="searchDiv">
                 <img
                   className="searchIcon"
-                  src={require("../assets/image/search/magnifying-glass.png")}
+                  src={require("../../assets/image/search/magnifying-glass.png")}
                   alt="searchIcon"
                   width="20px"
                 />
@@ -314,14 +314,14 @@ function Table(props) {
               <span>
                 {sortCol === "currency" && order === "ASC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="ascendingIcon"
                     width="15px"
                     alt="ascend"
                   />
                 ) : sortCol === "currency" && order === "DSC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="descendingIcon"
                     width="15px"
                     alt="decsend"
@@ -346,14 +346,14 @@ function Table(props) {
                 {" "}
                 {sortCol === "bidPrice" && order === "ASC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="ascendingIcon"
                     width="15px"
                     alt="ascend"
                   />
                 ) : sortCol === "bidPrice" && order === "DSC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="descendingIcon"
                     width="15px"
                     alt="decsend"
@@ -378,14 +378,14 @@ function Table(props) {
                 {" "}
                 {sortCol === "askPrice" && order === "ASC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="ascendingIcon"
                     width="15px"
                     alt="ascend"
                   />
                 ) : sortCol === "askPrice" && order === "DSC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="descendingIcon"
                     width="15px"
                     alt="decsend"
@@ -410,14 +410,14 @@ function Table(props) {
                 {" "}
                 {sortCol === "24h_ch" && order === "ASC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="ascendingIcon"
                     width="15px"
                     alt="ascend"
                   />
                 ) : sortCol === "24h_ch" && order === "DSC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="descendingIcon"
                     width="15px"
                     alt="decsend"
@@ -443,14 +443,14 @@ function Table(props) {
                 {" "}
                 {sortCol === "24h_quoteVolume" && order === "ASC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="ascendingIcon"
                     width="15px"
                     alt="ascend"
                   />
                 ) : sortCol === "24h_quoteVolume" && order === "DSC" ? (
                   <img
-                    src={require(`../assets/image/sort/right-arrow.png`)}
+                    src={require(`../../assets/image/sort/right-arrow.png`)}
                     className="descendingIcon"
                     width="15px"
                     alt="decsend"
@@ -490,7 +490,7 @@ function Table(props) {
                         <img
                           draggable="false"
                           className="starOff"
-                          src={require("../assets/image/favorite/starOff.png")}
+                          src={require("../../assets/image/favorite/starOff.png")}
                           width="25px"
                           // height="20px"
                           alt="starOff"
@@ -499,7 +499,7 @@ function Table(props) {
                         <img
                           draggable="false"
                           className="starOn"
-                          src={require("../assets/image/favorite/starOn.png")}
+                          src={require("../../assets/image/favorite/starOn.png")}
                           width="25px"
                           // height="20px"
                           alt="starOn"
@@ -508,7 +508,7 @@ function Table(props) {
                     </span>
                     <img
                       className="currencyIcon"
-                      src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                      src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
                       alt={temp[0]["symbol"]}
                       width="25px"
                       // height="20px"
@@ -660,7 +660,7 @@ function Table(props) {
                         <img
                           draggable="false"
                           className="starOff"
-                          src={require("../assets/image/favorite/starOff.png")}
+                          src={require("../../assets/image/favorite/starOff.png")}
                           width="25px"
                           // height="20px"
                           alt="starOff"
@@ -669,7 +669,7 @@ function Table(props) {
                         <img
                           draggable="false"
                           className="starOn"
-                          src={require("../assets/image/favorite/starOn.png")}
+                          src={require("../../assets/image/favorite/starOn.png")}
                           width="25px"
                           // height="20px"
                           alt="starOn"
@@ -678,7 +678,7 @@ function Table(props) {
                     </span>
                     <img
                       className="currencyIcon"
-                      src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                      src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
                       alt={temp[0]["symbol"]}
                       width="25px"
                       // height="20px"

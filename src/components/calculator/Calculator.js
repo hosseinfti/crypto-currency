@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import cryptoSrc from "../json/cryptoIcon.json";
+import cryptoSrc from "../../json/cryptoIcon.json";
 
 function Calculator(props) {
   const [baseCurrency, setBaseCurrency] = useState();
@@ -188,7 +188,7 @@ function Calculator(props) {
               <div className="selectedAssetAndIconDiv">
                 <img
                   className="selectedDropDownIcon"
-                  src={require(`../assets/image/cryptoIcon/${selectedBaseAsset[0]["symbol"]}.svg`)}
+                  src={require(`../../assets/image/cryptoIcon/${selectedBaseAsset[0]["symbol"]}.svg`)}
                   alt={selectedBaseAsset[0]["symbol"]}
                   width="25px"
                 />
@@ -206,7 +206,7 @@ function Calculator(props) {
                     ? "dropDownIconClose"
                     : "dropDownIconOpen"
                 } `}
-                src={require("../assets/image/arrow/dropDown-Arrow.png")}
+                src={require("../../assets/image/arrow/dropDown-Arrow.png")}
                 width="15px"
                 alt="arrow"
               />
@@ -219,7 +219,7 @@ function Calculator(props) {
               <div className="searchBaseDivDropDown">
                 <img
                   className="searchIconDropDown"
-                  src={require("../assets/image/search/magnifying-glass.png")}
+                  src={require("../../assets/image/search/magnifying-glass.png")}
                   alt="searchIcon"
                   width="20px"
                 />
@@ -252,7 +252,7 @@ function Calculator(props) {
                     >
                       <img
                         className="drop-down-Icon"
-                        src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                        src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
                         alt={temp[0]["symbol"]}
                         width="20px"
                       />
@@ -291,7 +291,7 @@ function Calculator(props) {
           </div>
         </div>
         <img
-          src={require("../assets/image/exchange/money-exchange.png")}
+          src={require("../../assets/image/exchange/money-exchange.png")}
           width="30px"
           alt="exchangeIcon"
           onClick={() => {
@@ -316,7 +316,7 @@ function Calculator(props) {
               <div className="selectedAssetAndIconDiv">
                 <img
                   className="selectedDropDownIcon"
-                  src={require(`../assets/image/cryptoIcon/${selectedQuoteAsset[0]["symbol"]}.svg`)}
+                  src={require(`../../assets/image/cryptoIcon/${selectedQuoteAsset[0]["symbol"]}.svg`)}
                   alt={selectedQuoteAsset[0]["symbol"]}
                   width="25px"
                 />
@@ -333,7 +333,7 @@ function Calculator(props) {
                     ? "dropDownIconClose"
                     : "dropDownIconOpen"
                 } `}
-                src={require("../assets/image/arrow/dropDown-Arrow.png")}
+                src={require("../../assets/image/arrow/dropDown-Arrow.png")}
                 width="15px"
                 alt="arrow"
               />
@@ -346,7 +346,7 @@ function Calculator(props) {
               <div className="searchQuoteDivDropDown">
                 <img
                   className="searchIconDropDown"
-                  src={require("../assets/image/search/magnifying-glass.png")}
+                  src={require("../../assets/image/search/magnifying-glass.png")}
                   alt="searchIcon"
                   width="20px"
                 />
@@ -378,7 +378,7 @@ function Calculator(props) {
                     >
                       <img
                         className="drop-down-Item-Icon"
-                        src={require(`../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
+                        src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
                         alt={temp[0]["symbol"]}
                         width="20px"
                       />

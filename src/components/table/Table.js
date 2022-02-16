@@ -169,28 +169,23 @@ function Table(props) {
         if (order === "DEF") {
           const sorted = props.currency.sort((a, b) => {
             return Number(a[obj1][obj2]) > Number(b[obj1][obj2])
-            ? 1
-            : Number(b[obj1][obj2]) > Number(a[obj1][obj2]) 
-            ||
-            a[obj1][obj2] === "-" 
-            ? -1
-            : 0
-          }
-            );
+              ? 1
+              : Number(b[obj1][obj2]) > Number(a[obj1][obj2]) ||
+                a[obj1][obj2] === "-"
+              ? -1
+              : 0;
+          });
           props.setCurrency(sorted);
           setOrder("ASC");
         } else if (order === "ASC") {
           const sorted = props.currency.sort((a, b) => {
-
-             return Number(a[obj1][obj2]) < Number(b[obj1][obj2])
-              ||
+            return Number(a[obj1][obj2]) < Number(b[obj1][obj2]) ||
               a[obj1][obj2] === "-"
-                ? 1
-                : Number(b[obj1][obj2]) < Number(a[obj1][obj2])
-                ? -1
-                : 0
-          }
-          );
+              ? 1
+              : Number(b[obj1][obj2]) < Number(a[obj1][obj2])
+              ? -1
+              : 0;
+          });
           props.setCurrency(sorted);
           setOrder("DSC");
         } else {
@@ -221,8 +216,7 @@ function Table(props) {
       const sorted = props.currency.sort((a, b) => {
         return Number(a[obj1][obj2]) > Number(b[obj1][obj2])
           ? 1
-          : Number(a[obj1][obj2]) < Number(b[obj1][obj2]) 
-          ||
+          : Number(a[obj1][obj2]) < Number(b[obj1][obj2]) ||
             a[obj1][obj2] === "-"
           ? -1
           : 0;
@@ -244,63 +238,67 @@ function Table(props) {
     <>
       <table>
         <thead>
-          <tr className="theaedRow1">
-            <th className="searchTh" colSpan="2">
-              <div className="searchDiv">
-                <img
-                  className="searchIcon"
-                  src={require("../../assets/image/search/magnifying-glass.png")}
-                  alt="searchIcon"
-                  width="20px"
-                />
-                <input
-                  className="searchInput"
-                  type="text"
-                  placeholder="جستجو"
-                  value={searchTerm}
-                  onChange={handleChangeCurrency}
-                  ref={searchRef}
-                />
-              </div>
-            </th>
-            <th></th>
-            <th></th>
-            <th colSpan="2">
-              <span className="marketBaseTitle">پایه بازار :</span>
-              <div className="marketbaseBtns">
-                <span
-                  className={`marketBaseDisplayBtnSelected ${
-                    marketDisplay === "TMN"
-                      ? "selected-tmn"
-                      : marketDisplay === "USDT"
-                      ? "selected-usdt"
-                      : "selected-btc"
-                  }`}
-                />
-                <button
-                  onClick={() => handleMarketDisplay("TMN")}
-                  className="marketBaseDisplayBtn"
-                >
-                  <span>تومان</span>
-                </button>
-                <button
-                  onClick={() => handleMarketDisplay("USDT")}
-                  className="marketBaseDisplayBtn"
-                >
-                  <span>USDT</span>
-                </button>
-                <button
-                  onClick={() => handleMarketDisplay("BTC")}
-                  className="marketBaseDisplayBtn"
-                >
-                  <span>BTC</span>
-                </button>
+          <tr>
+            <th colSpan="6">
+              <div className="theadRow1" >
+                <div className="searchDiv">
+                  <img
+                    className="searchIcon"
+                    src={require("../../assets/image/search/magnifying-glass.png")}
+                    alt="searchIcon"
+                    width="20px"
+                  />
+                  <input
+                    className="searchInput"
+                    type="text"
+                    placeholder="جستجو"
+                    value={searchTerm}
+                    onChange={handleChangeCurrency}
+                    ref={searchRef}
+                  />
+                </div>
+                {/* </th>
+              <th> */}
+                <div className="marketBaseDiv">
+                  <span className="marketBaseTitle">پایه بازار :</span>
+                  <div className="marketbaseBtns">
+                    <span
+                      className={`marketBaseDisplayBtnSelected ${
+                        marketDisplay === "TMN"
+                          ? "selected-tmn"
+                          : marketDisplay === "USDT"
+                          ? "selected-usdt"
+                          : "selected-btc"
+                      }`}
+                    />
+                    <button
+                      onClick={() => handleMarketDisplay("TMN")}
+                      className="marketBaseDisplayBtn"
+                    >
+                      <span>تومان</span>
+                    </button>
+                    <button
+                      onClick={() => handleMarketDisplay("USDT")}
+                      className="marketBaseDisplayBtn"
+                    >
+                      <span>USDT</span>
+                    </button>
+                    <button
+                      onClick={() => handleMarketDisplay("BTC")}
+                      className="marketBaseDisplayBtn"
+                    >
+                      <span>BTC</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </th>
           </tr>
-          <tr className="theadRow2">
-            <th className="tableHeader rowsNumber"> ردیف </th>
-            <th
+        </thead>
+        <tbody>
+        <tr className="theadRow2">
+            <td className="tableHeader rowsNumber"> ردیف </td>
+            <td
               className={` tableHeader ${
                 sortCol === "currency" && order === "ASC"
                   ? "ascending"
@@ -330,8 +328,8 @@ function Table(props) {
                   ""
                 )}
               </span>
-            </th>
-            <th
+            </td>
+            <td
               className={` tableHeader ${
                 sortCol === "bidPrice" && order === "ASC"
                   ? "ascending"
@@ -362,8 +360,8 @@ function Table(props) {
                   ""
                 )}
               </span>
-            </th>
-            <th
+            </td>
+            <td
               className={` tableHeader ${
                 sortCol === "askPrice" && order === "ASC"
                   ? "ascending"
@@ -394,8 +392,8 @@ function Table(props) {
                   ""
                 )}
               </span>
-            </th>
-            <th
+            </td>
+            <td
               className={` tableHeader ${
                 sortCol === "24h_ch" && order === "ASC"
                   ? "ascending"
@@ -426,8 +424,8 @@ function Table(props) {
                   ""
                 )}
               </span>
-            </th>
-            <th
+            </td>
+            <td
               lang="fa"
               className={` volumeHeader tableHeader ${
                 sortCol === "24h_quoteVolume" && order === "ASC"
@@ -459,10 +457,8 @@ function Table(props) {
                   ""
                 )}
               </span>
-            </th>
+            </td>
           </tr>
-        </thead>
-        <tbody>
           {favorite
             .filter((item) => item["quoteAsset"] === marketDisplay)
             .filter((item) => {

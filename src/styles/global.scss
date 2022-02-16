@@ -5,7 +5,7 @@ $input-color: #fafbff;
 $inputBorder-color: #d1d1d1;
 $calcBorder-color: #a786f7;
 $changeIcon-hover: #f1ebff;
-$calc-background: #fff;
+$light-text: #fff;
 $neutral-color: #181818;
 
 @font-face {
@@ -21,7 +21,7 @@ $neutral-color: #181818;
   src: url(../assets/fonts/Estedad/ttf/Estedad-Bold.ttf);
 }
 body {
-  background-color: $calc-background;
+  background-color: $light-text;
 }
 body,
 input,
@@ -67,14 +67,14 @@ button {
   }
   @keyframes boldShadow {
     0% {
-      box-shadow: 0px 0px 5px -1px #500fe9;
+      box-shadow: 0px 0px 5px -1px $primary-color;
     }
     100% {
-      box-shadow: 0px 0px 13px 3px #500fe9;
+      box-shadow: 0px 0px 13px 3px $primary-color;
     }
   }
   .returnHome:hover {
-    box-shadow: 0px 0px 5px -1px #500fe9;
+    box-shadow: 0px 0px 5px -1px $primary-color;
     animation: none;
   }
   .returnHomeLink {
@@ -82,7 +82,7 @@ button {
     color: $neutral-color;
   }
   #header {
-    color: #fff;
+    color: $light-text;
     font-size: 30px;
     position: fixed;
     top: 0px;
@@ -97,7 +97,7 @@ button {
     box-shadow: 0px 0px 3px 1px $primary-color;
   }
   .calcBody {
-    background-color: $calc-background;
+    background-color: $light-text;
     border: solid 2px $calcBorder-color;
     border-radius: 18px;
     padding: 25px 15px;
@@ -254,10 +254,10 @@ button {
 
     .tableHeader {
       text-align: center;
-      min-width: 150px;
+      min-width: 165px;
     }
     .tableHeader:hover {
-      background-color: $calc-background;
+      background-color: $light-text;
       cursor: pointer;
     }
     .tableHeader:first-child:hover {
@@ -279,7 +279,7 @@ button {
       align-items: center;
       border: 1px solid $inputBorder-color;
       border-radius: 7px 7px 7px 7px;
-      margin: 7px 5px;
+      margin-inline: 5px;
     }
     .searchDiv:hover {
       background-color: $background-color;

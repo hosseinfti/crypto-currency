@@ -67,7 +67,7 @@ body {
 }
 .marketBaseDiv {
   width: max-content;
-  margin: 0px 5px ;
+  margin: 0px 5px;
 }
 .marketBaseTitle {
   display: inline-block;
@@ -179,6 +179,12 @@ body {
   padding: 15px;
   width: 200px;
 }
+@media only screen and (max-width: 302px) {
+  .currencyParts {
+    padding: 0px;
+    width: -webkit-fill-available;
+  }
+}
 
 @media only screen and (min-width: 600px) {
   .pairCurrency {
@@ -205,8 +211,8 @@ body {
     width: 100%;
     table-layout: fixed;
   }
-  table tbody{
-    display:block;
+  table tbody {
+    display: block;
     width: 600%;
     overflow-x: auto;
   }
@@ -234,4 +240,3 @@ body {
     margin: 6px 50px 0px 50px;
   }
 }
-

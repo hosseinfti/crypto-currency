@@ -7,7 +7,7 @@ function NotFound() {
     <div className="notFoundDIV">
       <img
         className="notFoundIMG"
-        src={require("../../assets/image/notFound/undraw_crypto_portfolio_2jy5.svg")}
+        src={require("../../assets/image/notFound/undraw_page_not_found_re_e9o6.svg")}
         alt="notFound"
       />
       <Link className="returnHomeLink" to="/">

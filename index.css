@@ -1,0 +1,242 @@
+body {
+  direction: rtl;
+  padding: 0px;
+  margin: 0px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.tableDiv {
+  /* overflow-x: auto; */
+  border-radius: 15px 15px;
+  box-shadow: 0 2px 15px -6px rgb(0 0 0 / 50%);
+  margin-bottom: 70px;
+}
+.searchInput {
+  padding: 8px;
+}
+.searchIcon {
+  margin-right: 10px;
+}
+.theadRow1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+.marketbaseBtns {
+  display: flex;
+  position: relative;
+  background-color: #f4f5f7;
+  border-radius: 10px 10px;
+  width: fit-content;
+  float: left;
+  margin-left: 5px;
+}
+.marketBaseDisplayBtn {
+  z-index: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 5px 25px;
+  width: 73px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.marketBaseDisplayBtnSelected {
+  width: 71px;
+  height: 37px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 0px #e1e1e1;
+}
+.marketBaseDiv {
+  width: max-content;
+  margin: 0px 5px;
+}
+.marketBaseTitle {
+  display: inline-block;
+  margin: 6px;
+}
+.selected-tmn {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0px);
+}
+.selected-usdt {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-73px);
+}
+.selected-btc {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-146px);
+}
+.rowIndex {
+  opacity: 0.5;
+}
+.currencyNameParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.currencyName {
+  white-space: nowrap;
+}
+.currencyIndex {
+  opacity: 0.5;
+  font-size: 12px;
+  /* color: #768391; */
+}
+.numericTd {
+  direction: ltr;
+  text-align: center;
+  position: relative;
+}
+.currency {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: inherit;
+  padding-right: 10px;
+}
+.currencyIcon {
+  margin-left: 5px;
+}
+.star {
+  margin: 2px 0px 0px 7px;
+}
+.star:hover {
+  cursor: pointer;
+}
+.starOn {
+  margin-bottom: -4px;
+}
+.starOff {
+  margin-bottom: -4px;
+}
+.favoriteOn {
+  background-color: orange;
+}
+.favoriteOff {
+  background-color: white;
+}
+.volumeHeader {
+  width: 185px;
+}
+.rowsNumber {
+  min-width: 100% !important;
+  padding-right: 7px;
+}
+.posetive {
+  color: green;
+}
+.negetive {
+  color: red;
+}
+.calcBody {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.baseCurrency {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.baseCurrencyReverse {
+  order: 3;
+}
+
+.quoteCurrency {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.quoteCurrencyReverse {
+  order: 1;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.currencyParts {
+  padding: 15px;
+  width: 200px;
+}
+@media only screen and (max-width: 302px) {
+  .currencyParts {
+    padding: 0px;
+    width: -webkit-fill-available;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .pairCurrency {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .pairCurrency {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 936px) {
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  table tbody {
+    display: block;
+    width: 600%;
+    overflow-x: auto;
+  }
+  .tableDiv {
+    margin-inline: 20px;
+    margin-bottom: 70px;
+  }
+  /* .marketbaseBtns {
+    margin: 0;
+  } */
+}
+@media only screen and (max-width: 619px) {
+  .marketBaseTitle {
+    display: none;
+  }
+  .theadRow1 {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    justify-content: center;
+  }
+  .searchDiv {
+    margin-bottom: 10px;
+  }
+  .marketbaseBtns {
+    margin: 6px 50px 0px 50px;
+  }
+}

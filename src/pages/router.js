@@ -12,8 +12,9 @@ function router() {
         <Router>
             <Header />
             <Routes>
-            <Route path="/" element={<Finance />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/"                 element={<Finance />} />
+            <Route path="/crypto-currency/" element={<Finance />} />
+            <Route path="*"                 element={<NotFound />} />
             </Routes>
             <Footer />
         </Router>

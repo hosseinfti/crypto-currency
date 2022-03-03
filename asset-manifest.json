@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/crypto-currency/static/css/main.88ff24b6.chunk.css",
-    "main.js": "/crypto-currency/static/js/main.0acba6dd.chunk.js",
-    "main.js.map": "/crypto-currency/static/js/main.0acba6dd.chunk.js.map",
+    "main.js": "/crypto-currency/static/js/main.80d020bf.chunk.js",
+    "main.js.map": "/crypto-currency/static/js/main.80d020bf.chunk.js.map",
     "runtime-main.js": "/crypto-currency/static/js/runtime-main.7e075acc.js",
     "runtime-main.js.map": "/crypto-currency/static/js/runtime-main.7e075acc.js.map",
-    "static/js/2.b87ffe85.chunk.js": "/crypto-currency/static/js/2.b87ffe85.chunk.js",
-    "static/js/2.b87ffe85.chunk.js.map": "/crypto-currency/static/js/2.b87ffe85.chunk.js.map",
+    "static/js/2.9fb5f9f6.chunk.js": "/crypto-currency/static/js/2.9fb5f9f6.chunk.js",
+    "static/js/2.9fb5f9f6.chunk.js.map": "/crypto-currency/static/js/2.9fb5f9f6.chunk.js.map",
     "index.html": "/crypto-currency/index.html",
-    "precache-manifest.71061c07c9e8fd2a8590085e7d12cd51.js": "/crypto-currency/precache-manifest.71061c07c9e8fd2a8590085e7d12cd51.js",
+    "precache-manifest.c29945f09fbb946021a333ca25b01657.js": "/crypto-currency/precache-manifest.c29945f09fbb946021a333ca25b01657.js",
     "service-worker.js": "/crypto-currency/service-worker.js",
     "static/css/main.88ff24b6.chunk.css.map": "/crypto-currency/static/css/main.88ff24b6.chunk.css.map",
-    "static/js/2.b87ffe85.chunk.js.LICENSE.txt": "/crypto-currency/static/js/2.b87ffe85.chunk.js.LICENSE.txt",
+    "static/js/2.9fb5f9f6.chunk.js.LICENSE.txt": "/crypto-currency/static/js/2.9fb5f9f6.chunk.js.LICENSE.txt",
     "static/media/ADA.svg": "/crypto-currency/static/media/ADA.16bd1ca8.svg",
     "static/media/ALICE.svg": "/crypto-currency/static/media/ALICE.e397ec04.svg",
     "static/media/ATOM.svg": "/crypto-currency/static/media/ATOM.fa6fbde2.svg",
@@ -51,8 +51,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7e075acc.js",
-    "static/js/2.b87ffe85.chunk.js",
+    "static/js/2.9fb5f9f6.chunk.js",
     "static/css/main.88ff24b6.chunk.css",
-    "static/js/main.0acba6dd.chunk.js"
+    "static/js/main.80d020bf.chunk.js"
   ]
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./not-found.css"
+import { Helmet } from "react-helmet";
 
 function NotFound() {
   return (
@@ -17,6 +18,7 @@ function NotFound() {
       </Link>
       <div className="notFoundFA"> صفحه مورد نظر یافت نشد! </div>
       <div className="notFoundEN">Error 404 - Page Not Found</div>
+      <Helmet> <title> صفحه مورد نظر یافت نشد | BestCoino </title> </Helmet>
     </div>
   );
 }

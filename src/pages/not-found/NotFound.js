@@ -11,7 +11,7 @@ function NotFound() {
         src={require("../../assets/image/notFound/undraw_page_not_found_re_e9o6.svg")}
         alt="notFound"
       />
-      <Link className="returnHomeLink" to="/">
+      <Link className="returnHomeLink" to="/crypto-currency">
         <div className="returnHome">بازگشت به صفحه‌ی اصلی</div>
       </Link>
       <div className="notFoundFA"> صفحه مورد نظر یافت نشد! </div>

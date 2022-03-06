@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/crypto-currency/static/css/main.88ff24b6.chunk.css",
+    "main.css": "/crypto-currency/static/css/main.7c12dadd.chunk.css",
     "main.js": "/crypto-currency/static/js/main.34e30fc1.chunk.js",
     "main.js.map": "/crypto-currency/static/js/main.34e30fc1.chunk.js.map",
     "runtime-main.js": "/crypto-currency/static/js/runtime-main.7e075acc.js",
@@ -8,9 +8,9 @@
     "static/js/2.8748c740.chunk.js": "/crypto-currency/static/js/2.8748c740.chunk.js",
     "static/js/2.8748c740.chunk.js.map": "/crypto-currency/static/js/2.8748c740.chunk.js.map",
     "index.html": "/crypto-currency/index.html",
-    "precache-manifest.8de4760674f6254f8d26000ff60aff75.js": "/crypto-currency/precache-manifest.8de4760674f6254f8d26000ff60aff75.js",
+    "precache-manifest.d2c3f0e1684c0a9f11109958d4e1133b.js": "/crypto-currency/precache-manifest.d2c3f0e1684c0a9f11109958d4e1133b.js",
     "service-worker.js": "/crypto-currency/service-worker.js",
-    "static/css/main.88ff24b6.chunk.css.map": "/crypto-currency/static/css/main.88ff24b6.chunk.css.map",
+    "static/css/main.7c12dadd.chunk.css.map": "/crypto-currency/static/css/main.7c12dadd.chunk.css.map",
     "static/js/2.8748c740.chunk.js.LICENSE.txt": "/crypto-currency/static/js/2.8748c740.chunk.js.LICENSE.txt",
     "static/media/ADA.svg": "/crypto-currency/static/media/ADA.16bd1ca8.svg",
     "static/media/ALICE.svg": "/crypto-currency/static/media/ALICE.e397ec04.svg",
@@ -52,7 +52,7 @@
   "entrypoints": [
     "static/js/runtime-main.7e075acc.js",
     "static/js/2.8748c740.chunk.js",
-    "static/css/main.88ff24b6.chunk.css",
+    "static/css/main.7c12dadd.chunk.css",
     "static/js/main.34e30fc1.chunk.js"
   ]
 }

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/crypto-currency/static/css/main.7c12dadd.chunk.css",
-    "main.js": "/crypto-currency/static/js/main.34e30fc1.chunk.js",
-    "main.js.map": "/crypto-currency/static/js/main.34e30fc1.chunk.js.map",
+    "main.js": "/crypto-currency/static/js/main.459f91b7.chunk.js",
+    "main.js.map": "/crypto-currency/static/js/main.459f91b7.chunk.js.map",
     "runtime-main.js": "/crypto-currency/static/js/runtime-main.7e075acc.js",
     "runtime-main.js.map": "/crypto-currency/static/js/runtime-main.7e075acc.js.map",
     "static/js/2.8748c740.chunk.js": "/crypto-currency/static/js/2.8748c740.chunk.js",
     "static/js/2.8748c740.chunk.js.map": "/crypto-currency/static/js/2.8748c740.chunk.js.map",
     "index.html": "/crypto-currency/index.html",
-    "precache-manifest.d2c3f0e1684c0a9f11109958d4e1133b.js": "/crypto-currency/precache-manifest.d2c3f0e1684c0a9f11109958d4e1133b.js",
+    "precache-manifest.e2f47c6f461d7a6d2e4bdb0b7a435242.js": "/crypto-currency/precache-manifest.e2f47c6f461d7a6d2e4bdb0b7a435242.js",
     "service-worker.js": "/crypto-currency/service-worker.js",
     "static/css/main.7c12dadd.chunk.css.map": "/crypto-currency/static/css/main.7c12dadd.chunk.css.map",
     "static/js/2.8748c740.chunk.js.LICENSE.txt": "/crypto-currency/static/js/2.8748c740.chunk.js.LICENSE.txt",
@@ -19,7 +19,7 @@
     "static/media/BCH.svg": "/crypto-currency/static/media/BCH.8653be47.svg",
     "static/media/BNB.svg": "/crypto-currency/static/media/BNB.40d26c1f.svg",
     "static/media/BTC.svg": "/crypto-currency/static/media/BTC.45174c5c.svg",
-    "static/media/BTT.svg": "/crypto-currency/static/media/BTT.1a8ed372.svg",
+    "static/media/BTTC.svg": "/crypto-currency/static/media/BTTC.1a8ed372.svg",
     "static/media/CAKE.svg": "/crypto-currency/static/media/CAKE.083df927.svg",
     "static/media/CHZ.svg": "/crypto-currency/static/media/CHZ.c0ce76a7.svg",
     "static/media/DASH.svg": "/crypto-currency/static/media/DASH.ee6d808d.svg",
@@ -53,6 +53,6 @@
     "static/js/runtime-main.7e075acc.js",
     "static/js/2.8748c740.chunk.js",
     "static/css/main.7c12dadd.chunk.css",
-    "static/js/main.34e30fc1.chunk.js"
+    "static/js/main.459f91b7.chunk.js"
   ]
 }

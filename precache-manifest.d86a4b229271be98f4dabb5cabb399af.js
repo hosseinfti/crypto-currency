@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "49f7d2d053bba83bc9842c945c8c2ef5",
+    "revision": "474bc70fbb8d7757e988144ccff82b10",
     "url": "/crypto-currency/index.html"
   },
   {
-    "revision": "c7a2a7b36fd34b6ead81",
+    "revision": "ead30057f06bcb302b84",
     "url": "/crypto-currency/static/css/main.7c12dadd.chunk.css"
   },
   {
-    "revision": "21a98481e7e03a9b54e6",
-    "url": "/crypto-currency/static/js/2.8748c740.chunk.js"
+    "revision": "0514c96930d9927dc09d",
+    "url": "/crypto-currency/static/js/2.0025cab8.chunk.js"
   },
   {
     "revision": "a90bb751b102ed9d8f9443a23ededd32",
-    "url": "/crypto-currency/static/js/2.8748c740.chunk.js.LICENSE.txt"
+    "url": "/crypto-currency/static/js/2.0025cab8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c7a2a7b36fd34b6ead81",
-    "url": "/crypto-currency/static/js/main.459f91b7.chunk.js"
+    "revision": "ead30057f06bcb302b84",
+    "url": "/crypto-currency/static/js/main.877a6da5.chunk.js"
   },
   {
     "revision": "764bcb8fc9ba7951c13b",
@@ -34,6 +34,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fa6fbde2a8c029cd826b9613f519825d",
     "url": "/crypto-currency/static/media/ATOM.fa6fbde2.svg"
+  },
+  {
+    "revision": "325440f16bf0b4f169fb931db3fe462f",
+    "url": "/crypto-currency/static/media/AVAX.325440f1.svg"
   },
   {
     "revision": "d2409998d06e347a214456d262685c05",
@@ -74,6 +78,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "bc8421634ae9fabad753aace954f1f64",
     "url": "/crypto-currency/static/media/DOT.bc842163.svg"
+  },
+  {
+    "revision": "c82a76ccb7ee449ec59100e041ecf319",
+    "url": "/crypto-currency/static/media/EGLD.c82a76cc.svg"
   },
   {
     "revision": "9deab7469ad47fc6cf713311ed9294eb",
@@ -124,6 +132,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crypto-currency/static/media/MATIC.96fee1c6.svg"
   },
   {
+    "revision": "e2fcd24967aa30c8329697137d43b3a3",
+    "url": "/crypto-currency/static/media/NEAR.e2fcd249.svg"
+  },
+  {
     "revision": "2b7d11595295fc9e4d730460c33edcf9",
     "url": "/crypto-currency/static/media/RUNE.2b7d1159.svg"
   },
@@ -134,6 +146,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "dac7ae04e8a8de9b06764050e70f4b49",
     "url": "/crypto-currency/static/media/SHIB.dac7ae04.svg"
+  },
+  {
+    "revision": "3ab2b68a8cfd4c7365bd5b8ce8663e28",
+    "url": "/crypto-currency/static/media/SOL.3ab2b68a.svg"
   },
   {
     "revision": "c1d72708b08548d0312631aff57c46f6",
@@ -158,6 +174,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "4c2171e859cf844d2eb3bda7dce9b73b",
     "url": "/crypto-currency/static/media/XRP.4c2171e8.svg"
+  },
+  {
+    "revision": "e00aa1d176cba04698991ae4cb915b3e",
+    "url": "/crypto-currency/static/media/XTZ.e00aa1d1.svg"
   },
   {
     "revision": "2b0f93b21e1272c2bb2492753eb5d83b",

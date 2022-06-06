@@ -7,7 +7,7 @@ function Finance() {
   const [currency, setCurrency] = useState([]);
 
   useEffect(() => {
-    axios
+    axios 
       .get("https://api.wallex.ir/v1/markets")
       .then((res1) => Object.values(res1.data.result.symbols))
       .then((res3) => setCurrency(res3))

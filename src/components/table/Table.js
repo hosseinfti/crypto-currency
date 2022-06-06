@@ -240,7 +240,7 @@ function Table(props) {
         <thead>
           <tr>
             <th colSpan="6">
-              <div className="theadRow1" >
+              <div className="theadRow1">
                 <div className="searchDiv">
                   <img
                     className="searchIcon"
@@ -296,7 +296,7 @@ function Table(props) {
           </tr>
         </thead>
         <tbody>
-        <tr className="theadRow2">
+          <tr className="theadRow2">
             <td className="tableHeader rowsNumber"> ردیف </td>
             <td
               className={` tableHeader ${
@@ -658,7 +658,6 @@ function Table(props) {
                           className="starOff"
                           src={require("../../assets/image/favorite/starOff.png")}
                           width="25px"
-                          // height="20px"
                           alt="starOff"
                         />
                       ) : (
@@ -667,7 +666,6 @@ function Table(props) {
                           className="starOn"
                           src={require("../../assets/image/favorite/starOn.png")}
                           width="25px"
-                          // height="20px"
                           alt="starOn"
                         />
                       )}
@@ -677,7 +675,6 @@ function Table(props) {
                       src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
                       alt={temp[0]["symbol"]}
                       width="25px"
-                      // height="20px"
                     />
                     <div className="currencyNameParent">
                       <span className="currencyName">

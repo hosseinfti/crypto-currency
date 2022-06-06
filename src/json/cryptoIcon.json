@@ -1,187 +1,234 @@
 [
-    {
-        "symbol" : "ADA",
-        "src" : "../assets/image/cryptoIcon/ADA.svg",
-        "faAsset": "کاردانو"
-
-    },
-    {
-        "symbol" : "ALICE",
-        "src" : "../assets/image/cryptoIcon/ALICE.svg",
-        "faAsset": "آلیس"
-    },
-    {
-        "symbol" : "ATOM",
-        "src" : "../assets/image/cryptoIcon/ATOM.svg",
-        "faAsset": "اتم"
-
-    },
-    {
-        "symbol" : "AXS",
-        "src" : "../assets/image/cryptoIcon/AXS.svg",
-        "faAsset": "اکسی"
-
-    },
-    {
-        "symbol" : "BCH",
-        "src" : "../assets/image/cryptoIcon/BCH.svg",
-        "faAsset": "بیت کوین کش"
-
-    },
-    {
-        "symbol" : "BNB",
-        "src" : "../assets/image/cryptoIcon/BNB.svg",
-        "faAsset": "بایننس کوین"
-
-    },
-    {
-        "symbol" : "BTC",
-        "src" : "../assets/image/cryptoIcon/BTC.svg",
-        "faAsset": "بیت کوین"
-
-    },
-    {
-        "symbol" : "BTTC",
-        "src" : "../assets/image/cryptoIcon/BTT.svg",
-        "faAsset": "بیت تورنت"
-
-    },
-    {
-        "symbol" : "CAKE",
-        "src" : "../assets/image/cryptoIcon/CAKE.svg",
-        "faAsset": "پن کیک سوآپ"
-
-    },
-    {
-        "symbol" : "CHZ",
-        "src" : "../assets/image/cryptoIcon/CHZ.svg",
-        "faAsset": "چیلیز"
-
-    },
-    {
-        "symbol" : "DASH",
-        "src" : "../assets/image/cryptoIcon/DASH.svg",
-        "faAsset": "دش"
-
-    },
-    {
-        "symbol" : "DOGE",
-        "src" : "../assets/image/cryptoIcon/DOGE.svg",
-        "faAsset": "دوج کوین"
-
-    },
-    {
-        "symbol" : "DOT",
-        "src" : "../assets/image/cryptoIcon/DOT.svg",
-        "faAsset": "پولکادات"
-
-    },
-    {
-        "symbol" : "ENJ",
-        "src" : "../assets/image/cryptoIcon/ENJ.svg",
-        "faAsset": "انجین"
-
-    },
-    {
-        "symbol" : "EOS",
-        "src" : "../assets/image/cryptoIcon/EOS.svg",
-        "faAsset": "ایاس"
-
-    },
-    {
-        "symbol" : "ETH",
-        "src" : "../assets/image/cryptoIcon/ETH.svg",
-        "faAsset": "اتریوم"
-
-    },
-    {
-        "symbol" : "FIL",
-        "src" : "../assets/image/cryptoIcon/FIL.svg",
-        "faAsset": "فایل کوین"
-
-    },
-    {
-        "symbol" : "FTM",
-        "src" : "../assets/image/cryptoIcon/FTM.svg",
-        "faAsset": "فانتوم"
-
-    },
-    {
-        "symbol" : "LINK",
-        "src" : "../assets/image/cryptoIcon/LINK.svg",
-        "faAsset": "چین لینک"
-
-    },
-    {
-        "symbol" : "LTC",
-        "src" : "../assets/image/cryptoIcon/LTC.svg",
-        "faAsset": "لایت کوین"
-
-    },
-    {
-        "symbol" : "MANA",
-        "src" : "../assets/image/cryptoIcon/MANA.svg",
-        "faAsset": "مانا"
-
-    },
-    {
-        "symbol" : "MATIC",
-        "src" : "../assets/image/cryptoIcon/MATIC.svg",
-        "faAsset": "متیک"
-
-    },
-    {
-        "symbol" : "RUNE",
-        "src" : "../assets/image/cryptoIcon/RUNE.svg",
-        "faAsset": "تورچین"
-
-    },
-    {
-        "symbol" : "SAND",
-        "src" : "../assets/image/cryptoIcon/SAND.svg",
-        "faAsset": "سندباکس"
-
-    },
-    {
-        "symbol" : "SHIB",
-        "src" : "../assets/image/cryptoIcon/SHIB.svg",
-        "faAsset": "شیبا"
-
-    },
-    {
-        "symbol" : "TRX",
-        "src" : "../assets/image/cryptoIcon/TRX.svg",
-        "faAsset": "ترون"
-
-    },
-    {
-        "symbol" : "UNI",
-        "src" : "../assets/image/cryptoIcon/UNI.svg",
-        "faAsset": "یونی سوآپ"
-
-    },
-    {
-        "symbol" : "USDT",
-        "src" : "../assets/image/cryptoIcon/USDT.svg",
-        "faAsset": "تتر"
-
-    },
-    {
-        "symbol" : "XLM",
-        "src" : "../assets/image/cryptoIcon/XLM.svg",
-        "faAsset": "استلار"
-
-    },
-    {
-        "symbol" : "XRP",
-        "src" : "../assets/image/cryptoIcon/XRP.svg",
-        "faAsset": "ریپل"
-
-    },    
-    {
-        "symbol" : "TMN",
-        "src" : "../assets/image/cryptoIcon/TMN.svg",
-        "faAsset": "تومان"
-
-    }
+  {
+    "symbol": "ADA",
+    "src": "../assets/image/cryptoIcon/ADA.svg",
+    "faAsset": "کاردانو"
+  },
+  {
+    "symbol": "ALICE",
+    "src": "../assets/image/cryptoIcon/ALICE.svg",
+    "faAsset": "آلیس"
+  },
+  {
+    "symbol": "ATOM",
+    "src": "../assets/image/cryptoIcon/ATOM.svg",
+    "faAsset": "اتم"
+  },
+  {
+    "symbol": "AXS",
+    "src": "../assets/image/cryptoIcon/AXS.svg",
+    "faAsset": "اکسی"
+  },
+  {
+    "symbol": "BCH",
+    "src": "../assets/image/cryptoIcon/BCH.svg",
+    "faAsset": "بیت کوین کش"
+  },
+  {
+    "symbol": "BNB",
+    "src": "../assets/image/cryptoIcon/BNB.svg",
+    "faAsset": "بایننس کوین"
+  },
+  {
+    "symbol": "BTC",
+    "src": "../assets/image/cryptoIcon/BTC.svg",
+    "faAsset": "بیت کوین"
+  },
+  {
+    "symbol": "BTTC",
+    "src": "../assets/image/cryptoIcon/BTT.svg",
+    "faAsset": "بیت تورنت"
+  },
+  {
+    "symbol": "CAKE",
+    "src": "../assets/image/cryptoIcon/CAKE.svg",
+    "faAsset": "پن کیک سوآپ"
+  },
+  {
+    "symbol": "CHZ",
+    "src": "../assets/image/cryptoIcon/CHZ.svg",
+    "faAsset": "چیلیز"
+  },
+  {
+    "symbol": "DASH",
+    "src": "../assets/image/cryptoIcon/DASH.svg",
+    "faAsset": "دش"
+  },
+  {
+    "symbol": "DOGE",
+    "src": "../assets/image/cryptoIcon/DOGE.svg",
+    "faAsset": "دوج کوین"
+  },
+  {
+    "symbol": "DOT",
+    "src": "../assets/image/cryptoIcon/DOT.svg",
+    "faAsset": "پولکادات"
+  },
+  {
+    "symbol": "ENJ",
+    "src": "../assets/image/cryptoIcon/ENJ.svg",
+    "faAsset": "انجین"
+  },
+  {
+    "symbol": "EOS",
+    "src": "../assets/image/cryptoIcon/EOS.svg",
+    "faAsset": "ایاس"
+  },
+  {
+    "symbol": "ETH",
+    "src": "../assets/image/cryptoIcon/ETH.svg",
+    "faAsset": "اتریوم"
+  },
+  {
+    "symbol": "FIL",
+    "src": "../assets/image/cryptoIcon/FIL.svg",
+    "faAsset": "فایل کوین"
+  },
+  {
+    "symbol": "FTM",
+    "src": "../assets/image/cryptoIcon/FTM.svg",
+    "faAsset": "فانتوم"
+  },
+  {
+    "symbol": "LINK",
+    "src": "../assets/image/cryptoIcon/LINK.svg",
+    "faAsset": "چین لینک"
+  },
+  {
+    "symbol": "LTC",
+    "src": "../assets/image/cryptoIcon/LTC.svg",
+    "faAsset": "لایت کوین"
+  },
+  {
+    "symbol": "MANA",
+    "src": "../assets/image/cryptoIcon/MANA.svg",
+    "faAsset": "مانا"
+  },
+  {
+    "symbol": "MATIC",
+    "src": "../assets/image/cryptoIcon/MATIC.svg",
+    "faAsset": "متیک"
+  },
+  {
+    "symbol": "RUNE",
+    "src": "../assets/image/cryptoIcon/RUNE.svg",
+    "faAsset": "تورچین"
+  },
+  {
+    "symbol": "SAND",
+    "src": "../assets/image/cryptoIcon/SAND.svg",
+    "faAsset": "سندباکس"
+  },
+  {
+    "symbol": "SHIB",
+    "src": "../assets/image/cryptoIcon/SHIB.svg",
+    "faAsset": "شیبا"
+  },
+  {
+    "symbol": "TRX",
+    "src": "../assets/image/cryptoIcon/TRX.svg",
+    "faAsset": "ترون"
+  },
+  {
+    "symbol": "UNI",
+    "src": "../assets/image/cryptoIcon/UNI.svg",
+    "faAsset": "یونی سوآپ"
+  },
+  {
+    "symbol": "USDT",
+    "src": "../assets/image/cryptoIcon/USDT.svg",
+    "faAsset": "تتر"
+  },
+  {
+    "symbol": "XLM",
+    "src": "../assets/image/cryptoIcon/XLM.svg",
+    "faAsset": "استلار"
+  },
+  {
+    "symbol": "XRP",
+    "src": "../assets/image/cryptoIcon/XRP.svg",
+    "faAsset": "ریپل"
+  },
+  {
+    "symbol": "TMN",
+    "src": "../assets/image/cryptoIcon/TMN.svg",
+    "faAsset": "تومان"
+  },
+  {
+    "symbol": "EGLD",
+    "src": "../assets/image/cryptoIcon/EGLD.svg",
+    "faAsset": "الروند"
+  },
+  {
+    "symbol": "AVAX",
+    "src": "../assets/image/cryptoIcon/AVAX.svg",
+    "faAsset": "اولانچ"
+  },
+  {
+    "symbol": "NEAR",
+    "src": "../assets/image/cryptoIcon/NEAR.svg",
+    "faAsset": "نیر"
+  },
+  {
+    "symbol": "XTZ",
+    "src": "../assets/image/cryptoIcon/XTZ.svg",
+    "faAsset": "تزوس"
+  },
+  {
+    "symbol": "SOL",
+    "src": "../assets/image/cryptoIcon/SOL.svg",
+    "faAsset": "سولانا"
+  },
+  {
+    "symbol": "PAXG",
+    "src": "../assets/image/cryptoIcon/PAXG.svg",
+    "faAsset": "پکسوس گلد"
+  },
+  {
+    "symbol": "1INCH",
+    "src": "../assets/image/cryptoIcon/1INCH.svg",
+    "faAsset": "وان اینچ"
+  },
+  {
+    "symbol": "YFI",
+    "src": "../assets/image/cryptoIcon/YFI.svg",
+    "faAsset": "یرن فایننس"
+  },
+  {
+    "symbol": "CELR",
+    "src": "../assets/image/cryptoIcon/CELR.svg",
+    "faAsset": "سلر"
+  },
+  {
+    "symbol": "APE",
+    "src": "../assets/image/cryptoIcon/APE.svg",
+    "faAsset": "ایپ کوین"
+  },
+  {
+    "symbol": "POLS",
+    "src": "../assets/image/cryptoIcon/POLS.svg",
+    "faAsset": "پولکا استارتر"
+  },
+  {
+    "symbol": "DAI",
+    "src": "../assets/image/cryptoIcon/DAI.svg",
+    "faAsset": "دای"
+  },
+  {
+    "symbol": "AAVE",
+    "src": "../assets/image/cryptoIcon/AAVE.svg",
+    "faAsset": "آوه"
+  },  {
+    "symbol": "GALA",
+    "src": "../assets/image/cryptoIcon/GALA.svg",
+    "faAsset": "گالا"
+  },  {
+    "symbol": "ETC",
+    "src": "../assets/image/cryptoIcon/AAVE.svg",
+    "faAsset": "اتریوم کلاسیک"
+  },  {
+    "symbol": "MKR",
+    "src": "../assets/image/cryptoIcon/AAVE.svg",
+    "faAsset": "میکر"
+  }
 ]

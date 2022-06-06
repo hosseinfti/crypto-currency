@@ -1,27 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "474bc70fbb8d7757e988144ccff82b10",
+    "revision": "8218f62b13bd81b8226804389f821540",
     "url": "/crypto-currency/index.html"
   },
   {
-    "revision": "ead30057f06bcb302b84",
+    "revision": "1089aa28c9b6d10435f5",
     "url": "/crypto-currency/static/css/main.7c12dadd.chunk.css"
   },
   {
-    "revision": "0514c96930d9927dc09d",
-    "url": "/crypto-currency/static/js/2.0025cab8.chunk.js"
+    "revision": "aeda9be944d3da089c3c",
+    "url": "/crypto-currency/static/js/2.f28e8926.chunk.js"
   },
   {
     "revision": "a90bb751b102ed9d8f9443a23ededd32",
-    "url": "/crypto-currency/static/js/2.0025cab8.chunk.js.LICENSE.txt"
+    "url": "/crypto-currency/static/js/2.f28e8926.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ead30057f06bcb302b84",
-    "url": "/crypto-currency/static/js/main.877a6da5.chunk.js"
+    "revision": "1089aa28c9b6d10435f5",
+    "url": "/crypto-currency/static/js/main.eb023b68.chunk.js"
   },
   {
     "revision": "764bcb8fc9ba7951c13b",
     "url": "/crypto-currency/static/js/runtime-main.7e075acc.js"
+  },
+  {
+    "revision": "7056520dc1274f139f1dbc37b52364b4",
+    "url": "/crypto-currency/static/media/1INCH.7056520d.svg"
+  },
+  {
+    "revision": "b553770cb583eacaeecbb3cc19a5ebcc",
+    "url": "/crypto-currency/static/media/AAVE.b553770c.svg"
   },
   {
     "revision": "16bd1ca84f73ca4dfbb637199cbcf40d",
@@ -30,6 +38,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e397ec04827e0f204bb750116fccd3a0",
     "url": "/crypto-currency/static/media/ALICE.e397ec04.svg"
+  },
+  {
+    "revision": "79b6a92234d85dd069f858554fe6f4f1",
+    "url": "/crypto-currency/static/media/APE.79b6a922.svg"
   },
   {
     "revision": "fa6fbde2a8c029cd826b9613f519825d",
@@ -64,8 +76,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crypto-currency/static/media/CAKE.083df927.svg"
   },
   {
+    "revision": "04b9a7812246642a275cf6035c93be3a",
+    "url": "/crypto-currency/static/media/CELR.04b9a781.svg"
+  },
+  {
     "revision": "c0ce76a7a03b5817da1fcf5bbe38953a",
     "url": "/crypto-currency/static/media/CHZ.c0ce76a7.svg"
+  },
+  {
+    "revision": "9b53a6dedbca732aa8139fef18956567",
+    "url": "/crypto-currency/static/media/DAI.9b53a6de.svg"
   },
   {
     "revision": "ee6d808db4e77aa1f12b0923dc5817cb",
@@ -92,6 +112,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crypto-currency/static/media/EOS.45b46329.svg"
   },
   {
+    "revision": "5a4c7957a07606b718ea54b3ccad7234",
+    "url": "/crypto-currency/static/media/ETC.5a4c7957.svg"
+  },
+  {
     "revision": "58d1c3a7c7339067f44ea71981d95b99",
     "url": "/crypto-currency/static/media/ETH.58d1c3a7.svg"
   },
@@ -116,6 +140,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crypto-currency/static/media/FTM.39c688df.svg"
   },
   {
+    "revision": "3a90909198030bf09432fe6521bfead7",
+    "url": "/crypto-currency/static/media/GALA.3a909091.svg"
+  },
+  {
     "revision": "6080a28217dda7d56cfba98f35331908",
     "url": "/crypto-currency/static/media/LINK.6080a282.svg"
   },
@@ -132,8 +160,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crypto-currency/static/media/MATIC.96fee1c6.svg"
   },
   {
+    "revision": "6870cbaec7e123065ab7094b6df759b0",
+    "url": "/crypto-currency/static/media/MKR.6870cbae.svg"
+  },
+  {
     "revision": "e2fcd24967aa30c8329697137d43b3a3",
     "url": "/crypto-currency/static/media/NEAR.e2fcd249.svg"
+  },
+  {
+    "revision": "ab8e51bd396874e057d30cc7d1f8370a",
+    "url": "/crypto-currency/static/media/PAXG.ab8e51bd.svg"
+  },
+  {
+    "revision": "751fb9cc2e6b0e3f534cf93897444d23",
+    "url": "/crypto-currency/static/media/POLS.751fb9cc.svg"
   },
   {
     "revision": "2b7d11595295fc9e4d730460c33edcf9",
@@ -178,6 +218,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e00aa1d176cba04698991ae4cb915b3e",
     "url": "/crypto-currency/static/media/XTZ.e00aa1d1.svg"
+  },
+  {
+    "revision": "f488171f743ca3bb395abe6d8868d659",
+    "url": "/crypto-currency/static/media/YFI.f488171f.svg"
   },
   {
     "revision": "2b0f93b21e1272c2bb2492753eb5d83b",

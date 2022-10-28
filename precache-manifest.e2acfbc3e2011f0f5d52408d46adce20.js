@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8218f62b13bd81b8226804389f821540",
+    "revision": "fccfffcd0d8f9607bf3624d584853c96",
     "url": "/crypto-currency/index.html"
   },
   {
-    "revision": "1089aa28c9b6d10435f5",
+    "revision": "cd10c1c8c6f523c85a6f",
     "url": "/crypto-currency/static/css/main.7c12dadd.chunk.css"
   },
   {
-    "revision": "aeda9be944d3da089c3c",
-    "url": "/crypto-currency/static/js/2.f28e8926.chunk.js"
+    "revision": "a75931f458046980c493",
+    "url": "/crypto-currency/static/js/2.cd84d82b.chunk.js"
   },
   {
     "revision": "a90bb751b102ed9d8f9443a23ededd32",
-    "url": "/crypto-currency/static/js/2.f28e8926.chunk.js.LICENSE.txt"
+    "url": "/crypto-currency/static/js/2.cd84d82b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1089aa28c9b6d10435f5",
-    "url": "/crypto-currency/static/js/main.eb023b68.chunk.js"
+    "revision": "cd10c1c8c6f523c85a6f",
+    "url": "/crypto-currency/static/js/main.e10cbb24.chunk.js"
   },
   {
     "revision": "764bcb8fc9ba7951c13b",
@@ -142,6 +142,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3a90909198030bf09432fe6521bfead7",
     "url": "/crypto-currency/static/media/GALA.3a909091.svg"
+  },
+  {
+    "revision": "6e43d23f8d0c99c6dde12da884904398",
+    "url": "/crypto-currency/static/media/GMT.6e43d23f.svg"
   },
   {
     "revision": "6080a28217dda7d56cfba98f35331908",

@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/crypto-currency/static/css/main.7c12dadd.chunk.css",
-    "main.js": "/crypto-currency/static/js/main.eb023b68.chunk.js",
-    "main.js.map": "/crypto-currency/static/js/main.eb023b68.chunk.js.map",
+    "main.js": "/crypto-currency/static/js/main.e10cbb24.chunk.js",
+    "main.js.map": "/crypto-currency/static/js/main.e10cbb24.chunk.js.map",
     "runtime-main.js": "/crypto-currency/static/js/runtime-main.7e075acc.js",
     "runtime-main.js.map": "/crypto-currency/static/js/runtime-main.7e075acc.js.map",
-    "static/js/2.f28e8926.chunk.js": "/crypto-currency/static/js/2.f28e8926.chunk.js",
-    "static/js/2.f28e8926.chunk.js.map": "/crypto-currency/static/js/2.f28e8926.chunk.js.map",
+    "static/js/2.cd84d82b.chunk.js": "/crypto-currency/static/js/2.cd84d82b.chunk.js",
+    "static/js/2.cd84d82b.chunk.js.map": "/crypto-currency/static/js/2.cd84d82b.chunk.js.map",
     "index.html": "/crypto-currency/index.html",
-    "precache-manifest.ebdc2d86d36bf565a5ca95e69426cc53.js": "/crypto-currency/precache-manifest.ebdc2d86d36bf565a5ca95e69426cc53.js",
+    "precache-manifest.e2acfbc3e2011f0f5d52408d46adce20.js": "/crypto-currency/precache-manifest.e2acfbc3e2011f0f5d52408d46adce20.js",
     "service-worker.js": "/crypto-currency/service-worker.js",
     "static/css/main.7c12dadd.chunk.css.map": "/crypto-currency/static/css/main.7c12dadd.chunk.css.map",
-    "static/js/2.f28e8926.chunk.js.LICENSE.txt": "/crypto-currency/static/js/2.f28e8926.chunk.js.LICENSE.txt",
+    "static/js/2.cd84d82b.chunk.js.LICENSE.txt": "/crypto-currency/static/js/2.cd84d82b.chunk.js.LICENSE.txt",
     "static/media/1INCH.svg": "/crypto-currency/static/media/1INCH.7056520d.svg",
     "static/media/AAVE.svg": "/crypto-currency/static/media/AAVE.b553770c.svg",
     "static/media/ADA.svg": "/crypto-currency/static/media/ADA.16bd1ca8.svg",
@@ -40,6 +40,7 @@
     "static/media/FIL.svg": "/crypto-currency/static/media/FIL.84facaf9.svg",
     "static/media/FTM.svg": "/crypto-currency/static/media/FTM.39c688df.svg",
     "static/media/GALA.svg": "/crypto-currency/static/media/GALA.3a909091.svg",
+    "static/media/GMT.svg": "/crypto-currency/static/media/GMT.6e43d23f.svg",
     "static/media/LINK.svg": "/crypto-currency/static/media/LINK.6080a282.svg",
     "static/media/LTC.svg": "/crypto-currency/static/media/LTC.ad57e1aa.svg",
     "static/media/MANA.svg": "/crypto-currency/static/media/MANA.418ae323.svg",
@@ -67,8 +68,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7e075acc.js",
-    "static/js/2.f28e8926.chunk.js",
+    "static/js/2.cd84d82b.chunk.js",
     "static/css/main.7c12dadd.chunk.css",
-    "static/js/main.eb023b68.chunk.js"
+    "static/js/main.e10cbb24.chunk.js"
   ]
 }

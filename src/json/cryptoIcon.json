@@ -218,17 +218,25 @@
     "symbol": "AAVE",
     "src": "../assets/image/cryptoIcon/AAVE.svg",
     "faAsset": "آوه"
-  },  {
+  },
+  {
     "symbol": "GALA",
     "src": "../assets/image/cryptoIcon/GALA.svg",
     "faAsset": "گالا"
-  },  {
+  },
+  {
     "symbol": "ETC",
     "src": "../assets/image/cryptoIcon/AAVE.svg",
     "faAsset": "اتریوم کلاسیک"
-  },  {
+  },
+  {
     "symbol": "MKR",
     "src": "../assets/image/cryptoIcon/AAVE.svg",
     "faAsset": "میکر"
+  },
+  {
+    "symbol": "GMT",
+    "src": "../assets/image/cryptoIcon/GMT.svg",
+    "faAsset": "استپن"
   }
 ]

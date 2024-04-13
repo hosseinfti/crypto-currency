@@ -17,7 +17,7 @@ function NotFound() {
       <div className="notFoundFA"> صفحه مورد نظر یافت نشد! </div>
       <div className="notFoundEN">Error 404 - Page Not Found</div>
       <Helmet>
-        {" "}
+        {"  "}
         <title> صفحه مورد نظر یافت نشد | BestCoino </title>
       </Helmet>
     </div>

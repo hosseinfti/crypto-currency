@@ -44,49 +44,6 @@ function Calculator(props) {
     setUniqBaseCurrency(filteredBaseCurrency);
   }, [props.currency]);
 
-  // const BDDElement = document.getElementsByClassName("calcBody");
-  // window.onclick =  (event) => {
-  //   if (event.target !== BDDElement) {
-  //     changeDDOpen();
-  //   }
-  // };
-  // function changeDDOpen() {
-  //   setIsBaseDropDownOpen(false)
-  //   setIsQuoteDropDownOpen(false)
-  // }
-
-  // useEffect(() => {
-  //   const BDDElement = document.getElementsByClassName("selected-drop-down");
-  //   window.onclick =  (event) => {
-  //     if (event.target !== BDDElement) {
-  //       changeDDOpen();
-  //     }
-  //   };
-  // },[isBaseDropDownOpen])
-
-  // useEffect(() => {
-  //     if(isBaseDropDownOpen) {
-  //       window.addEventListener('click',changeBDD)
-  //     }else {
-  //       window.removeEventListener('click',changeBDD)
-  //     }
-  //   },[isBaseDropDownOpen])
-
-  //   useEffect(() => {
-  //     if(isQuoteDropDownOpen) {
-  //       window.addEventListener('click',changeQDD)
-  //     }else {
-  //       window.removeEventListener('click',changeQDD)
-  //     }
-  //   },[isQuoteDropDownOpen])
-
-  //   function changeBDD() {
-  //     setIsBaseDropDownOpen(false)
-  //   }
-  //   function changeQDD() {
-  //     setIsQuoteDropDownOpen(false)
-  //   }
-
   useOnClickOutside(clickRefBase, () => setIsBaseDropDownOpen(false));
   useOnClickOutside(clickRefQuote, () => setIsQuoteDropDownOpen(false));
 
@@ -177,8 +134,7 @@ function Calculator(props) {
     <div className="calcBody">
       <div className="pairCurrency">
         <div
-          className={` baseCurrency ${    // console.log(newList);
-
+          className={` baseCurrency ${
             reverseIcon === true ? "baseCurrencyReverse" : ""
           }`}
         >
@@ -239,7 +195,8 @@ function Calculator(props) {
                   return baseSearchTerm === ""
                     ? item["faBaseAsset"]
                     : item["faBaseAsset"].includes(baseSearchTerm);
-                }).filter((item) => {
+                })
+                .filter((item) => {
                   return item["faBaseAsset"] !== selectedBaseCurrency;
                 })
                 .map((item) => {

@@ -283,8 +283,9 @@ function Table(props) {
                       <span>USDT</span>
                     </button>
                     <button
+                      disabled
                       onClick={() => handleMarketDisplay("BTC")}
-                      className="marketBaseDisplayBtn"
+                      className="item-disabled marketBaseDisplayBtn"
                     >
                       <span>BTC</span>
                     </button>

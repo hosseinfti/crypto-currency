@@ -416,3 +416,5 @@ function Calculator(props) {
 }
 
 export default Calculator;
+
+  //TODO should read from api instead of json and after that delete the json

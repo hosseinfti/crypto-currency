@@ -1,4 +1,4 @@
-$primary-color: #16004D;
+$primary-color: #16004d;
 $background-color: #f3f5f9;
 $tBorder-color: #eaebef;
 $input-color: #fafbff;
@@ -185,6 +185,10 @@ button {
     // .drop-down-Item:last-child {
     //   border: none;
     // }
+    .item-disabled {
+      opacity: 0.5 !important;
+      cursor: not-allowed !important;
+    }
     .drop-down-Item:hover {
       background-color: $background-color;
       cursor: pointer;
@@ -279,7 +283,7 @@ button {
       align-items: center;
       border: 1px solid $inputBorder-color;
       border-radius: 7px 7px 7px 7px;
-      margin:0px 5px 0px 5px;
+      margin: 0px 5px 0px 5px;
     }
     .searchDiv:hover {
       background-color: $background-color;

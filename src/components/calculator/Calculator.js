@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import cryptoSrc from "../../json/cryptoIcon.json";
 
 function Calculator(props) {
   const [baseCurrency, setBaseCurrency] = useState();
@@ -19,11 +18,17 @@ function Calculator(props) {
   const clickRefBase = useRef();
   const clickRefQuote = useRef();
 
-  const selectedBaseAsset = cryptoSrc.filter((item) => {
-    return item["faAsset"] === selectedBaseCurrency;
+  const selectedBaseAsset = props.currency.filter((item) => {
+    return (
+      item["faBaseAsset"] === selectedBaseCurrency &&
+      item["faQuoteAsset"] === selectedQuoteCurrency
+    );
   });
-  const selectedQuoteAsset = cryptoSrc.filter((item) => {
-    return item["faAsset"] === selectedQuoteCurrency;
+  const selectedQuoteAsset = props.currency.filter((item) => {
+    return (
+      item["faQuoteAsset"] === selectedQuoteCurrency &&
+      item["faBaseAsset"] === selectedBaseCurrency
+    );
   });
 
   useEffect(() => {
@@ -95,22 +100,26 @@ function Calculator(props) {
     }
   }
   function handleChangeBaseCurrency(event) {
+    console.log(event);
+
     // resetQuoteCurrency();
     convertToQuote(event.target.value);
     setBaseCurrency(event.target.value);
   }
   function handleChangeQuoteCurrency(event) {
+    console.log(event);
+
     // resetQuoteCurrency();
     convertToBase(event.target.value);
     setQuoteCurrency(event.target.value);
   }
 
   function changeBase(event) {
-    setSelectedBaseCurrency(event.currentTarget.id);
+    setSelectedBaseCurrency(event);
     setIsBaseDropDownOpen(false);
   }
   function changeQuote(event) {
-    setSelectedQuoteCurrency(event.currentTarget.id);
+    setSelectedQuoteCurrency(event);
     setIsQuoteDropDownOpen(false);
   }
 
@@ -130,6 +139,9 @@ function Calculator(props) {
     setQuoteSearchedList(newList);
   }
 
+  console.log(selectedBaseAsset);
+  console.log(selectedQuoteAsset);
+
   return (
     <div className="calcBody">
       <div className="pairCurrency">
@@ -146,8 +158,8 @@ function Calculator(props) {
               <div className="selectedAssetAndIconDiv">
                 <img
                   className="selectedDropDownIcon"
-                  src={require(`../../assets/image/cryptoIcon/${selectedBaseAsset[0]["symbol"]}.svg`)}
-                  alt={selectedBaseAsset[0]["symbol"]}
+                  src={selectedBaseAsset?.[0]?.["baseAsset_svg_icon"]}
+                  alt={selectedBaseAsset?.[0]?.["baseAsset"]}
                   width="25px"
                 />
 
@@ -155,7 +167,7 @@ function Calculator(props) {
                   {selectedBaseCurrency}
                 </span>
                 <span className="selectedDropDownIndex">
-                  ({selectedBaseAsset[0]["symbol"]})
+                  ({selectedBaseAsset?.[0]?.["baseAsset"]})
                 </span>
               </div>
               <img
@@ -196,29 +208,34 @@ function Calculator(props) {
                     ? item["faBaseAsset"]
                     : item["faBaseAsset"].includes(baseSearchTerm);
                 })
-                .filter((item) => {
-                  return item["faBaseAsset"] !== selectedBaseCurrency;
-                })
+
                 .map((item) => {
-                  let mapItem = item;
-                  const temp = cryptoSrc.filter((item) => {
-                    return item["symbol"] === mapItem["baseAsset"];
-                  });
                   return (
                     <div
                       key={item["symbol"]}
                       id={item["faBaseAsset"]}
-                      className="drop-down-Item"
-                      onClick={(e) => changeBase(e)}
+                      className={`drop-down-Item ${
+                        item["baseAsset"] ===
+                        selectedQuoteAsset?.[0]?.["quoteAsset"]
+                          ? "item-disabled"
+                          : ""
+                      }`}
+                      onClick={(e) => {
+                        if (
+                          item["baseAsset"] ===
+                          selectedQuoteAsset?.[0]?.["quoteAsset"]
+                        ) {
+                          e.preventDefault();
+                          e.stopPropagation();
+                        } else {
+                          changeBase(item["faBaseAsset"]);
+                        }
+                      }}
                     >
                       <img
                         className="drop-down-Icon"
-                        src={
-                          temp[0] &&
-                          temp[0]["symbol"] &&
-                          require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)
-                        }
-                        alt={temp[0] && temp[0]["symbol"]}
+                        src={item["baseAsset_svg_icon"]}
+                        alt={item["baseAsset"]}
                         width="20px"
                       />
                       <div key={item["symbol"]} className="drop-down-currency">
@@ -281,15 +298,15 @@ function Calculator(props) {
               <div className="selectedAssetAndIconDiv">
                 <img
                   className="selectedDropDownIcon"
-                  src={require(`../../assets/image/cryptoIcon/${selectedQuoteAsset[0]["symbol"]}.svg`)}
-                  alt={selectedQuoteAsset[0]["symbol"]}
+                  src={selectedQuoteAsset?.[0]?.["quoteAsset_svg_icon"]}
+                  alt={selectedQuoteAsset?.[0]?.["quoteAsset"]}
                   width="25px"
                 />
                 <span className="selectedDropDownText">
                   {selectedQuoteCurrency}
                 </span>
                 <span className="selectedDropDownIndex">
-                  ({selectedQuoteAsset[0]["symbol"]})
+                  ({selectedQuoteAsset?.[0]?.["quoteAsset"]})
                 </span>
               </div>
               <img
@@ -330,25 +347,32 @@ function Calculator(props) {
                     : item["faQuoteAsset"].includes(quoteSearchTerm);
                 })
                 .map((item) => {
-                  let mapItem = item;
-                  const temp = cryptoSrc.filter((item) => {
-                    return item["symbol"] === mapItem["quoteAsset"];
-                  });
                   return (
                     <div
-                      className="drop-down-Item"
+                      className={`drop-down-Item ${
+                        item["quoteAsset"] ===
+                        selectedBaseAsset?.[0]?.["baseAsset"]
+                          ? "item-disabled"
+                          : ""
+                      }`}
                       key={item["symbol"]}
                       id={item["faQuoteAsset"]}
-                      onClick={(e) => changeQuote(e)}
+                      onClick={(e) => {
+                        if (
+                          item["quoteAsset"] ===
+                          selectedBaseAsset?.[0]?.["baseAsset"]
+                        ) {
+                          e.preventDefault();
+                          e.stopPropagation();
+                        } else {
+                          changeQuote(item["faQuoteAsset"]);
+                        }
+                      }}
                     >
                       <img
                         className="drop-down-Item-Icon"
-                        src={
-                          temp[0] &&
-                          temp[0]["symbol"] &&
-                          require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)
-                        }
-                        alt={temp[0] && temp[0]["symbol"]}
+                        src={item["quoteAsset_svg_icon"]}
+                        alt={item["quoteAsset"]}
                         width="20px"
                       />
                       <div key={item["symbol"]} className="drop-down-currency">

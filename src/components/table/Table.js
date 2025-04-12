@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import queryString from "query-string";
-import cryptoSrc from "../../json/cryptoIcon.json";
 
 function Table(props) {
   const location = useLocation();
@@ -284,8 +283,9 @@ function Table(props) {
                       <span>USDT</span>
                     </button>
                     <button
+                      disabled
                       onClick={() => handleMarketDisplay("BTC")}
-                      className="marketBaseDisplayBtn"
+                      className="item-disabled marketBaseDisplayBtn"
                     >
                       <span>BTC</span>
                     </button>
@@ -341,7 +341,6 @@ function Table(props) {
             >
               <span>قیمت خرید</span>
               <span>
-                {" "}
                 {sortCol === "bidPrice" && order === "ASC" ? (
                   <img
                     src={require(`../../assets/image/sort/right-arrow.png`)}
@@ -469,10 +468,6 @@ function Table(props) {
                     .includes(searchTerm.toLowerCase());
             })
             .map((item, index) => {
-              let mapItem = item;
-              const temp = cryptoSrc.filter((item) => {
-                return item["symbol"] === mapItem["baseAsset"];
-              });
               return (
                 <tr
                   className="tbodyRows"
@@ -504,8 +499,8 @@ function Table(props) {
                     </span>
                     <img
                       className="currencyIcon"
-                      src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                      alt={temp[0]["symbol"]}
+                      src={item["aasdasdasd"]}
+                      alt={item["baseAsset"]}
                       width="25px"
                       // height="20px"
                     />
@@ -637,10 +632,6 @@ function Table(props) {
                     .includes(searchTerm.toLowerCase());
             })
             .map((item, index) => {
-              let mapItem = item;
-              const temp = cryptoSrc.filter((item) => {
-                return item["symbol"] === mapItem["baseAsset"];
-              });
               return (
                 <tr
                   className="tbodyRows"
@@ -672,8 +663,8 @@ function Table(props) {
                     </span>
                     <img
                       className="currencyIcon"
-                      src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                      alt={temp[0]["symbol"]}
+                      src={item["baseAsset_svg_icon"]}
+                      alt={item["baseAsset"]}
                       width="25px"
                     />
                     <div className="currencyNameParent">

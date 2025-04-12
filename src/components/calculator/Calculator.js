@@ -114,6 +114,7 @@ function Calculator(props) {
         item["faQuoteAsset"] === selectedQuoteCurrency
       );
     });
+
     if (baseCrncy !== 0) {
       setQuoteCurrency(
         baseCrncy *
@@ -137,10 +138,12 @@ function Calculator(props) {
     }
   }
   function handleChangeBaseCurrency(event) {
+    // resetQuoteCurrency();
     convertToQuote(event.target.value);
     setBaseCurrency(event.target.value);
   }
   function handleChangeQuoteCurrency(event) {
+    // resetQuoteCurrency();
     convertToBase(event.target.value);
     setQuoteCurrency(event.target.value);
   }
@@ -160,7 +163,6 @@ function Calculator(props) {
       return item["faBaseAsset"].includes(e.target.value);
     });
     setBaseSearchedList(newList);
-    // console.log(newList);
   }
 
   function changeQuoteSearch(e) {
@@ -169,14 +171,14 @@ function Calculator(props) {
       return item["faQuoteAsset"].includes(e.target.value);
     });
     setQuoteSearchedList(newList);
-    // console.log(newList);
   }
 
   return (
     <div className="calcBody">
       <div className="pairCurrency">
         <div
-          className={` baseCurrency ${
+          className={` baseCurrency ${    // console.log(newList);
+
             reverseIcon === true ? "baseCurrencyReverse" : ""
           }`}
         >
@@ -237,6 +239,8 @@ function Calculator(props) {
                   return baseSearchTerm === ""
                     ? item["faBaseAsset"]
                     : item["faBaseAsset"].includes(baseSearchTerm);
+                }).filter((item) => {
+                  return item["faBaseAsset"] !== selectedBaseCurrency;
                 })
                 .map((item) => {
                   let mapItem = item;
@@ -252,8 +256,12 @@ function Calculator(props) {
                     >
                       <img
                         className="drop-down-Icon"
-                        src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                        alt={temp[0]["symbol"]}
+                        src={
+                          temp[0] &&
+                          temp[0]["symbol"] &&
+                          require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)
+                        }
+                        alt={temp[0] && temp[0]["symbol"]}
                         width="20px"
                       />
                       <div key={item["symbol"]} className="drop-down-currency">
@@ -378,8 +386,12 @@ function Calculator(props) {
                     >
                       <img
                         className="drop-down-Item-Icon"
-                        src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                        alt={temp[0]["symbol"]}
+                        src={
+                          temp[0] &&
+                          temp[0]["symbol"] &&
+                          require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)
+                        }
+                        alt={temp[0] && temp[0]["symbol"]}
                         width="20px"
                       />
                       <div key={item["symbol"]} className="drop-down-currency">

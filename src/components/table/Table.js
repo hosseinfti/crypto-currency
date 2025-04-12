@@ -504,8 +504,12 @@ function Table(props) {
                     </span>
                     <img
                       className="currencyIcon"
-                      src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                      alt={temp[0]["symbol"]}
+                      src={
+                        temp[0] &&
+                        temp[0]["symbol"] &&
+                        require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)
+                      }
+                      alt={temp[0] && temp[0]["symbol"]}
                       width="25px"
                       // height="20px"
                     />
@@ -672,8 +676,13 @@ function Table(props) {
                     </span>
                     <img
                       className="currencyIcon"
-                      src={require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)}
-                      alt={temp[0]["symbol"]}
+                      src={
+                        temp &&
+                        temp[0] &&
+                        temp[0]["symbol"] &&
+                        require(`../../assets/image/cryptoIcon/${temp[0]["symbol"]}.svg`)
+                      }
+                      alt={temp[0] && temp[0]["symbol"] && temp[0]["symbol"]}
                       width="25px"
                     />
                     <div className="currencyNameParent">

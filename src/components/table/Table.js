@@ -397,7 +397,7 @@ function Table(props) {
                     </span>
                     <img
                       className="currencyIcon"
-                      src={item["aasdasdasd"]}
+                      src={item["baseAsset_svg_icon"]}
                       alt={item["baseAsset"]}
                       width="25px"
                       // height="20px"

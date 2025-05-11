@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/crypto-currency/static/css/main.57f17d78.chunk.css",
-    "main.js": "/crypto-currency/static/js/main.78eda987.chunk.js",
-    "main.js.map": "/crypto-currency/static/js/main.78eda987.chunk.js.map",
-    "runtime-main.js": "/crypto-currency/static/js/runtime-main.7e075acc.js",
-    "runtime-main.js.map": "/crypto-currency/static/js/runtime-main.7e075acc.js.map",
-    "static/js/2.bc3dd00b.chunk.js": "/crypto-currency/static/js/2.bc3dd00b.chunk.js",
-    "static/js/2.bc3dd00b.chunk.js.map": "/crypto-currency/static/js/2.bc3dd00b.chunk.js.map",
+    "main.css": "/crypto-currency/static/css/main.1d3f47dc.chunk.css",
+    "main.js": "/crypto-currency/static/js/main.7d36c183.chunk.js",
+    "main.js.map": "/crypto-currency/static/js/main.7d36c183.chunk.js.map",
+    "runtime-main.js": "/crypto-currency/static/js/runtime-main.bc185832.js",
+    "runtime-main.js.map": "/crypto-currency/static/js/runtime-main.bc185832.js.map",
+    "static/js/2.f52244f7.chunk.js": "/crypto-currency/static/js/2.f52244f7.chunk.js",
+    "static/js/2.f52244f7.chunk.js.map": "/crypto-currency/static/js/2.f52244f7.chunk.js.map",
     "index.html": "/crypto-currency/index.html",
-    "precache-manifest.77839d659fddd197d500db07f1ffb519.js": "/crypto-currency/precache-manifest.77839d659fddd197d500db07f1ffb519.js",
+    "precache-manifest.efe72662c63abe01117482af5edd41b6.js": "/crypto-currency/precache-manifest.efe72662c63abe01117482af5edd41b6.js",
     "service-worker.js": "/crypto-currency/service-worker.js",
-    "static/css/main.57f17d78.chunk.css.map": "/crypto-currency/static/css/main.57f17d78.chunk.css.map",
-    "static/js/2.bc3dd00b.chunk.js.LICENSE.txt": "/crypto-currency/static/js/2.bc3dd00b.chunk.js.LICENSE.txt",
+    "static/css/main.1d3f47dc.chunk.css.map": "/crypto-currency/static/css/main.1d3f47dc.chunk.css.map",
+    "static/js/2.f52244f7.chunk.js.LICENSE.txt": "/crypto-currency/static/js/2.f52244f7.chunk.js.LICENSE.txt",
     "static/media/global.scss": "/crypto-currency/static/media/Estedad-Thin.02406209.ttf",
     "static/media/money-exchange.png": "/crypto-currency/static/media/money-exchange.2b0f93b2.png",
     "static/media/starOff.png": "/crypto-currency/static/media/starOff.e7081ba4.png",
@@ -19,9 +19,9 @@
     "static/media/undraw_page_not_found_re_e9o6.svg": "/crypto-currency/static/media/undraw_page_not_found_re_e9o6.137c3251.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7e075acc.js",
-    "static/js/2.bc3dd00b.chunk.js",
-    "static/css/main.57f17d78.chunk.css",
-    "static/js/main.78eda987.chunk.js"
+    "static/js/runtime-main.bc185832.js",
+    "static/js/2.f52244f7.chunk.js",
+    "static/css/main.1d3f47dc.chunk.css",
+    "static/js/main.7d36c183.chunk.js"
   ]
 }
